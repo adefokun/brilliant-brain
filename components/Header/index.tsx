@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BiMenu } from 'react-icons/bi'
 import { MdOutlineClose } from 'react-icons/md'
 import Logo from "@/assets/logo.jpg"
@@ -7,20 +7,25 @@ import Image from 'next/image'
 
 
 const Header = () => {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
     <>
       <header className='bg-white text-black shadow-md flex items-center justify-between py-2 px-4 md:py-5 md:px-10 lg:px-24 fixed top-0 left-0 z-10 w-full min-h-[50px]'>
         <Link href={"/"}>
-          <Image src={Logo} className='w-12 h-24 md:h-12' alt=''></Image>
+          <Image src={Logo} className='w-12 h-12 md:h-12' alt=''></Image>
           {/* <img src={Logo} alt="" className='h-8 md:h-12' /> */}
         </Link>
-        <nav className="hidden md:flex items-center gap-x-14 md:gap-4 lg:gap-7">
-          <ul className='flex flex-col md:flex-row items-center text-sm text-dark-light gap-7 md:gap-4 lg:gap-7 font-medium'>
+        <nav className="hidden md:flex items-center gap-2 lg:gap-4 whitespace-nowrap">
+          <ul className='flex flex-col md:flex-row items-center text-sm text-dark-light gap-2 lg:gap-4 font-medium'>
             <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Home</Link></li>
-            <li><Link href="/explore" className={`pb-1.5 px-1 font-medium`}>Explore</Link></li>
-            <li><Link href="/blogs" className={`pb-1.5 px-1 font-medium`}>Blog</Link></li>
+            <li><Link href="/explore" className={`pb-1.5 px-1 font-medium`}>About</Link></li>
+            <li><Link href="/blogs" className={`pb-1.5 px-1 font-medium`}>Scholarship</Link></li>
+            <li><Link href="/blogs" className={`pb-1.5 px-1 font-medium`}>Winners</Link></li>
+            <li><Link href="/blogs" className={`pb-1.5 px-1 font-medium`}>Ambassadors</Link></li>
+            <li><Link href="/blogs" className={`pb-1.5 px-1 font-medium`}>Available Scholarship</Link></li>
+            <li><Link href="/blogs" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
+            <li><Link href="/blogs" className={`pb-1.5 px-1 font-medium`}>Login</Link></li>
             {/* {!user ? 
             <li><Link href="/login" className={`${pathname==="/login" && "text-green border-b-2"} pb-1.5 px-1 font-medium`}>Login</Link></li>
             :
@@ -31,6 +36,7 @@ const Header = () => {
             </li>
             } */}
           </ul>
+          <Link href="/blogs" className={`py-2 pb-2.5 px-6 text-xs font-medium text-white bg-primary rounded-full`}>Sign Up</Link>
         </nav>
         { isOpen ? 
           <MdOutlineClose onClick={() => setIsOpen(false)} className={`cursor-pointer text-3xl md:hidden relative z-50  text-green`} /> 
