@@ -2,9 +2,8 @@ import Head from "next/head";
 import Script from "next/script";
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import Link from "next/link";
-import Image from 'next/image'
-import Logo from "@/assets/logo.jpg"
+import Button from "@/components/Button";
+
 
 
 export default function Home() {
@@ -25,7 +24,7 @@ export default function Home() {
               <p className="md:text-lg">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
               <div className="flex justify-between bg-gray-100 rounded-lg max-w-md">
                 <p className="my-4 ml-4">Lets get started</p>
-                <button className="bg-primary text-white px-6 py-4 rounded-lg">Connect with us</button>
+                <Button>Connect with us</Button>
               </div>
             </div>
             <div className="flex-1 bg-gray-200 w-full min-h-96">
@@ -43,7 +42,8 @@ export default function Home() {
               <p className="text-primary font-bold text-xl mb-3">About Us</p>
               <h2 className="text-4xl md:text-6xl font-bold capitalize mb-3">Qualified and Highly Equipped Learning</h2>
               <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
-              <button className="bg-primary text-white text-lg px-6 py-3 rounded-lg w-fit">Read More</button>
+              <Button className="text-white text-lg px-6 py-3 rounded-lg w-fit">Read More</Button>
+
             </div>
             <div className="flex-1 bg-gray-200 w-full h-96 md:h-[500px]"></div>
           </div>
@@ -103,7 +103,7 @@ export default function Home() {
                   <p>Lorem lorem lorem lorem</p>
                 </div>
               </div>
-              <button className="md:text-lg bg-primary text-white py-3.5 px-8 w-fit rounded-3xl mx-auto">View Details</button>
+              <Button className="md:text-lg text-white py-3.5 px-8 w-fit rounded-3xl mx-auto">View Details</Button>
             </div>
             <div className="max-w-md p-4 md:p-20 shadow-xl flex flex-col justify-center rounded-xl bg-primary text-white">
               <div className="max-w-sm flex flex-col gap-4 justify-center text-center mb-8">
@@ -124,7 +124,7 @@ export default function Home() {
                   <p>Lorem lorem lorem lorem</p>
                 </div>
               </div>
-              <button className="md:text-lg bg-red-600 text-white py-3.5 px-8 w-fit rounded-3xl mx-auto">View Details</button>
+              <Button className="md:text-lg bg-red-600 text-white py-3.5 px-8 w-fit rounded-3xl mx-auto">View Details</Button>
             </div>
           </div>
         </section>
@@ -296,16 +296,6 @@ export default function Home() {
           </div>
         </section>
         <Footer />
-        <section className="section py-6">
-          <div className="flex items-center gap-7">
-            <Link href={"/"}>
-              <Image src={Logo} className='w-20 h-16' alt=''></Image>
-            </Link>
-            <p className="font-bold text-xl">
-              BRILLIANT BRAIN SCHOLARSHIP 2023
-            </p>
-          </div>
-        </section>
       </div>
     </div>
   );
