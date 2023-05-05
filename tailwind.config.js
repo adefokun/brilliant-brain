@@ -6,8 +6,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#e84b4b"
-      }
+        primary: "#D73728"
+      },
+      fontFamily: {
+        sans: ["Montserrat", "sans-serif"],
+        argentinum: ["Argentum Sans", "sans-serif"],
+      },
     },
   },
   plugins: [
