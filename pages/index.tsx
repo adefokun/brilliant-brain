@@ -168,22 +168,22 @@ export default function Home() {
           <div className="flex flex-col items-center gap-4">
             <h3 className="text-4xl md:text-6xl font-bold capitalize mb-10">Scholarship <br /> Winners</h3>
           </div>
-          <div className="flex flex-col md:flex-row md:justify-center gap-8 mb-8">
-             <div className="max-w-sm flex flex-col gap-4 justify-center">
+          <div className="flex flex-col md:flex-row md:justify-center gap-8 mb-8 text-center">
+             <div className="max-w-sm flex flex-col gap-4 items-center">
               <div className="bg-gray-200 h-72 w-72 rounded-full"></div>
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
                 <span className="text-primary font-bold text-xl">Lorem Ileum</span>
               </div>
             </div>
-             <div className="max-w-sm flex flex-col gap-4 justify-center">
+             <div className="max-w-sm flex flex-col gap-4 items-center">
               <div className="bg-gray-200 h-72 w-72 rounded-full"></div>
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
                 <span className="text-primary font-bold text-xl">Lorem Ileum</span>
               </div>
             </div>
-             <div className="max-w-sm flex flex-col gap-4 justify-center">
+             <div className="max-w-sm flex flex-col gap-4 items-center">
               <div className="bg-gray-200 h-72 w-72 rounded-full"></div>
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
@@ -192,21 +192,21 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col md:flex-row md:justify-center gap-8">
-             <div className="max-w-sm flex flex-col gap-4 justify-center">
+             <div className="max-w-sm flex flex-col gap-4 items-center">
               <div className="bg-gray-200 h-72 w-72 rounded-full"></div>
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
                 <span className="text-primary font-bold text-xl">Lorem Ileum</span>
               </div>
             </div>
-             <div className="max-w-sm flex flex-col gap-4 justify-center">
+             <div className="max-w-sm flex flex-col gap-4 items-center">
               <div className="bg-gray-200 h-72 w-72 rounded-full"></div>
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
                 <span className="text-primary font-bold text-xl">Lorem Ileum</span>
               </div>
             </div>
-             <div className="max-w-sm flex flex-col gap-4 justify-center">
+             <div className="max-w-sm flex flex-col gap-4 items-center">
               <div className="bg-gray-200 h-72 w-72 rounded-full"></div>
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
@@ -272,21 +272,21 @@ export default function Home() {
           <h3 className="text-4xl md:text-6xl font-bold capitalize mb-10">Advisory Board <br /> Members</h3>
           </div>
           <div className="flex flex-col md:flex-row md:justify-center gap-8">
-            <div className="max-w-sm flex flex-col gap-4 justify-center">
+            <div className="max-w-sm flex flex-col gap-4 items-center">
               <div className="bg-gray-200 h-72 w-72 rounded-full"></div>
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
                 <span className="text-primary font-bold text-xl">Lorem Ileum</span>
               </div>
             </div>
-            <div className="max-w-sm flex flex-col gap-4 justify-center">
+            <div className="max-w-sm flex flex-col gap-4 items-center">
               <div className="bg-gray-200 h-72 w-72 rounded-full"></div>
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
                 <span className="text-primary font-bold text-xl">Lorem Ileum</span>
               </div>
             </div>
-            <div className="max-w-sm flex flex-col gap-4 justify-center">
+            <div className="max-w-sm flex flex-col gap-4 items-center">
               <div className="bg-gray-200 h-72 w-72 rounded-full"></div>
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
