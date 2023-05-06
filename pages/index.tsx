@@ -18,6 +18,7 @@ import JohnDoe3 from '@/assets/doe3.png'
 import Winner1 from '@/assets/winner1.png'
 import Winner2 from '@/assets/winner2.png'
 import Winner3 from '@/assets/winner3.png'
+import AmazedImg from '@/assets/amazed.png'
 import { BiCircle } from 'react-icons/bi'
 
 
@@ -236,8 +237,8 @@ export default function Home() {
           </div>
         </section>
         <section className="section mb-32 ">
-          <div className="flex flex-col md:flex-row gap-4 md:gap-12 grad-to-right text-white p-4 md:p-16">
-            <div className="flex-1 flex flex-col gap-4">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-12 grad-to-right text-white px-4 pt-4 md:px-16 md:pt-16">
+            <div className="flex-1 flex flex-col gap-4 md:pb-16">
               <h2 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Become Part of Us on Our Platform</h2>
               <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
               <div className="grid grid-cols-2 gap-5 mb-4 max-w-fit">
@@ -260,7 +261,10 @@ export default function Home() {
               </div>
               <button className="bg-yellow-400 text-white text-lg px-6 py-3 rounded-lg w-fit">Apply Now</button>
             </div>
-            <div className="flex-1 bg-gray-200 w-full h-96 md:h-[500px]"></div>
+            <div className="w-full h-full min-h-96 md:min-h-[500px] relative flex justify-center items-center">
+              <div className="absolute -z-0 flex justify-center items-center bg-yellow-400 rounded-full w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]"></div>
+              <Image src={AmazedImg} alt="" className="h-full w-full object-contain z-10 relative" />
+            </div>
           </div>
         </section>
         <section className="section mb-32 text-center">
@@ -292,22 +296,22 @@ export default function Home() {
           <h3 className="text-4xl md:text-6xl font-extrabold capitalize mb-10">Advisory Board <br /> Members</h3>
           </div>
           <div className="flex flex-col md:flex-row md:justify-center gap-8">
-            <div className="max-w-[288px] flex flex-col gap-4 items-center">
-                <Image src={JohnDoe1} alt="" className="h-72 w-72 rounded-full" />
+            <div className="flex flex-col gap-4 items-center justify-center text-center">
+                <Image src={JohnDoe1} alt="" className="h-72 w-72 rounded-full mx-auto" />
               <div>
                 <h4 className="text-[#6D6D6D] font-extrabold mb-3">HRM, King Alfred Papapreye Diete-Spiff</h4>
                 <span className="text-[#6D6D6D] font-extrabold">Chairman</span>
               </div>
             </div>
-            <div className="max-w-[288px] flex flex-col gap-4 items-center">
-                <Image src={JohnDoe2} alt="" className="h-72 w-72 rounded-full" />
+            <div className="flex flex-col gap-4 items-center justify-center text-center">
+                <Image src={JohnDoe2} alt="" className="h-72 w-72 rounded-full mx-auto" />
               <div>
                 <h4 className="text-[#6D6D6D] font-extrabold mb-3">HRM, King Alfred Papapreye Diete-Spiff</h4>
                 <span className="text-[#6D6D6D] font-extrabold">Chairman</span>
               </div>
             </div>
-            <div className="max-w-[288px] flex flex-col gap-4 items-center">
-                <Image src={JohnDoe1} alt="" className="h-72 w-72 rounded-full" />
+            <div className="flex flex-col gap-4 items-center justify-center text-center">
+                <Image src={JohnDoe1} alt="" className="h-72 w-72 rounded-full mx-auto" />
               <div>
                 <h4 className="text-[#6D6D6D] font-extrabold mb-3">HRM, King Alfred Papapreye Diete-Spiff</h4>
                 <span className="text-[#6D6D6D] font-extrabold">Member</span>
