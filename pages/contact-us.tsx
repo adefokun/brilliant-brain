@@ -3,6 +3,8 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import React from 'react'
+import Image from 'next/image'
+import ContactImg from '@/assets/contact.png'
 
 const ContactUs = () => {
   return (
@@ -15,7 +17,7 @@ const ContactUs = () => {
         <section className="section flex flex-col md:flex-row gap-3 pt-20 pb-20">
             <div className="flex flex-col md:flex-row gap-4 md:gap-12 justify-between w-full">
                 <div className="flex-1 flex flex-col gap-4">
-                    <div className="h-40 bg-gray-200 max-w-sm mb-8"></div>
+                    <Image src={ContactImg} alt="" className="h-40 w-full max-w-sm mb-8" />
                     <div>
                         <h3 className="text-xl font-bold text-gray-800 font-argentinum mb-3">Office Address</h3>
                         <p className="text-sm text-[#6D6D6D] font-medium">Office Address:<br /> Off Brilliant Brain Avenue, <br /> Brilliant Brain Estate</p>

@@ -1,6 +1,9 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import React from 'react'
+import Image from 'next/image'
+import About2 from '@/assets/about1.png'
+import About1 from '@/assets/about2.png'
 
 const AboutUs = () => {
   return (
@@ -17,7 +20,7 @@ const AboutUs = () => {
         </section>
         <section className="section py-20 bg-primary text-white">
             <div className="flex flex-col md:flex-row gap-12 mb-20">
-                <div className="flex-1 bg-gray-100"></div>
+                <Image src={About1} alt="" className="w-full max-w-sm" />
                 <div className="flex-1 flex flex-col gap-3">
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore quibusdam obcaecati, aspernatur nisi nobis impedit quisquam nihil error assumenda dolorum! Dolorem delectus expedita, illo voluptas est distinctio optio! Eveniet, deserunt.</p>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore quibusdam obcaecati, aspernatur nisi nobis impedit quisquam nihil error assumenda dolorum! Dolorem delectus expedita, illo voluptas est distinctio optio! Eveniet, deserunt.</p>
@@ -28,7 +31,7 @@ const AboutUs = () => {
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore quibusdam obcaecati, aspernatur nisi nobis impedit quisquam nihil error assumenda dolorum! Dolorem delectus expedita, illo voluptas est distinctio optio! Eveniet, deserunt.</p>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore quibusdam obcaecati, aspernatur nisi nobis impedit quisquam nihil error assumenda dolorum! Dolorem delectus expedita, illo voluptas est distinctio optio! Eveniet, deserunt.</p>
                 </div>
-                <div className="flex-1 bg-gray-100"></div>
+                <Image src={About2} alt="" className="w-full max-w-sm" />
             </div>
         </section>
         <section className="section flex flex-col gap-3 pt-20 pb-20">
