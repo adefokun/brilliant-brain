@@ -55,7 +55,7 @@ const Footer = () => {
               <Link href={"/"}>
                 <Image src={Logo} className='w-20 h-16' alt=''></Image>
               </Link>
-              <p classNae="font-extrabold text-xl">
+              <p className="font-extrabold text-xl">
                 BRILLIANT-BRAIN SCHOLARSHIP 2023
               </p>
             </div>

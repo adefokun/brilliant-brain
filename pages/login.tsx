@@ -2,6 +2,8 @@ import Button from '@/components/Button'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import React from 'react'
+import LockImg from '@/assets/lock.png'
+import Image from 'next/image'
 
 const Login = () => {
     
@@ -10,10 +12,11 @@ const Login = () => {
     <div>
         <Header />
         <div className="flex flex-col items-center justify-center min-h-screen">
-            <section className="section mb-32 pt-32">
+            <section className="section mb-32 pt-20 md:pt-40">
                 <div className="flex flex-col md:flex-row gap-4 md:gap-12">
-                    <div className="flex-1 flex flex-col gap-4">
+                    <div className="flex-1 flex flex-col justify-between gap-4">
                         <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education </p>
+                        <Image src={LockImg} alt="" className="" />
                     </div>
                     <div className="flex-1 flex flex-col p-4 md:p-10 bg-[#F2F2F2] rounded-xl shadow-md">
                         <h1 className="text-3xl font-bold text-gray-800 font-argentinum mb-3">Login</h1>
