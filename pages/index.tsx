@@ -15,9 +15,9 @@ import StudentImg from '@/assets/student.png'
 import JohnDoe1 from '@/assets/doe1.png'
 import JohnDoe2 from '@/assets/doe2.png'
 import JohnDoe3 from '@/assets/doe3.png'
-import Winner1 from '@/assets/Winner1.png'
-import Winner2 from '@/assets/Winner2.png'
-import Winner3 from '@/assets/Winner3.png'
+import Winner1 from '@/assets/winner1.png'
+import Winner2 from '@/assets/winner2.png'
+import Winner3 from '@/assets/winner3.png'
 import { BiCircle } from 'react-icons/bi'
 
 
