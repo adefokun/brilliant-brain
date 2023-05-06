@@ -35,7 +35,7 @@ export default function Home() {
       <div className="">
         <Header />
         <section className="section min-h-screen pt-24 md:pt-32">
-          <div className="grid md:grid-cols-2 gap-4 md:gap-12">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div className="flex flex-col gap-4">
               <p className="text-primary font-bold text-lg mb-3">STUDY WITH US</p>
               <h1 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">Free Scholarship For Every Bright Student</h1>
@@ -47,7 +47,9 @@ export default function Home() {
             </div>
             <div className="w-full min-h-96 flex flex-col justify-end relative">
               <Image src={HeroImg} alt="" className="object-cover w-full h-full" />
-              <Image src={HeroBg} alt="" width={200} height={200} className="object-cover absolute left-0 top-0 w-full h-full flex flex-col justify-end items-center -z-10" />
+              <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
+                <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
+              </div>
             </div>
           </div>
           <div className="flex justify-center gap-2 py-12 mt-4">
@@ -65,16 +67,18 @@ export default function Home() {
               <Button className="text-white text-lg px-6 py-3 rounded-lg w-fit">Read More</Button>
 
             </div>
-            <div className="w-full h-full min-h-96 flex flex-col justify-end relative">
-              <Image src={QualifiedImg} fill={true} alt="" className="object-contain w-full" />
-              <Image src={HeroBg} alt="" width={200} height={200} className="object-cover absolute left-10 right-40 top-10 w-full h-full flex flex-col justify-end items-center -z-10" />
+            <div className="w-full h-full min-h-96 flex flex-col  justify-end relative">
+              <Image src={QualifiedImg} alt="" className="object-contain w-full max-h-[500px]" />
+              <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
+                <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
+              </div>
             </div>
           </div>
         </section>
         <section className="section mb-32 text-center">
           <div className="flex flex-col items-center gap-4 max-w-2xl mx-auto mb-12">
             <h2 className="text-primary font-bold text-2xl">Our Programmes</h2>
-            <h3 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">
+            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">
               Pick Your Educational Level
             </h3>
           </div>
@@ -82,28 +86,28 @@ export default function Home() {
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
               <Image src={PrimaryImg} alt="" className="w-16 h-16" />
               <h5 className="text-2xl font-extrabold capitalize mb-3">Primary Education</h5>
-              <p className="text-left text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
+              <p className="text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
             </div>
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
               <Image src={SecondaryImg} alt="" className="w-16 h-16" />
               <h5 className="text-2xl font-extrabold capitalize mb-3">Secondary Education</h5>
-              <p className="text-left text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
+              <p className="text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
             </div>
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
               <Image src={UniversityImg} alt="" className="w-16 h-16" />
               <h5 className="text-2xl font-extrabold capitalize mb-3">Tertiary Education</h5>
-              <p className="text-left text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
+              <p className="text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
             </div>
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
               <Image src={PrimaryImg} alt="" className="w-16 h-16" />
               <h5 className="text-2xl font-extrabold capitalize mb-3">Primary Education</h5>
-              <p className="text-left text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
+              <p className="text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
             </div>
           </div>
         </section>
         <section className="section mb-32">
           <div className="flex flex-col items-center gap-4 max-w-xl mx-auto mb-12 text-center">
-            <h3 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">Which One is Suitable For You</h3>
+            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Which One is Suitable For You</h3>
             <p>Are you a student that needs a scholarship? or a teacher who wish to Upgrade his/her Knowledge </p>
           </div>
           <div className="flex flex-col md:flex-row md:justify-center gap-8">
@@ -153,7 +157,7 @@ export default function Home() {
         </section>
         <section className="section mb-32 text-center">
          <div className="flex flex-col items-center gap-4 max-w-3xl mx-auto mb-12 text-center">
-            <h3 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">Our <br /> Ambassadors</h3>
+            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Our <br /> Ambassadors</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, explicabo recusandae necessitatibus voluptas nobis voluptatum nesciunt incidunt facilis, a provident dicta repudiandae ratione mollitia fuga deleniti! Alias explicabo aliquid repellat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad repellendus adipisci qui ratione excepturi unde inventore aspernatur. Accusamus numquam, officia laboriosam similique nemo repellat libero consequatur eum minima quas doloremque. </p>
           </div>
           <div className="flex flex-col md:flex-row md:justify-center items-center gap-8">
@@ -182,14 +186,14 @@ export default function Home() {
         </section>
         <section className="section mb-32 py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
           <div className="flex flex-col items-center gap-4 max-w-3xl text-center">
-            <h3 className="text-4xl md:text-6xl font-extrabold capitalize mb-2">Looking for a bright new future. It starts here</h3>
+            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-2">Looking for a bright new future. It starts here</h3>
             <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem illo nostrum aperiam voluptatibus vitae? Quisquam laboriosam enim ipsum modi! Molestiae eveniet fugit perferendis quaerat ex et porro beatae enim quas!</p>
             <button className="p-5 px-12 text-lg rounded-full font-bold bg-white text-black">Get in Touch</button>
           </div>
         </section>
         <section className="section mb-32 text-center">
           <div className="flex flex-col items-center gap-4">
-            <h3 className="text-4xl md:text-6xl font-extrabold capitalize mb-10">Scholarship <br /> Winners</h3>
+            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-10">Scholarship <br /> Winners</h3>
           </div>
           <div className="flex flex-col md:flex-row items-center md:justify-center gap-8 mb-8 text-center">
              <div className="max-w-sm flex flex-col gap-4 items-center">
@@ -239,7 +243,7 @@ export default function Home() {
           </div>
         </section>
         <section className="section mb-32 ">
-          <div className="grid md:grid-cols-2 gap-4 md:gap-12 grad-to-right text-white px-4 pt-4 md:px-16 md:pt-16">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 grad-to-right text-white px-4 pt-12 md:px-16 md:pt-16">
             <div className="flex-1 flex flex-col gap-4 md:pb-16">
               <h2 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Become Part of Us on Our Platform</h2>
               <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
@@ -270,7 +274,7 @@ export default function Home() {
           </div>
         </section>
         <section className="section mb-32">
-          <h2 className="text-4xl md:text-6xl font-extrabold capitalize mb-12 text-center">News & <br />Updates</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold capitalize mb-12 text-center">News & <br />Updates</h2>
           <div className="grid md:grid-cols-3 md:h-[500px] gap-8">
             <div className="w-full h-96 flex flex-col gap-2 place-self-start">
               <Image src={NewsImg} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
@@ -301,7 +305,7 @@ export default function Home() {
           </div>
         </section>
         <section className="section mb-32 ">
-          <div className="flex flex-col md:flex-row gap-4 md:gap-12 grad-to-right text-white p-4 md:p-16">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 grad-to-right text-white p-4 py-12 md:p-16">
             <div className="flex-1 flex flex-col gap-4">
               <h3 className="text-4xl md:text-5xl font-extrabold capitalize mb-3">Sign up for Our Scholarship Program Now</h3>
               <p className="text-sm md:text-base mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial</p>
@@ -318,25 +322,25 @@ export default function Home() {
         </section>
         <section className="section mb-32 text-center">
           <div className="flex flex-col items-center gap-4">
-          <h3 className="text-4xl md:text-6xl font-extrabold capitalize mb-10">Advisory Board <br /> Members</h3>
+          <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-10">Advisory Board <br /> Members</h3>
           </div>
           <div className="flex flex-col md:flex-row md:justify-center gap-8">
             <div className="flex flex-col gap-4 items-center justify-center text-center">
-                <Image src={JohnDoe1} alt="" className="h-72 w-72 rounded-full mx-auto" />
+                <Image src={JohnDoe1} alt="" className="w-72 h-72 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full mx-auto" />
               <div>
                 <h4 className="text-[#6D6D6D] font-extrabold mb-3">HRM, King Alfred Papapreye Diete-Spiff</h4>
                 <span className="text-[#6D6D6D] font-extrabold">Chairman</span>
               </div>
             </div>
             <div className="flex flex-col gap-4 items-center justify-center text-center">
-                <Image src={JohnDoe2} alt="" className="h-72 w-72 rounded-full mx-auto" />
+                <Image src={JohnDoe2} alt="" className="w-72 h-72 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full mx-auto" />
               <div>
                 <h4 className="text-[#6D6D6D] font-extrabold mb-3">HRM, King Alfred Papapreye Diete-Spiff</h4>
                 <span className="text-[#6D6D6D] font-extrabold">Chairman</span>
               </div>
             </div>
             <div className="flex flex-col gap-4 items-center justify-center text-center">
-                <Image src={JohnDoe1} alt="" className="h-72 w-72 rounded-full mx-auto" />
+                <Image src={JohnDoe1} alt="" className="w-72 h-72 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full mx-auto" />
               <div>
                 <h4 className="text-[#6D6D6D] font-extrabold mb-3">HRM, King Alfred Papapreye Diete-Spiff</h4>
                 <span className="text-[#6D6D6D] font-extrabold">Member</span>
