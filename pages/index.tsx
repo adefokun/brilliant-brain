@@ -19,7 +19,9 @@ import Winner1 from '@/assets/winner1.png'
 import Winner2 from '@/assets/winner2.png'
 import Winner3 from '@/assets/winner3.png'
 import AmazedImg from '@/assets/amazed.png'
+import NewsImg from '@/assets/news.png'
 import { BiCircle } from 'react-icons/bi'
+import Link from "next/link";
 
 
 export default function Home() {
@@ -189,7 +191,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-4">
             <h3 className="text-4xl md:text-6xl font-extrabold capitalize mb-10">Scholarship <br /> Winners</h3>
           </div>
-          <div className="flex flex-col md:flex-row md:justify-center gap-8 mb-8 text-center">
+          <div className="flex flex-col md:flex-row items-center md:justify-center gap-8 mb-8 text-center">
              <div className="max-w-sm flex flex-col gap-4 items-center">
                 <Image src={Winner1} alt="" className="h-72 w-72 rounded-full" />
                 <div>
@@ -212,7 +214,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row md:justify-center gap-8">
+          <div className="flex flex-col md:flex-row items-center md:justify-center gap-8">
              <div className="max-w-sm flex flex-col gap-4 items-center">
                 <Image src={Winner1} alt="" className="h-72 w-72 rounded-full" />
               <div>
@@ -267,12 +269,35 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section mb-32 text-center">
-          <h2 className="text-4xl md:text-6xl font-extrabold capitalize mb-12">News & <br />Updates</h2>
+        <section className="section mb-32">
+          <h2 className="text-4xl md:text-6xl font-extrabold capitalize mb-12 text-center">News & <br />Updates</h2>
           <div className="grid md:grid-cols-3 md:h-[500px] gap-8">
-            <div className="bg-gray-200 w-full h-96"></div>
-            <div className="bg-gray-200 w-full h-96 place-self-center"></div>
-            <div className="bg-gray-200 w-full h-96 place-self-end"></div>
+            <div className="w-full h-96 flex flex-col gap-2 place-self-start">
+              <Image src={NewsImg} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
+              <h3 className="text-xl font-bold font-argentinum">All You Need to Start</h3>
+              <p className="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet </p>
+              <Link href="/news" className="text-primary font-bold text-xs">
+                Read more
+              </Link>
+            </div>
+            <div className="w-full h-96 flex flex-col gap-2 place-self-center">
+              <Image src={NewsImg} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
+              <h3 className="text-xl font-bold font-argentinum">All You Need to Start</h3>
+              <p className="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet </p>
+              <Link href="/news" className="text-primary font-bold text-xs">
+                Read more
+              </Link>
+            </div>
+            <div className="w-full h-96 flex flex-col gap-2 place-self-end">
+              <Image src={NewsImg} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
+              <h3 className="text-xl font-bold font-argentinum">All You Need to Start</h3>
+              <p className="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet </p>
+              <Link href="/news" className="text-primary font-bold text-xs">
+                Read more
+              </Link>
+            </div>
+            {/* <div className="bg-gray-200 w-full h-96 "></div>
+            <div className="bg-gray-200 w-full h-96 "></div> */}
           </div>
         </section>
         <section className="section mb-32 ">
