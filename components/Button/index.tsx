@@ -1,14 +1,14 @@
 import React from 'react'
 
-interface Props {
+interface Props extends React.ComponentPropsWithoutRef<"button"> {
     children: React.ReactNode;
     className?: string;
-    gradient?: 'grad-to-right' | 'grad-to-bottom';
+    gradient?: 'grad-to-right' | 'grad-to-bottom' | 'grad-to-top';
 }
 
-const Button = ({ children, className, gradient }: Props) => {
+const Button = ({ children, className, gradient, ...rest }: Props) => {
   return (
-    <button className={`${gradient ? gradient : "grad-to-right"}  ${className ? className : "text-white px-6 py-4 rounded-lg"}`}>
+    <button className={`${gradient ? gradient : "grad-to-right"}  ${className ? className : ""}`} {...rest} >
         {children}
     </button>
   )

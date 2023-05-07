@@ -20,7 +20,7 @@ const Login = () => {
                     </div>
                     <div className="flex-1 flex flex-col p-4 md:p-10 bg-[#F2F2F2] rounded-xl shadow-md">
                         <h1 className="text-3xl font-bold text-gray-800 font-argentinum mb-3">Login</h1>
-                        <form className="flex flex-col gap-4 mt-4">
+                        <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 mt-4">
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor="email" className="text-xs font-semibold text-gray-500">Username or Email</label>
                                 <input type="email" placeholder="Email" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
@@ -33,7 +33,7 @@ const Login = () => {
                                 <span className='w-4 h-4 bg-white border border-1'></span>
                                 <span className='text-xs text-black/70'>Remember me</span>
                             </div>
-                            <Button className="px-4 py-2 text-white bg-primary rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Login</Button>
+                            <Button onClick={() => console.log("login")} gradient='grad-to-top' className="px-4 py-3 text-sm font-bold text-white rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Login</Button>
                             <Link href="/register" className="text-xs hover:underline">
                                 Dont have an account? Register
                             </Link>

@@ -196,22 +196,22 @@ export default function Home() {
             <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-10">Scholarship <br /> Winners</h3>
           </div>
           <div className="flex flex-col md:flex-row items-center md:justify-center gap-8 mb-8 text-center">
-             <div className="max-w-sm flex flex-col gap-4 items-center">
-                <Image src={Winner1} alt="" className="h-72 w-72 rounded-full" />
-                <div>
-                  <h4 className="text-3xl font-bold">John Doe</h4>
-                  <span className="text-[#F60707] font-extrabold">First Position</span>
-                </div>
+            <div className="max-w-sm flex flex-col gap-4 items-center">
+              <Image src={Winner1} alt="" className="h-72 w-72 rounded-full" />
+              <div>
+                <h4 className="text-3xl font-bold">John Doe</h4>
+                <span className="text-[#F60707] font-extrabold">First Position</span>
               </div>
-             <div className="max-w-sm flex flex-col gap-4 items-center">
-                <Image src={Winner2} alt="" className="h-72 w-72 rounded-full" />
+            </div>
+            <div className="max-w-sm flex flex-col gap-4 items-center">
+              <Image src={Winner2} alt="" className="h-72 w-72 rounded-full" />
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
                 <span className="text-[#F60707] font-extrabold">Second Position</span>
               </div>
             </div>
-             <div className="max-w-sm flex flex-col gap-4 items-center">
-                <Image src={Winner3} alt="" className="h-72 w-72 rounded-full" />
+            <div className="max-w-sm flex flex-col gap-4 items-center">
+              <Image src={Winner3} alt="" className="h-72 w-72 rounded-full" />
               <div>
                 <h4 className="text-3xl font-bold">John Doe</h4>
                 <span className="text-[#F60707] font-extrabold">Third Position</span>
@@ -242,8 +242,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section mb-32 ">
-          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 grad-to-right text-white px-4 pt-12 md:px-16 md:pt-16">
+        <section className="section mb-32 grad-to-right">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white pt-12 md:pt-16">
             <div className="flex-1 flex flex-col gap-4 md:pb-16">
               <h2 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Become Part of Us on Our Platform</h2>
               <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
@@ -304,8 +304,8 @@ export default function Home() {
             <div className="bg-gray-200 w-full h-96 "></div> */}
           </div>
         </section>
-        <section className="section mb-32 ">
-          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 grad-to-right text-white p-4 py-12 md:p-16">
+        <section className="section mb-32 grad-to-right">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white py-12 md:py-16">
             <div className="flex-1 flex flex-col gap-4">
               <h3 className="text-4xl md:text-5xl font-extrabold capitalize mb-3">Sign up for Our Scholarship Program Now</h3>
               <p className="text-sm md:text-base mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial</p>

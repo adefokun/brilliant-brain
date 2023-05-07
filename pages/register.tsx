@@ -40,7 +40,7 @@ const Register = () => {
                                 <label htmlFor="email" className="text-xs font-semibold text-gray-500">Confirm Password</label>
                                 <input type="password" placeholder="Password" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                             </div>
-                            <Button className="px-4 py-2 text-white bg-primary rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Register</Button>
+                            <Button gradient='grad-to-top' className="px-4 py-3 text-sm font-bold text-white rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Register</Button>
                             <Link href="/login" className="text-xs hover:underline">
                                 Already have an account? Login
                             </Link>

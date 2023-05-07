@@ -6,7 +6,7 @@ const FAQs = () => {
   return (
     <>
         <Header />
-        <section className='section mt-20 pt-20 py-8 bg-primary flex flex-col gap-3 text-white'>
+        <section className='section mt-20 pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
             <h1 className="text-5xl font-extrabold text-white font-argentinum mb-3">FAQs</h1>
             <span className='font-bold'>Home / FAQs</span>
         </section>
