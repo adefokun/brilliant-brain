@@ -11,12 +11,23 @@ const Login = () => {
 
     <div>
         <Header />
-        <div className="flex flex-col items-center justify-center min-h-screen">
-            <section className="section mb-32 pt-20 md:pt-40">
-                <div className="flex flex-col md:flex-row gap-4 md:gap-12">
-                    <div className="flex-1 flex flex-col justify-between gap-4">
+        <div className="flex flex-col items-center justify-center min-h-screen pb-12">
+            <section className="section pt-20 md:pt-28 w-full">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-12 w-full">
+                    {/* <div className="flex-1 flex flex-col justify-between gap-4">
                         <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education </p>
                         <Image src={LockImg} alt="" className="" />
+                    </div> */}
+                    <div className="flex-1 flex flex-col-reverse justify-center items-center md:items-start md:flex-col md:justify-between text-center md:text-left">
+                        <div>
+                            <p className="md:text-4xl">
+                                <span className="text-primary font-bold">Welcome to </span>
+                                <span className="text-gray-800 font-bold font-argentinum">Argentinum</span>
+                            </p>
+                            <p className='hidden md:block'>The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education </p>
+                        </div>
+                        {/* <h1 className="text-4xl font-bold text-gray-800 font-argentinum mb-3 text-center md:hidden">Sign In</h1> */}
+                        <Image src={LockImg} alt="" className="w-32 h-24 md:w-full md:h-auto" /> 
                     </div>
                     <div className="flex-1 flex flex-col p-4 md:p-10 bg-[#F2F2F2] rounded-xl shadow-md">
                         <h1 className="text-3xl font-bold text-gray-800 font-argentinum mb-3">Login</h1>
