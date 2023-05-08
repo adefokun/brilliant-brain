@@ -65,10 +65,10 @@ const Header = () => {
               } */}
             </ul>
             <Link href="/register">
-              <Button>
+              <Button className={`py-2 pb-2.5 px-6 text-xs font-medium text-white bg-primary rounded-full`}>
                 Sign Up
               </Button>
-            </Link>
+          </Link>
           </nav>
         </div>
         { isOpen ? 

@@ -36,16 +36,16 @@ export default function Home() {
         <Header />
         <section className="section min-h-screen pt-24 md:pt-32">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <div className="flex flex-col gap-4">
+            <div className="order-2 md:order-1 flex flex-col gap-4">
               <p className="text-primary font-bold text-lg mb-3">STUDY WITH US</p>
               <h1 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">Free Scholarship For Every Bright Student</h1>
               <p className="md:text-lg">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
               <div className="flex justify-between bg-gray-100 rounded-lg max-w-md">
                 <p className="my-4 ml-4">Lets get started</p>
-                <Button>Connect with us</Button>
+                <Button className="rounded-xl text-white py-4 px-5">Connect with us</Button>
               </div>
             </div>
-            <div className="w-full min-h-96 flex flex-col justify-end relative">
+            <div className="w-full min-h-96 order-1 md:order-2 flex flex-col justify-end relative">
               <Image src={HeroImg} alt="" className="object-cover w-full h-full" />
               <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
                 <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
@@ -60,14 +60,14 @@ export default function Home() {
         </section>
         <section className="section mb-32">
           <div className="grid md:grid-cols-2 gap-4 md:gap-12">
-            <div className="flex-1 flex flex-col gap-4">
+            <div className="flex-1 order-2 md:order-1 flex flex-col gap-4">
               <p className="text-primary font-bold text-xl mb-3">About Us</p>
               <h2 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">Qualified and Highly Equipped Learning</h2>
               <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
               <Button className="text-white text-lg px-6 py-3 rounded-lg w-fit">Read More</Button>
 
             </div>
-            <div className="w-full h-full min-h-96 flex flex-col  justify-end relative">
+            <div className="w-full h-full min-h-96 order-1 md:order-2 flex flex-col  justify-end relative">
               <Image src={QualifiedImg} alt="" className="object-contain w-full max-h-[500px]" />
               <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
                 <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
