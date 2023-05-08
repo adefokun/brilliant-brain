@@ -9,8 +9,8 @@ const AboutUs = () => {
   return (
     <>
         <Header />
-        <section className='section mt-20 pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
-            <h1 className="text-5xl font-extrabold text-white font-argentinum mb-3">About Us</h1>
+        <section className='section mt-16 md:mt-20 md:pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white font-argentinum mb-3">About Us</h1>
             <span className='font-bold'>Home / About Us</span>
         </section>
         <section className='section pt-12 pb-10'>

@@ -6,16 +6,16 @@ const FAQs = () => {
   return (
     <>
         <Header />
-        <section className='section mt-20 pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
-            <h1 className="text-5xl font-extrabold text-white font-argentinum mb-3">FAQs</h1>
+        <section className='section mt-16 md:mt-20 md:pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white font-argentinum mb-3">FAQs</h1>
             <span className='font-bold'>Home / FAQs</span>
         </section>
-        <section className='section pt-12'>
-            <div className="flex flex-col justify-center items-center mb-4">
-                <h1 className="text-4xl font-extrabold font-argentinum mb-3">
+        <section className='section pt-6 md:pt-12'>
+            <div className="flex flex-col justify-center items-center text-center mb-4">
+                <h1 className="text-3xl md:text-4xl font-extrabold font-argentinum mb-1 md:mb-3">
                     Frequently Asked Questions
                 </h1>
-                <p className="text-2xl text-primary font-bold text-center">
+                <p className="text-lg md:text-2xl text-primary font-bold text-center">
                     How Can we Help
                 </p>
             </div>

@@ -10,8 +10,8 @@ const ContactUs = () => {
   return (
     <>
         <Header />
-        <section className='section mt-20 pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
-            <h1 className="text-5xl font-extrabold text-white font-argentinum mb-3">Contact Us <br /> Address</h1>
+        <section className='section mt-16 md:mt-20 md:pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white font-argentinum mb-3">Contact Us <br /> Address</h1>
             {/* <span className='font-bold'>Home / Contact Us</span> */}
         </section> 
         <section className="section flex flex-col md:flex-row gap-3 pt-20 pb-20">
@@ -42,19 +42,19 @@ const ContactUs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex-1 flex flex-col p-4 md:p-10 bg-white rounded-xl shadow-lg">
-                    <h1 className="text-lg font-bold text-gray-800 font-argentinum mb-3">SEND US A MESSAGE</h1>
+                <div className="flex-1 flex flex-col p-4 md:p-10 bg-white rounded-xl shadow-lg text-black/50">
+                    <h1 className="text-lg font-bold font-argentinum mb-3">SEND US A MESSAGE</h1>
                     <form className="flex flex-col gap-4 mt-4">
                         <div className='flex flex-col gap-2'>
-                            <label htmlFor="name" className="text-xs font-bold text-black">Full Name</label>
+                            <label htmlFor="name" className="text-xs font-bold">Full Name</label>
                             <input type="text" placeholder="name" className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                         </div>
                         <div className='flex flex-col gap-2'>
-                            <label htmlFor="email" className="text-xs font-bold text-black">Email</label>
+                            <label htmlFor="email" className="text-xs font-bold">Email</label>
                             <input type="email" placeholder="Email" className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                         </div>
                         <div className='flex flex-col gap-2'>
-                            <label htmlFor="message" className="text-xs font-bold text-black">Message</label>
+                            <label htmlFor="message" className="text-xs font-bold">Message</label>
                             <textarea rows={5} cols={10} id='message' placeholder="message" className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                         </div>
                         <Button className="px-4 py-2 text-white bg-primary rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Submit</Button>
