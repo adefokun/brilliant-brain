@@ -1,12 +1,32 @@
+import { useState, useReducer } from 'react'
+import { useRouter } from 'next/dist/client/router'
 import Button from '@/components/Button'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import React from 'react'
 import LockImg from '@/assets/lock.png'
 import Image from 'next/image'
+import { IReducerAction, IUser } from '@/interfaces'
+
+
+const initialState: IUser = {
+    email: '',
+    password: ''
+}
 
 const Login = () => {
-    
+    const [user, dispatch] = useReducer((state: IUser, action: IReducerAction) => {
+        switch (action.type) {
+            case 'email':
+                return { ...state, email: action.payload }
+            case 'password':
+                return { ...state, password: action.payload }
+             default:
+                return state
+        }
+    }, initialState)
+
+
   return (
 
     <div>
@@ -56,6 +76,28 @@ const Login = () => {
         </div>
     </div>
   )
+}
+
+export const getServerSideProps = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: "jd",
+            password: "jd"
+        })
+    })
+
+    const data = await res.json()
+    console.log("data login", data)
+    return {
+        props: {
+            title: "Login",
+            data
+        }
+    }
 }
 
 export default Login
