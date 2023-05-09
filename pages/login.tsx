@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react'
+import { useState, useReducer, FormEvent } from 'react'
 import { useRouter } from 'next/dist/client/router'
 import Button from '@/components/Button'
 import Header from '@/components/Header'
@@ -15,6 +15,7 @@ const initialState: IUser = {
 }
 
 const Login = () => {
+    const router = useRouter()
     const [user, dispatch] = useReducer((state: IUser, action: IReducerAction) => {
         switch (action.type) {
             case 'email':
@@ -25,6 +26,40 @@ const Login = () => {
                 return state
         }
     }, initialState)
+    
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+
+    const handleLogin = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+        e.preventDefault()
+        setLoading(true)
+        setError('')
+        setSuccess('')
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            })
+            const data = await res.json()
+            console.log("data login", data)
+            if (data.error) {
+                setError(data.error)
+            } else {
+                setSuccess(data.message)
+                router.push('/dashboard')
+            }
+        } catch (error: any) {
+            console.log("error", error)
+            setError(error?.message)
+        }
+        setLoading(false)
+    }
+
 
 
   return (
@@ -51,14 +86,14 @@ const Login = () => {
                     </div>
                     <div className="flex-1 flex flex-col p-4 md:p-10 bg-[#F2F2F2] rounded-xl shadow-md">
                         <h1 className="text-3xl font-bold text-gray-800 font-argentinum mb-3">Login</h1>
-                        <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 mt-4">
+                        <form onSubmit={handleLogin} className="flex flex-col gap-4 mt-4">
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor="email" className="text-xs font-semibold text-gray-500">Username or Email</label>
-                                <input type="email" placeholder="Email" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
+                                <input value={user?.email} onChange={(e) => dispatch({ type: "email", payload: e.target.value})} name='email' id='email' type="email" placeholder="Email" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                             </div>
                             <div className='flex flex-col gap-1'>
-                                <label htmlFor="email" className="text-xs font-semibold text-gray-500">Password</label>
-                                <input type="password" placeholder="Password" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
+                                <label htmlFor="password" className="text-xs font-semibold text-gray-500">Password</label>
+                                <input value={user?.password} onChange={(e) => dispatch({ type: "password", payload: e.target.value})} name='password' id='password' type="password" placeholder="Password" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                             </div>
                             <div className="flex items-center gap-3 mb-2">
                                 <span className='w-4 h-4 bg-white border border-1'></span>
@@ -79,25 +114,39 @@ const Login = () => {
 }
 
 export const getServerSideProps = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: "jd",
-            password: "jd"
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: "nicholasjd12@gma",
+                password: "123456"
+            })
         })
-    })
+    
+        const data = await res.json()
+        // console.log("data login", data)
 
-    const data = await res.json()
-    console.log("data login", data)
-    return {
-        props: {
-            title: "Login",
-            data
+        return {
+            props: {
+                title: "Login",
+                data
+            }
         }
     }
+    catch (error: any) {
+        console.log("error", error)
+        return {
+            props: {
+                title: "Login",
+                error: error?.message
+            }
+        }
+    }
+    
+    
 }
 
 export default Login

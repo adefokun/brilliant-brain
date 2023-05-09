@@ -23,8 +23,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const user = await User.findOne({
             $or: [
-                { email: req.body.email },
-                { username: req.body.username }
+                { email: req.body.email ? req.body.email : '' },
+                { username: req.body.username ? req.body.username : '' }
             ]
         });
 
@@ -32,10 +32,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             res.status(400).json({ message: 'User not found' });
             return;
         }
-
         const isMatch = await user.comparePassword(req.body.password);
 
         if (!isMatch) {
+            // console.log({isMatch, user})
             res.status(400).json({ message: 'Invalid credentials' });
             return;
         }

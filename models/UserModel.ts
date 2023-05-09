@@ -18,12 +18,14 @@ const UserSchema: Schema = new Schema({
   },
 });
 
-const UserModel = models.User || model('User', UserSchema);
-
 //compare password
-UserSchema.methods.comparePassword = async function (enteredPassword: string) {
+UserSchema.methods.comparePassword = async function comparePassword(enteredPassword: string) {
     return await bcrypt.compare(enteredPassword, this.password);
 };
+
+
+const UserModel = models.User || model('User', UserSchema);
+
 
 
 export default UserModel
