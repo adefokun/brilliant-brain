@@ -61,4 +61,28 @@ const Register = () => {
   )
 }
 
+export const getServerSideProps = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: "aaaaa",
+            password: "aaaaa",
+            username: "aaaaa",
+            confirm_password: "aaaaa"
+        })
+    })
+
+    const data = await res.json()
+    console.log("data login", data)
+    return {
+        props: {
+            title: "Login",
+            data
+        }
+    }
+}
+
 export default Register
