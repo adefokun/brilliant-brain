@@ -62,24 +62,37 @@ const Register = () => {
 }
 
 export const getServerSideProps = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: "aaaaa",
-            password: "aaaaa",
-            username: "aaaaa",
-            confirm_password: "aaaaa"
+    let data;
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: "aaaaa",
+                password: "aaaaa",
+                username: "aaaaa",
+                confirm_password: "aaaaa"
+            })
         })
-    })
+    
+        data = await res.json()
 
-    const data = await res.json()
-    console.log("data login", data)
+    }
+    catch (error: any) {
+        console.log("error", error)
+        return {
+            props: {
+                title: "Register",
+                error: error?.message
+            }
+        }
+    }
+    
     return {
         props: {
-            title: "Login",
+            title: "Register",
             data
         }
     }

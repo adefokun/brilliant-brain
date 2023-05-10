@@ -114,6 +114,7 @@ const Login = () => {
 }
 
 export const getServerSideProps = async () => {
+    let data;
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
             method: "POST",
@@ -126,15 +127,9 @@ export const getServerSideProps = async () => {
             })
         })
     
-        const data = await res.json()
+        data = await res.json()
         // console.log("data login", data)
 
-        return {
-            props: {
-                title: "Login",
-                data
-            }
-        }
     }
     catch (error: any) {
         console.log("error", error)
@@ -146,6 +141,12 @@ export const getServerSideProps = async () => {
         }
     }
     
+    return {
+        props: {
+            title: "Login",
+            data
+        }
+    }
     
 }
 
