@@ -6,25 +6,18 @@ import Link from 'next/link'
 import React from 'react'
 import LockImg from '@/assets/lock.png'
 import Image from 'next/image'
-import { IReducerAction, IUser } from '@/interfaces'
+import { ILoginReducerAction, IUserLogin } from '@/interfaces'
 
 
-const initialState: IUser = {
+const initialState: IUserLogin = {
     email: '',
     password: ''
 }
 
 const Login = () => {
     const router = useRouter()
-    const [user, dispatch] = useReducer((state: IUser, action: IReducerAction) => {
-        switch (action.type) {
-            case 'email':
-                return { ...state, email: action.payload }
-            case 'password':
-                return { ...state, password: action.payload }
-             default:
-                return state
-        }
+    const [user, dispatch] = useReducer((state: IUserLogin, action: ILoginReducerAction) => {
+        return { ...state, [action.type]: action.payload }
     }, initialState)
     
     const [loading, setLoading] = useState(false)
@@ -45,14 +38,15 @@ const Login = () => {
                 },
                 body: JSON.stringify(user)
             })
-            const data = await res.json()
-            console.log("data login", data)
-            if (data.error) {
-                setError(data.error)
-            } else {
-                setSuccess(data.message)
-                router.push('/dashboard')
+             
+            if (res.status < 200 || res.status >= 300) {
+                const error = await res.json()
+                throw new Error(error?.message || 'Something Went Wrong!')
             }
+
+            const data = await res.json()
+            router.push('/')
+
         } catch (error: any) {
             console.log("error", error)
             setError(error?.message)
@@ -99,7 +93,7 @@ const Login = () => {
                                 <span className='w-4 h-4 bg-white border border-1'></span>
                                 <span className='text-xs text-black/70'>Remember me</span>
                             </div>
-                            <Button onClick={() => console.log("login")} gradient='grad-to-top' className="px-4 py-3 text-sm font-bold text-white rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Login</Button>
+                            <Button type='submit' gradient='grad-to-top' className="px-4 py-3 text-sm font-bold text-white rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Login</Button>
                             <Link href="/register" className="text-xs hover:underline">
                                 Dont have an account? Register
                             </Link>
@@ -113,41 +107,41 @@ const Login = () => {
   )
 }
 
-export const getServerSideProps = async () => {
-    let data;
-    try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: "nicholasjd12@gma",
-                password: "123456"
-            })
-        })
+// export const getServerSideProps = async () => {
+//     let data;
+//     try {
+//         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({
+//                 email: "nicholasjd12@gma",
+//                 password: "123456"
+//             })
+//         })
     
-        data = await res.json()
-        // console.log("data login", data)
+//         data = await res.json()
+//         // console.log("data login", data)
 
-    }
-    catch (error: any) {
-        console.log("error", error)
-        return {
-            props: {
-                title: "Login",
-                error: error?.message
-            }
-        }
-    }
+//     }
+//     catch (error: any) {
+//         console.log("error", error)
+//         return {
+//             props: {
+//                 title: "Login",
+//                 error: error?.message
+//             }
+//         }
+//     }
     
-    return {
-        props: {
-            title: "Login",
-            data
-        }
-    }
+//     return {
+//         props: {
+//             title: "Login",
+//             data
+//         }
+//     }
     
-}
+// }
 
 export default Login

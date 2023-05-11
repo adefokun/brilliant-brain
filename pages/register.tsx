@@ -1,18 +1,70 @@
+import { useState, useReducer, FormEvent } from 'react'
+import { useRouter } from 'next/dist/client/router'
 import Button from '@/components/Button'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import React from 'react'
 import RegisterImg from '@/assets/register.png'
 import Image from 'next/image'
+import { IRegistereducerAction, IUserRegister } from '@/interfaces'
 
 
+
+const initialState: IUserRegister = {
+    email: '',
+    password: '',
+    username: '',
+    confirm_password:''
+}
 
 const Register = () => {
-    const [success, setSuccess] = React.useState(true)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+
+    const router = useRouter()
+    const [user, dispatch] = useReducer((state: IUserRegister, action: IRegistereducerAction) => {
+        return { ...state, [action.type]: action.payload }
+    }, initialState)
+
+    const handleRegister = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+        console.log("submitting")
+        e.preventDefault()
+        setLoading(true)
+        setError('')
+        setSuccess('')
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            })
+            console.log("register", res)
+            
+            if (res.status < 200 || res.status >= 300) {
+                const error = await res.json()
+                throw new Error(error?.message || 'Something Went Wrong!')
+            }
+
+            const data = await res.json()
+            router.push('/')
+      
+        } catch (error: any) {
+            console.log("error", error)
+            setError(error?.message)
+        }
+        setLoading(false)
+    }
+
+
 
     
   return (
     <div>
+        {loading && <p className='fixed bg-black/20 flex justify-center items-center h-screen w-full text-white'>Loading...</p>}
         <Header />
         <div className="flex flex-col items-center justify-center min-h-screen pb-12">
             <section className="section pt-20 md:pt-28 w-full">
@@ -30,28 +82,29 @@ const Register = () => {
                     </div>
                     <div className="flex-1 flex flex-col p-4 md:p-10 bg-[#F2F2F2] rounded-xl shadow-md w-full">
                         <h1 className="text-3xl font-bold text-gray-800 font-argentinum mb-3 md:mb-7">Register</h1>
-                        <form className="flex flex-col gap-2 md:gap-4 text-xs">
+                        <form onSubmit={handleRegister} className="flex flex-col gap-2 md:gap-4 text-xs">
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor="email" className="text-xs font-semibold text-gray-500">Email Address</label>
-                                <input type="email" placeholder="Email" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
+                                <input value={user?.email} onChange={(e) => dispatch({ type: "email", payload: e.target.value})} type="email" placeholder="Email" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                             </div>
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor="username" className="text-xs font-semibold text-gray-500">Username</label>
-                                <input type="text" placeholder="username" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
+                                <input value={user?.username} onChange={(e) => dispatch({ type: "username", payload: e.target.value})} type="text" placeholder="username" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                             </div>
                             <div className='flex flex-col gap-1'>
-                                <label htmlFor="email" className="text-xs font-semibold text-gray-500">Password</label>
-                                <input type="password" placeholder="Password" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
+                                <label htmlFor="password" className="text-xs font-semibold text-gray-500">Password</label>
+                                <input value={user?.password} onChange={(e) => dispatch({ type: "password", payload: e.target.value})} type="password" placeholder="Password" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                             </div>
                             <div className='flex flex-col gap-1'>
-                                <label htmlFor="email" className="text-xs font-semibold text-gray-500">Confirm Password</label>
-                                <input type="password" placeholder="Password" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
+                                <label htmlFor="confirm_password" className="text-xs font-semibold text-gray-500">Confirm Password</label>
+                                <input value={user?.confirm_password} onChange={(e) => dispatch({ type: "confirm_password", payload: e.target.value})} type="password" placeholder="Confirm Password" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                             </div>
-                            <Button gradient='grad-to-top' className="px-4 py-3 text-sm font-bold text-white rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Register</Button>
+                            <Button type='submit' gradient='grad-to-top' className="px-4 py-3 text-sm font-bold text-white rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Register</Button>
                             <Link href="/login" className="text-xs hover:underline">
                                 Already have an account? Login
                             </Link>
                         </form>
+                        {error && <p className="text-xs text-red-500 mt-2">{error}</p>}
                     </div>
                 </div>
             </section>
@@ -61,41 +114,41 @@ const Register = () => {
   )
 }
 
-export const getServerSideProps = async () => {
-    let data;
-    try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: "aaaaa",
-                password: "aaaaa",
-                username: "aaaaa",
-                confirm_password: "aaaaa"
-            })
-        })
+// export const getServerSideProps = async () => {
+//     let data;
+//     try {
+//         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({
+//                 email: "aaaaa",
+//                 password: "aaaaa",
+//                 username: "aaaaa",
+//                 confirm_password: "aaaaa"
+//             })
+//         })
     
-        data = await res.json()
+//         data = await res.json()
 
-    }
-    catch (error: any) {
-        console.log("error", error)
-        return {
-            props: {
-                title: "Register",
-                error: error?.message
-            }
-        }
-    }
+//     }
+//     catch (error: any) {
+//         console.log("error", error)
+//         return {
+//             props: {
+//                 title: "Register",
+//                 error: error?.message
+//             }
+//         }
+//     }
     
-    return {
-        props: {
-            title: "Register",
-            data
-        }
-    }
-}
+//     return {
+//         props: {
+//             title: "Register",
+//             data
+//         }
+//     }
+// }
 
 export default Register
