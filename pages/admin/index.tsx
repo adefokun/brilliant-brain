@@ -1,9 +1,27 @@
+import { useEffect } from 'react'
 import Head from "next/head";
 import AdminLayout from "@/layouts/AdminLayout"
 import AuthHOC from '@/components/AuthHOC'
 
 
 const Home = () => {
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`)
+        const users = await res.json()
+        
+        console.log({users})
+      } catch (error) {
+        console.log({error})
+      }
+
+    }
+
+    fetchUser()
+  }, [])
+
   return (
     <AdminLayout>
       <Head>
