@@ -5,7 +5,7 @@ import Logo from "@/assets/logo.jpg"
 import Link from 'next/link'
 import Image from 'next/image'
 import Button from '../Button'
-
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -53,7 +53,7 @@ const Header = () => {
               <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Ambassadors</Link></li>
               <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Available Scholarship</Link></li>
               <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
-              <li><Link href="/login" className={`pb-1.5 px-1 font-medium`}>Login</Link></li>
+              <li><Link onClick={() => signIn()} href="/login" className={`pb-1.5 px-1 font-medium`}>Login</Link></li>
               {/* {!user ? 
               <li><Link href="/login" className={`${pathname==="/login" && "text-green"} pb-1.5 px-1 font-medium`}>Login</Link></li>
                 :

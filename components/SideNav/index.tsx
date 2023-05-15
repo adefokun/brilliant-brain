@@ -4,12 +4,13 @@ import { MdTrendingUp, MdPersonOutline, MdOutlinePersonOutline } from 'react-ico
 import { RiBillLine, RiAdvertisementLine } from 'react-icons/ri'
 import Logo from "@/assets/logo.jpg"
 import Image from 'next/image'
+import { useSession, signIn, signOut } from "next-auth/react"
 
 
 const SideNav = ({ }) => {
 
   return (
-    <div className='hidden sm:flex flex-col justify-between grad-to-bottom text-white h-screen min-w-[240px] w-60 pt-4 pb-6 overflow-hidden'>
+    <div className='hidden sm:flex flex-col justify-between grad-to-bottom text-white h-screen min-w-[240px] w-60 pb-4 overflow-hidden'>
         <div>
             <div className='w-full flex flex-col items-center gap-8 py-8 border-b border-white/10'>
                 <Link href={"/"}>
@@ -42,7 +43,7 @@ const SideNav = ({ }) => {
                 </Link>
             </div>
         </div>
-        <div onClick={() => ''} className={`py-2.5 pl-6 text-sm flex items-center gap-2`}>
+        <div onClick={() => signOut()} className={`py-2.5 pl-6 text-sm flex items-center gap-2 cursor-pointer`}>
             <RiAdvertisementLine size={"1.3rem"} />
             Logout
         </div>
