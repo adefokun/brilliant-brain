@@ -7,6 +7,8 @@ import React from 'react'
 import LockImg from '@/assets/lock.png'
 import Image from 'next/image'
 import { ILoginReducerAction, IUserLogin } from '@/interfaces'
+import { useSession, signIn, signOut } from "next-auth/react"
+
 
 
 const initialState: IUserLogin = {
@@ -15,10 +17,14 @@ const initialState: IUserLogin = {
 }
 
 const Login = () => {
+    const { data: session } = useSession()
     const router = useRouter()
     const [user, dispatch] = useReducer((state: IUserLogin, action: ILoginReducerAction) => {
         return { ...state, [action.type]: action.payload }
     }, initialState)
+
+
+    console.log("session", session)
     
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
@@ -31,21 +37,28 @@ const Login = () => {
         setError('')
         setSuccess('')
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
+            // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify(user)
+            // })
+            const res = await signIn('credentials', {
+                ...user,
+                redirect: true,
+                callbackUrl: `${window.location.origin}/admin`
             })
-             
-            if (res.status < 200 || res.status >= 300) {
-                const error = await res.json()
-                throw new Error(error?.message || 'Something Went Wrong!')
-            }
 
-            const data = await res.json()
-            router.push('/')
+            // console.log("res", res)
+             
+            // if (res.status < 200 || res.status >= 300) {
+            //     const error = await res.json()
+            //     throw new Error(error?.message || 'Something Went Wrong!')
+            // }
+
+            // const data = await res.json()
+            // router.push('/')
 
         } catch (error: any) {
             console.log("error", error)

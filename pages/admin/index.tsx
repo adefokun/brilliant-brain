@@ -1,7 +1,9 @@
 import Head from "next/head";
 import AdminLayout from "@/layouts/AdminLayout"
+import AuthHOC from '@/components/AuthHOC'
 
-export default function Home() {
+
+const Home = () => {
   return (
     <AdminLayout>
       <Head>
@@ -15,3 +17,6 @@ export default function Home() {
     </AdminLayout>
   );
 }
+
+
+export default AuthHOC(Home)
