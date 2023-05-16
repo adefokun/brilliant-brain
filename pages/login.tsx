@@ -1,4 +1,4 @@
-import { useState, useReducer, FormEvent } from 'react'
+import { useState, useReducer, FormEvent, useEffect } from 'react'
 import { useRouter } from 'next/dist/client/router'
 import Button from '@/components/Button'
 import Header from '@/components/Header'
@@ -23,8 +23,11 @@ const Login = () => {
         return { ...state, [action.type]: action.payload }
     }, initialState)
 
-
-    console.log("session", session)
+    useEffect(() => {
+        if (session) {
+            router.push('/admin')
+        }
+    }, [session, router])
     
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
