@@ -21,8 +21,8 @@ const Header = () => {
             <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Home</Link></li>
             <li><Link href="/about-us" className={`pb-1.5 px-1 font-medium`}>About</Link></li>
             <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Scholarship</Link></li>
-            <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Winners</Link></li>
-            <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Ambassadors</Link></li>
+            <li><Link href="/winners" className={`pb-1.5 px-1 font-medium`}>Winners</Link></li>
+            <li><Link href="/ambassadors" className={`pb-1.5 px-1 font-medium`}>Ambassadors</Link></li>
             <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Available Scholarship</Link></li>
             <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
             <li><Link href="/login" className={`pb-1.5 px-1 font-medium`}>Login</Link></li>
