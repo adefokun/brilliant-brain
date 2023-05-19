@@ -25,6 +25,20 @@ export interface ICandidate {
     number: string;
     category: "primary" | "secondary" | "undergraduate" | "postgraduate";
 }
+export interface IAdvisory {
+    name: string;
+    email: string;
+    number: string;
+    title: string;
+    image: string;
+}
+export interface IAmbassador {
+    name: string;
+    email: string;
+    number: string;
+    title: string;
+    image: string;
+}
 
 export interface ITableColumn {
     name: string;
