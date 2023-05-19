@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MdTrendingUp, MdPersonOutline, MdOutlinePersonOutline } from 'react-icons/md'
 import { RiBillLine, RiAdvertisementLine } from 'react-icons/ri'
-import Logo from "@/assets/logo.jpg"
+import Logo from "@/assets/logo-tp.png"
 import Image from 'next/image'
 import { useSession, signIn, signOut } from "next-auth/react"
 
@@ -16,7 +16,7 @@ const SideNav = ({ }) => {
         <div>
             <div className='w-full flex flex-col items-center gap-8 py-8 border-b border-white/10'>
                 <Link href={"/"}>
-                    <Image src={Logo} className='w-12 h-12 md:h-12' alt='' />
+                    <Image src={Logo} className='w-12 h-12 md:h-12 bg-white' alt='' />
                 </Link>
                 <div className="flex items-center text-xs gap-2">
                     <span className='w-6 h-6 bg-white/30'>
@@ -28,7 +28,7 @@ const SideNav = ({ }) => {
                 </div>
             </div>
             <div className='flex flex-col gap-2 pt-4 text-white/70'>
-                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${!pathname.includes("winners") && 'text-white'}`} href="/admin">
+                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${(!pathname.includes("winners") && !pathname.includes("advisory") && !pathname.includes("ambassadors")  ) && 'text-white'}`} href="/admin">
                     {/* <span className='w-4 h-4 bg-white flex justify-center items-center rounded border'>
                         <MdTrendingUp color='#000000' size={"0.6rem"} />
                     </span>  */}
@@ -38,6 +38,14 @@ const SideNav = ({ }) => {
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("winners") && 'text-white'}`} href={"/admin/winners"}>
                     <RiAdvertisementLine size={"1.3rem"} />
                     Winners
+                </Link>
+                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("advisory") && 'text-white'}`} href={"/admin/advisory"}>
+                    <RiAdvertisementLine size={"1.3rem"} />
+                    Advsiory Board
+                </Link>
+                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("ambassadors") && 'text-white'}`} href={"/admin/ambassadors"}>
+                    <RiAdvertisementLine size={"1.3rem"} />
+                    Ambassadors
                 </Link>
                 {/* <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 text-white`} href={"/users/"}>
                     <RiAdvertisementLine size={"1.3rem"} />
