@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { FormEvent, useEffect, useReducer, useState } from 'react'
-import Script from "next/script";
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Button from "@/components/Button";
@@ -13,12 +12,6 @@ import SecondaryImg from '@/assets/school.png'
 import UniversityImg from '@/assets/university.png'
 import TeacherImg from '@/assets/teacher.png'
 import StudentImg from '@/assets/student.png'
-import JohnDoe1 from '@/assets/doe1.png'
-import JohnDoe2 from '@/assets/doe2.png'
-import JohnDoe3 from '@/assets/doe3.png'
-import Winner1 from '@/assets/winner1.png'
-import Winner2 from '@/assets/winner2.png'
-import Winner3 from '@/assets/winner3.png'
 import AmazedImg from '@/assets/amazed.png'
 import NewsImg from '@/assets/news.png'
 import { BiCircle } from 'react-icons/bi'
@@ -27,6 +20,9 @@ import { ICandidate, IReducerAction } from '@/interfaces'
 import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import Loader from '@/components/Loader';
+import Ambassadors from "@/components/Ambassadors";
+import Advisory from "@/components/Advisory";
+import Winners from "@/components/Winners";
 
 
 const initialState: ICandidate = {
@@ -44,6 +40,7 @@ export default function Home() {
       return { ...state, [action.type]: action.payload }
   }, initialState)
 
+
   const { loading, error, data, post } = usePost({ 
     api: "/candidates",
     onSuccess: () => {
@@ -51,6 +48,8 @@ export default function Home() {
         dispatch({ type: 'reset'})
     } 
   })
+
+
 
   const addCandidate = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -188,35 +187,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section mb-32 text-center">
-         <div className="flex flex-col items-center gap-4 max-w-3xl mx-auto mb-12 text-center">
-            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Our <br /> Ambassadors</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, explicabo recusandae necessitatibus voluptas nobis voluptatum nesciunt incidunt facilis, a provident dicta repudiandae ratione mollitia fuga deleniti! Alias explicabo aliquid repellat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad repellendus adipisci qui ratione excepturi unde inventore aspernatur. Accusamus numquam, officia laboriosam similique nemo repellat libero consequatur eum minima quas doloremque. </p>
-          </div>
-          <div className="flex flex-col md:flex-row md:justify-center items-center gap-8">
-            <div className="max-w-sm flex flex-col gap-4 justify-center">
-              <Image src={JohnDoe1} alt="" className="h-72 w-72 rounded-full" />
-              <div>
-                <h4 className="text-3xl font-bold">John Doe</h4>
-                <span className="text-primary font-bold text-xl">Lorem Ileum</span>
-              </div>
-            </div>
-            <div className="max-w-sm flex flex-col gap-4 justify-center">
-              <Image src={JohnDoe2} alt="" className="h-72 w-72 rounded-full" />
-              <div>
-                <h4 className="text-3xl font-bold">John Doe</h4>
-                <span className="text-primary font-bold text-xl">Lorem Ileum</span>
-              </div>
-            </div>
-            <div className="max-w-sm flex flex-col gap-4 justify-center">
-              <Image src={JohnDoe3} alt="" className="h-72 w-72 rounded-full" />
-              <div>
-                <h4 className="text-3xl font-bold">John Doe</h4>
-                <span className="text-primary font-bold text-xl">Lorem Ileum</span>
-              </div>
-            </div>
-          </div>
-        </section>
+       <Ambassadors />
         <section className="section mb-32 py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
           <div className="flex flex-col items-center gap-4 max-w-3xl text-center">
             <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-2">Looking for a bright new future. It starts here</h3>
@@ -224,57 +195,7 @@ export default function Home() {
             <button className="p-5 px-12 text-lg rounded-full font-bold bg-white text-black">Get in Touch</button>
           </div>
         </section>
-        <section className="section mb-32 text-center">
-          <div className="flex flex-col items-center gap-4">
-            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-10">Scholarship <br /> Winners</h3>
-          </div>
-          <div className="flex flex-col md:flex-row items-center md:justify-center gap-8 mb-8 text-center">
-            <div className="max-w-sm flex flex-col gap-4 items-center">
-              <Image src={Winner1} alt="" className="h-72 w-72 rounded-full" />
-              <div>
-                <h4 className="text-3xl font-bold">John Doe</h4>
-                <span className="text-[#F60707] font-extrabold">First Position</span>
-              </div>
-            </div>
-            <div className="max-w-sm flex flex-col gap-4 items-center">
-              <Image src={Winner2} alt="" className="h-72 w-72 rounded-full" />
-              <div>
-                <h4 className="text-3xl font-bold">John Doe</h4>
-                <span className="text-[#F60707] font-extrabold">Second Position</span>
-              </div>
-            </div>
-            <div className="max-w-sm flex flex-col gap-4 items-center">
-              <Image src={Winner3} alt="" className="h-72 w-72 rounded-full" />
-              <div>
-                <h4 className="text-3xl font-bold">John Doe</h4>
-                <span className="text-[#F60707] font-extrabold">Third Position</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row items-center md:justify-center gap-8">
-             <div className="max-w-sm flex flex-col gap-4 items-center">
-                <Image src={Winner1} alt="" className="h-72 w-72 rounded-full" />
-              <div>
-                <h4 className="text-3xl font-bold">John Doe</h4>
-                <span className="text-[#F60707] font-extrabold">First Position</span>
-              </div>
-            </div>
-             <div className="max-w-sm flex flex-col gap-4 items-center">
-                <Image src={Winner2} alt="" className="h-72 w-72 rounded-full" />
-              <div>
-                <h4 className="text-3xl font-bold">John Doe</h4>
-                <span className="text-[#F60707] font-extrabold">Second Position</span>
-              </div>
-            </div>
-             <div className="max-w-sm flex flex-col gap-4 items-center">
-                <Image src={Winner3} alt="" className="h-72 w-72 rounded-full" />
-              <div>
-                <h4 className="text-3xl font-bold">John Doe</h4>
-                <span className="text-[#F60707] font-extrabold">Third Position</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Winners />
         <section className="section mb-32 grad-to-right">
           <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white pt-12 md:pt-16">
             <div className="flex-1 flex flex-col gap-4 md:pb-16">
@@ -357,34 +278,7 @@ export default function Home() {
             </form>
           </div>
         </section>
-        <section className="section mb-32 text-center">
-          <div className="flex flex-col items-center gap-4">
-          <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-10">Advisory Board <br /> Members</h3>
-          </div>
-          <div className="flex flex-col md:flex-row md:justify-center gap-8">
-            <div className="flex flex-col gap-4 items-center justify-center text-center">
-                <Image src={JohnDoe1} alt="" className="w-72 h-72 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full mx-auto" />
-              <div>
-                <h4 className="text-[#6D6D6D] font-extrabold mb-3">HRM, King Alfred Papapreye Diete-Spiff</h4>
-                <span className="text-[#6D6D6D] font-extrabold">Chairman</span>
-              </div>
-            </div>
-            <div className="flex flex-col gap-4 items-center justify-center text-center">
-                <Image src={JohnDoe2} alt="" className="w-72 h-72 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full mx-auto" />
-              <div>
-                <h4 className="text-[#6D6D6D] font-extrabold mb-3">HRM, King Alfred Papapreye Diete-Spiff</h4>
-                <span className="text-[#6D6D6D] font-extrabold">Chairman</span>
-              </div>
-            </div>
-            <div className="flex flex-col gap-4 items-center justify-center text-center">
-                <Image src={JohnDoe1} alt="" className="w-72 h-72 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full mx-auto" />
-              <div>
-                <h4 className="text-[#6D6D6D] font-extrabold mb-3">HRM, King Alfred Papapreye Diete-Spiff</h4>
-                <span className="text-[#6D6D6D] font-extrabold">Member</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Advisory />
         <Footer />
       </div>
     </div>
