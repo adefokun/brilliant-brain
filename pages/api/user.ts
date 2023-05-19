@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // console.log({session})
 
     if (!session) {
-      res.status(401).json({ message: "You must be signed in to access this" });
+      return res.status(401).json({ message: "You must be signed in to access this" });
     } 
   
     const users = UserModel;
@@ -22,9 +22,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // console.log({allUsers})
 
-    res.status(200).json({ users: allUsers });
+    return res.status(200).json({ users: allUsers });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    return res.status(500).json({ message: 'Internal server error' });
   }
 }
