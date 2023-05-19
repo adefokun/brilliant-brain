@@ -254,8 +254,7 @@ export default function Home() {
                 Read more
               </Link>
             </div>
-            {/* <div className="bg-gray-200 w-full h-96 "></div>
-            <div className="bg-gray-200 w-full h-96 "></div> */}
+
           </div>
         </section>
         <section className="section mb-32 grad-to-right">

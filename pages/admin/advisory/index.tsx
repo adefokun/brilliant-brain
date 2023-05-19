@@ -112,7 +112,7 @@ const colums = [
       <div className='p-4 pt-12 sm:px-12 h-full'>
         <div className="flex items-center gap-4 justify-between mb-16">
             <h1 className='text-3xl text-black/70 font-argentinum'>Advisory Board</h1>
-            <Button onClick={() => router.push("/admin/advisory/add")} className="text-white px-4 sm:px-6 py-2 rounded-md text-sm">Add Board Member</Button>
+            <Button onClick={() => router.push("/admin/advisory/add")} className="text-white px-4 sm:px-6 py-2 rounded-md text-sm whitespace-nowrap">Add Board Member</Button>
         </div>
         <Table<IAdvisory> data={data} columns={colums} className={''} />
       </div>

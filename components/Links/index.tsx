@@ -9,10 +9,12 @@ const Links = ({ isOpen }: { isOpen: boolean }) => {
 
   return (
     <div className={`md:hidden shadow fixed top-0 right-0 w-5/6 min-h-screen h-screen bg-white text-black px-4  py-2 md:px-10 z-30 ${isOpen ? "translate-x-0" : "translate-x-full"} transition-all duration-300`}>
-          <nav className="md:hidden flex flex-col h-full justify-between gap-16 p-4 pt-20 px-8 mb-8">
-            <ul className='flex flex-col text-sm text-dark-light gap-7 md:gap-4 lg:gap-7 font-medium'>
+          <nav className="md:hidden flex flex-col h-full justify-between gap-16 p-4 pt-28 px-8 mb-8">
+            <ul className='flex flex-col text-dark-light gap-7 md:gap-4 lg:gap-7 font-medium'>
               <li><Link href="/admin" className={`pb-1.5 px-1 font-medium`}>Dashboard</Link></li>
               <li><Link href="/admin/winners" className={`pb-1.5 px-1 font-medium`}>Winners</Link></li>
+              <li><Link href="/admin/ambassadors" className={`pb-1.5 px-1 font-medium`}>Ambassadors</Link></li>
+              <li><Link href="/admin/advisory" className={`pb-1.5 px-1 font-medium`}>Advisory Board</Link></li>
               {/* {!user ? 
               <li><Link href="/login" className={`${pathname==="/login" && "text-green"} pb-1.5 px-1 font-medium`}>Login</Link></li>
                 :
