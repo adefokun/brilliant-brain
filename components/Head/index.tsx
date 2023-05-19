@@ -11,14 +11,14 @@ const Head = () => {
 
 
   return (
-    <div className='p-4 px-3 sm:px-7 bg-white shadow flex gap-4 justify-between items-center'>
+    <div className='p-4 sm:px-12 bg-white shadow flex gap-4 justify-between items-center'>
         <h1 className='text-xl text-[#69707D] font-medium'>
             Dashboard
         </h1>
         <div className='flex items-center gap-4'>
           <div className='flex items-center gap-1 h-8 w-8'>
           {/* <Image src={Logo} className='w-12 h-12 md:h-12' alt='' /> */}
-            <Image src={''} alt="" className='w-full h-full rounded-full object-cover bg-gray-100' />
+            {/* <Image src={''} alt="" className='w-full h-full rounded-full object-cover bg-gray-100' /> */}
           </div>
           { isOpen ? 
             <MdOutlineClose onClick={() => setIsOpen(false)} className={`cursor-pointer text-3xl md:hidden relative z-50 text-gray-dark`} /> 

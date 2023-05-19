@@ -12,6 +12,12 @@ module.exports = {
         sans: ["Montserrat", "sans-serif"],
         argentinum: ["Argentum Sans", "sans-serif"],
       },
+      keyframes: {
+        around: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
     },
   },
   plugins: [
