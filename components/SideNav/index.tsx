@@ -1,8 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { MdTrendingUp, MdPersonOutline, MdOutlinePersonOutline } from 'react-icons/md'
-import { RiBillLine, RiAdvertisementLine } from 'react-icons/ri'
+import { MdOutlineDashboardCustomize, MdLogout } from 'react-icons/md'
+import { RiTeamLine } from 'react-icons/ri'
+import { GiCrownedSkull } from 'react-icons/gi'
+import { AiTwotoneGold } from 'react-icons/ai'
 import Logo from "@/assets/logo-tp.png"
 import Image from 'next/image'
 import { useSession, signIn, signOut } from "next-auth/react"
@@ -19,8 +21,7 @@ const SideNav = ({ }) => {
                     <Image src={Logo} className='w-12 h-12 md:h-12 bg-white' alt='' />
                 </Link>
                 <div className="flex items-center text-xs gap-2">
-                    <span className='w-6 h-6 bg-white/30'>
-                    </span>
+                    {/* <span className='w-6 h-6 bg-white/30' /> */}
                     <div className="flex flex-col text-xs">
                         <span className=''>Administrator</span>
                         <span className='text-white/80 text-[10px]'>admin@gmail.com</span>
@@ -32,29 +33,29 @@ const SideNav = ({ }) => {
                     {/* <span className='w-4 h-4 bg-white flex justify-center items-center rounded border'>
                         <MdTrendingUp color='#000000' size={"0.6rem"} />
                     </span>  */}
-                    <RiAdvertisementLine size={"1.3rem"} />
+                    <MdOutlineDashboardCustomize size={"1.3rem"} />
                     Dashboard
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("winners") && 'text-white'}`} href={"/admin/winners"}>
-                    <RiAdvertisementLine size={"1.3rem"} />
+                    <GiCrownedSkull size={"1.3rem"} />
                     Winners
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("advisory") && 'text-white'}`} href={"/admin/advisory"}>
-                    <RiAdvertisementLine size={"1.3rem"} />
+                    <RiTeamLine size={"1.3rem"} />
                     Advsiory Board
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("ambassadors") && 'text-white'}`} href={"/admin/ambassadors"}>
-                    <RiAdvertisementLine size={"1.3rem"} />
+                    <AiTwotoneGold size={"1.3rem"} />
                     Ambassadors
                 </Link>
                 {/* <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 text-white`} href={"/users/"}>
-                    <RiAdvertisementLine size={"1.3rem"} />
+                    <RiTeamLine size={"1.3rem"} />
                     Settings
                 </Link> */}
             </div>
         </div>
         <div onClick={() => signOut()} className={`py-2.5 pl-6 text-sm flex items-center gap-2 cursor-pointer`}>
-            <RiAdvertisementLine size={"1.3rem"} />
+            <MdLogout size={"1.3rem"} />
             Logout
         </div>
     </div>

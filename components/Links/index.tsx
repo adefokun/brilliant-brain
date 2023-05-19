@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import Button  from '../Button'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import { RiAdvertisementLine } from 'react-icons/ri'
+import { MdLogout } from 'react-icons/md'
 
 
 const Links = ({ isOpen }: { isOpen: boolean }) => {
@@ -27,7 +27,7 @@ const Links = ({ isOpen }: { isOpen: boolean }) => {
             </ul>
 
           <div onClick={() => signOut()} className={`w-fit py-2 pb-2.5 px-6 flex items-center gap-2 text-xs font-medium text- grad-to-right text-white rounded-full`}>
-              <RiAdvertisementLine size={"1.3rem"} />
+              <MdLogout size={"1.3rem"} />
               Logout
           </div>
           </nav>
