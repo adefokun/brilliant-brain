@@ -14,7 +14,8 @@ const initialState: IUserRegister = {
     email: '',
     password: '',
     username: '',
-    confirm_password:''
+    confirm_password:'',
+    access_code: ''
 }
 
 const Register = () => {
@@ -98,6 +99,10 @@ const Register = () => {
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor="confirm_password" className="text-xs font-semibold text-gray-500">Confirm Password</label>
                                 <input value={user?.confirm_password} onChange={(e) => dispatch({ type: "confirm_password", payload: e.target.value})} type="password" placeholder="Confirm Password" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
+                            </div>
+                            <div className='flex flex-col gap-1'>
+                                <label htmlFor="access_code" className="text-xs font-semibold text-gray-500">Access Code</label>
+                                <input value={user?.access_code} onChange={(e) => dispatch({ type: "access_code", payload: e.target.value})} type="password" placeholder="Access Code" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                             </div>
                             <Button type='submit' gradient='grad-to-top' className="px-4 py-3 text-sm font-bold text-white rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Register</Button>
                             <Link href="/login" className="text-xs hover:underline">

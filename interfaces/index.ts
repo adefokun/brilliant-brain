@@ -7,6 +7,7 @@ export interface IUserRegister {
     password: string
     confirm_password: string
     username: string
+    access_code: string
 }
 
 export interface ILoginReducerAction {
@@ -15,7 +16,7 @@ export interface ILoginReducerAction {
 }
 
 export interface IRegistereducerAction {
-    type: "email" | "password" | "confirm_password" | "username";
+    type: "email" | "password" | "confirm_password" | "username" | "access_code";
     payload: string
 }
 
