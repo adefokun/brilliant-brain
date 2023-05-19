@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { FormEvent, useEffect, useReducer, useState } from 'react'
 import Script from "next/script";
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -22,9 +23,40 @@ import AmazedImg from '@/assets/amazed.png'
 import NewsImg from '@/assets/news.png'
 import { BiCircle } from 'react-icons/bi'
 import Link from "next/link";
+import { ICandidate, IReducerAction } from '@/interfaces'
+import usePost from '@/hooks/usePost';
+import { toast } from 'react-toastify';
+import Loader from '@/components/Loader';
 
+
+const initialState: ICandidate = {
+  email: '',
+  name: '',
+  number: '',
+  category: 'primary',
+}
+
+type IAction = 'email' | 'name' | 'number' | 'category' | 'reset'
 
 export default function Home() {
+    const [candidate, dispatch] = useReducer((state: ICandidate, action: IReducerAction<IAction>) => {
+      if (action.type === 'reset') return initialState
+      return { ...state, [action.type]: action.payload }
+  }, initialState)
+
+  const { loading, error, data, post } = usePost({ 
+    api: "/candidates",
+    onSuccess: () => {
+        toast('Your application has been submitted successfully')
+        dispatch({ type: 'reset'})
+    } 
+  })
+
+  const addCandidate = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    post(candidate)
+  }
+
   return (
     <div>
       <Head>
@@ -33,6 +65,7 @@ export default function Home() {
         <link rel="icon" href="/faviconimg.png" />
       </Head>
       <div className="">
+        {loading && <Loader modalOpen={true} />}
         <Header />
         <section className="section min-h-screen pt-24 md:pt-32">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
@@ -310,11 +343,15 @@ export default function Home() {
               <h3 className="text-4xl md:text-5xl font-extrabold capitalize mb-3">Sign up for Our Scholarship Program Now</h3>
               <p className="text-sm md:text-base mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial</p>
             </div>
-            <form className="flex-1 flex flex-col gap-4 w-full text-black">
-              <input className="p-5 px-8 rounded-full" type="text" name="username" id="username" placeholder="username" />
-              <input className="p-5 px-8 rounded-full" type="email" name="email" id="email" placeholder="Enter your email address" />
-              <select className="p-5 px-8 rounded-full text-black/60" name="ty[e" id="type">
-                <option value="student">Student</option>
+            <form className="flex-1 flex flex-col gap-4 w-full text-black" onSubmit={addCandidate}>
+              <input required onChange={(e) => dispatch({ type: 'name', payload: e.target.value })} value={candidate?.name} className="p-5 px-8 rounded-full" type="text" name="name" id="name" placeholder="Full Name" />
+              <input required onChange={(e) => dispatch({ type: 'email', payload: e.target.value })} value={candidate?.email} className="p-5 px-8 rounded-full" type="email" name="email" id="email" placeholder="Enter your email address" />
+              <input required onChange={(e) => dispatch({ type: 'number', payload: e.target.value })} value={candidate?.number} className="p-5 px-8 rounded-full" type="tel" name="number" id="number" placeholder="Enter your Phone Number" />
+              <select required onChange={(e) => dispatch({ type: 'category', payload: e.target.value })} value={candidate?.category} className="p-5 px-8 rounded-full text-black/60" name="category" id="category">
+                <option value="primary">Primary</option>
+                <option value="secondary">Secondary</option>
+                <option value="undergraduate">Undergraduate</option>
+                <option value="postgraduate">Postgraduate</option>
               </select>
               <button className="bg-black text-white font-medium text-lg px-14 py-4 rounded-full w-fit">Send Request</button>
             </form>
