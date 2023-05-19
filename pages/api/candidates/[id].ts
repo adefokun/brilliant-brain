@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '@/lib/dbConnection';
 import Candidate from '@/models/CandidateModel';
+import { ICandidate } from '@/interfaces';
+
 
 // ----------------------------------------------------------------------
 
@@ -8,18 +10,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     await dbConnect();
 
-    if (!req.body.email || !req.body.name || !req.body.type) return res.status(400).json({ message: 'Fill all required fields' })
+    if (req.method !== 'DELETE') return res.status(400).json({ message: 'Request Method Not allowed' })
 
-    const candidate = await Candidate.create({
-        email: req.body.email,
-        name: req.body.name,
-        type: req.body.type,
-    });
+    if (req.method === 'DELETE') {
+        const { id } = req.query;
+    //   console.log('id', id)
+      if (!id) return res.status(400).json({ message: 'ID is required' })
+      const candidate = await Candidate.findByIdAndDelete(id).lean();
+      console.log({ candidate })
+      res.status(200).json(candidate);
+    }
 
-    if (!candidate) throw new Error('Post Failed')
-
-    // console.log('candidate', candidate)
-    res.status(200).json(candidate);
 
   } catch (error: any) {
     console.error(error);
