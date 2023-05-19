@@ -1,6 +1,7 @@
+import { ICandidate } from '@/interfaces';
 import { models, model, Schema } from 'mongoose';
 
-const CandidateSchema: Schema = new Schema({
+const CandidateSchema: Schema = new Schema<ICandidate>({
   email: {
     type: String,
     required: true,
@@ -10,7 +11,11 @@ const CandidateSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  type: {
+  number: {
+    type: String,
+    required: true,
+  },
+  category: {
     type: String,
     required: true,
   },

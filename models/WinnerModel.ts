@@ -1,6 +1,7 @@
+import { IWinner } from '@/interfaces';
 import { models, model, Schema } from 'mongoose';
 
-const WinnerSchema: Schema = new Schema({
+const WinnerSchema: Schema = new Schema<IWinner>({
   email: {
     type: String,
     required: true,
@@ -15,6 +16,10 @@ const WinnerSchema: Schema = new Schema({
     required: true,
   },
   position: {
+    type: String,
+    required: true,
+  },
+  category: {
     type: String,
     required: true,
   },
