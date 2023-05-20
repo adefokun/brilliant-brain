@@ -105,7 +105,7 @@ const testColumns = [
         <link rel="icon" href="/faviconimg.png" />
       </Head>
       <div className='p-4 pt-12 sm:px-12 h-full'>
-        <h1 className='text-xl mb-8'>Candidates</h1>
+        <h1 className='text-3xl text-black/70 font-argentinum  mb-12'>Candidates</h1>
         <Table<ICandidate> data={data} columns={testColumns} className={''} />
       </div>
     </AdminLayout>
