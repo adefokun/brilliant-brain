@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { MdOutlineDashboardCustomize, MdLogout } from 'react-icons/md'
+import { MdOutlineDashboardCustomize, MdLogout, MdOutlineFeedback } from 'react-icons/md'
 import { RiTeamLine } from 'react-icons/ri'
 import { GiCrownedSkull } from 'react-icons/gi'
 import { AiTwotoneGold } from 'react-icons/ai'
@@ -29,7 +29,7 @@ const SideNav = ({ }) => {
                 </div>
             </div>
             <div className='flex flex-col gap-2 pt-4 text-white/70'>
-                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${(!pathname.includes("winners") && !pathname.includes("advisory") && !pathname.includes("ambassadors")  ) && 'text-white'}`} href="/admin">
+                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${(!pathname.includes("winners") && !pathname.includes("advisory") && !pathname.includes("ambassadors") && !pathname.includes("feedbacks")) && 'text-white'}`} href="/admin">
                     {/* <span className='w-4 h-4 bg-white flex justify-center items-center rounded border'>
                         <MdTrendingUp color='#000000' size={"0.6rem"} />
                     </span>  */}
@@ -47,6 +47,10 @@ const SideNav = ({ }) => {
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("ambassadors") && 'text-white'}`} href={"/admin/ambassadors"}>
                     <AiTwotoneGold size={"1.3rem"} />
                     Ambassadors
+                </Link>
+                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("feedbacks") && 'text-white'}`} href={"/admin/feedbacks"}>
+                    <MdOutlineFeedback size={"1.3rem"} />
+                    Feedbacks
                 </Link>
                 {/* <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 text-white`} href={"/users/"}>
                     <RiTeamLine size={"1.3rem"} />

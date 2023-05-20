@@ -26,10 +26,10 @@ const Winners = () => {
     const position = ['First', 'Second', 'Third']
   
   return (
-    <section className="section mb-32 text-center">
-    <div className="flex flex-col items-center gap-4">
+    <section className="section pt-20 pb-20 text-center">
+    {/* <div className="flex flex-col items-center gap-4">
       <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-10">Scholarship <br /> Winners</h3>
-    </div>
+    </div> */}
     <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-8 mb-8 text-center">      
         {winners.slice(0,3)?.map((winner, index) => (
           <div key={index} className="max-w-sm flex flex-col gap-4 items-center">
