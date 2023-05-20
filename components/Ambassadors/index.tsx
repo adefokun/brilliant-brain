@@ -7,9 +7,17 @@ const Ambassadors = () => {
 
     useEffect(() => {
       const fetchAmbassadors = async () => {
-        const res = await fetch('/api/ambassadors')
-        const data = await res.json()
-        setAmbassadors(data)
+        try {
+          const res = await fetch('/api/ambassadors')
+          const data = await res.json()
+          if (!res.ok) {
+            throw new Error(data?.message || 'An error Occured')
+          }
+          setAmbassadors(data)
+        } catch (error) {
+          console.log({error})
+        }
+        
       }
   
       fetchAmbassadors()
@@ -25,7 +33,7 @@ const Ambassadors = () => {
      <div className="flex flex-col md:flex-row md:justify-center items-center gap-8">
        {ambassadors?.map((ambassador, index) => (
          <div key={index} className="max-w-sm flex flex-col gap-4 justify-center">
-           <Image width={100} height={100}  src={ambassador?.image} alt="" className="h-72 w-72 rounded-full bg-black/10" />
+           <Image width={100} height={100}  src={ambassador?.image} alt="" className="h-44 w-44 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full bg-black/10" />
            <div>
              <h4 className="text-3xl font-bold">{ambassador?.name}</h4>
              <span className="text-primary font-bold text-xl">{ambassador?.title}</span>

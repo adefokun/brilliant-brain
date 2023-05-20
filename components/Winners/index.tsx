@@ -7,9 +7,17 @@ const Winners = () => {
 
     useEffect(() => {
       const fetchWinners = async () => {
-        const res = await fetch('/api/winners')
-        const data = await res.json()
-        setWinners(data)
+        try {
+          const res = await fetch('/api/winners')
+          const data = await res.json()
+          if (!res.ok) {
+            throw new Error(data?.message || 'An error Occured')
+          }
+          setWinners(data)
+        } catch (error) {
+          console.log({error})
+        }
+       
       }
   
       fetchWinners()
@@ -25,7 +33,7 @@ const Winners = () => {
     <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-8 mb-8 text-center">      
         {winners.slice(0,3)?.map((winner, index) => (
           <div key={index} className="max-w-sm flex flex-col gap-4 items-center">
-          <Image width={100} height={100} alt='' src={winner?.image} className="h-72 w-72 rounded-full bg-black/10" />
+          <Image width={100} height={100} alt='' src={winner?.image} className="h-44 w-44 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full bg-black/10" />
           <div>
             <h4 className="text-3xl font-bold">{winner?.name}</h4>
             <span className="text-[#F60707] font-extrabold">{position[Number(winner?.position) - 1]} Position</span>
