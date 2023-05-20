@@ -3,23 +3,23 @@ import Head from "next/head";
 import AdminLayout from "@/layouts/AdminLayout"
 import AuthHOC from '@/components/AuthHOC'
 import Table from '@/components/Table'
-import { ICandidate } from "@/interfaces"
+import { IFeedback } from "@/interfaces"
 import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 
 
-const Home = () => {
-  const [data, setData] = useState<ICandidate[]>([])
+const Feedbacks = () => {
+  const [data, setData] = useState<IFeedback[]>([])
 
   const { loading, error, post, data: deleted } = usePost({ 
-    api: "/candidates",
+    api: "/feedbacks",
     method: "DELETE",
     onSuccess: () => {
-        toast('Candidate deleted successfully')
+        toast('Feedbacks deleted successfully')
     } 
 })
 
-const deleteCandidate = (id: string, route: string) => {
+const deleteFeedbacks = (id: string, route: string) => {
     post({
       id,
     }, route)
@@ -44,16 +44,8 @@ const columns = [
     },
   },
   {
-    name: "number",
-    label: "Number",
-    options: {
-      filter: true,
-      sort: false,
-    },
-  },
-  {
-    name: "category",
-    label: "Category",
+    name: "message",
+    label: "Message",
     options: {
       filter: true,
       sort: false,
@@ -66,7 +58,7 @@ const columns = [
     custom: (val: string, meta: any) => {
       return  (
         <div className="gap-4 justify-center">
-          <button onClick={() => deleteCandidate(meta?._id, `candidates/${meta?._id}`)} className="p-2 px-4 bg-red-600 text-white rounded-full">Delete</button>
+          <button onClick={() => deleteFeedbacks(meta?._id, `feedbacks/${meta?._id}`)} className="p-2 px-4 bg-red-600 text-white rounded-full">Delete</button>
           {/* <BiEdit size="1.2rem" className="text-orange" />
           <MdOutlineDelete size="1.2rem" className="text-red-400" /> */}
         </div>
@@ -77,9 +69,9 @@ const columns = [
 ];
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchFeedbacks = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/candidates`)
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/feedbacks`)
         const data = await res.json()
         
         if (!res.ok) throw new Error(data.message)
@@ -92,7 +84,7 @@ const columns = [
 
     }
 
-    fetchUser()
+    fetchFeedbacks()
   }, [deleted])
 
 
@@ -105,13 +97,13 @@ const columns = [
         <link rel="icon" href="/faviconimg.png" />
       </Head>
       <div className='p-4 pt-12 sm:px-12 h-full'>
-        <h1 className='text-3xl text-black/70 font-argentinum  mb-12'>Candidates</h1>
-        <Table<ICandidate> data={data} columns={columns} className={''} />
+        <h1 className='text-3xl text-black/70 font-argentinum  mb-12'>Feedbacks</h1>
+        <Table<IFeedback> data={data} columns={columns} className={''} />
       </div>
     </AdminLayout>
   );
 }
 
 
-export default AuthHOC(Home)
+export default AuthHOC(Feedbacks)
 

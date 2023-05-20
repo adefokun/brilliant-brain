@@ -9,7 +9,6 @@ import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import Loader from '@/components/Loader';
 import useImage from '@/hooks/useImage';
-import advisory from '.';
 
 
 
