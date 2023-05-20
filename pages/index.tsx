@@ -95,7 +95,7 @@ export default function Home() {
             <div className="flex-1 order-2 md:order-1 flex flex-col gap-4">
               <p className="text-primary font-bold text-xl mb-3">About Us</p>
               <h2 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">Qualified and Highly Equipped Learning</h2>
-              <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
+              <p className="md:text-lg mb-4">We take pride in offering a learning environment that is led by qualified and dedicated educators. Our teaching staff consists of highly experienced professionals who are passionate about fostering academic growth and empowering students to reach their full potential.</p>
               <Button className="text-white text-lg px-6 py-3 rounded-lg w-fit">Read More</Button>
 
             </div>
@@ -105,6 +105,13 @@ export default function Home() {
                 <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
               </div>
             </div>
+          </div>
+        </section>
+        <section className="section mb-32 py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
+          <div className="flex flex-col items-center gap-4 max-w-3xl text-center">
+            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-2">Looking for a bright new future. It starts here</h3>
+            <p className="mb-4">We understand that you&#39;re looking for a bright new future, filled with endless possibilities and opportunities for personal and professional growth. Your quest for a better tomorrow starts right here, with us.</p>
+            <button className="p-5 px-12 text-lg rounded-full font-bold bg-white text-black">Get in Touch</button>
           </div>
         </section>
         <section className="section mb-32 text-center">
@@ -118,22 +125,22 @@ export default function Home() {
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
               <Image src={PrimaryImg} alt="" className="w-16 h-16" />
               <h5 className="text-2xl font-extrabold capitalize mb-3">Primary Education</h5>
-              <p className="text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
+              <p className="text-[#6D6D6D]">Building Strong Foundations for Lifelong Learning</p>
             </div>
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
               <Image src={SecondaryImg} alt="" className="w-16 h-16" />
               <h5 className="text-2xl font-extrabold capitalize mb-3">Secondary Education</h5>
-              <p className="text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
+              <p className="text-[#6D6D6D]">Preparing Students for Success in a Dynamic World</p>
             </div>
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
               <Image src={UniversityImg} alt="" className="w-16 h-16" />
-              <h5 className="text-2xl font-extrabold capitalize mb-3">Tertiary Education</h5>
-              <p className="text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
+              <h5 className="text-2xl font-extrabold capitalize mb-3">Undergraduate Education</h5>
+              <p className="text-[#6D6D6D]">Unlocking Your Potential for Advanced Learning</p>
             </div>
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
               <Image src={PrimaryImg} alt="" className="w-16 h-16" />
-              <h5 className="text-2xl font-extrabold capitalize mb-3">Primary Education</h5>
-              <p className="text-[#6D6D6D]">Are you a student that needs a scholarship? or a teacher who wish to</p>
+              <h5 className="text-2xl font-extrabold capitalize mb-3">Postgraduate Education</h5>
+              <p className="text-[#6D6D6D]">Elevate Your Expertise and Propel Your Career Forward</p>
             </div>
           </div>
         </section>
@@ -150,16 +157,16 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-3 font-bold mb-12">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-red-100"></div>
-                  <p>Lorem lorem lorem lorem</p>
+                  <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                  <p>Financial support for education expenses</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-red-100"></div>
-                  <p>Lorem lorem lorem lorem</p>
+                  <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                  <p>Access to quality education opportunities</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-red-100"></div>
-                  <p>Lorem lorem lorem lorem</p>
+                  <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                  <p>Personal and professional growth opportunities</p>
                 </div>
               </div>
               <Button className="md:text-lg text-white py-3.5 px-8 w-fit rounded-3xl mx-auto">View Details</Button>
@@ -171,31 +178,25 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-3 font-bold mb-12">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-red-100"></div>
-                  <p>Lorem lorem lorem lorem</p>
+                  <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                  <p>Professional development support</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-red-100"></div>
-                  <p>Lorem lorem lorem lorem</p>
+                  <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                  <p>Enhanced teaching quality</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-red-100"></div>
-                  <p>Lorem lorem lorem lorem</p>
+                  <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                  <p>Networking and collaboration opportunities</p>
                 </div>
               </div>
               <Button className="md:text-lg bg-[#5e0c08] text-white py-3.5 px-8 w-fit rounded-3xl mx-auto">View Details</Button>
             </div>
           </div>
         </section>
-       <Ambassadors />
-        <section className="section mb-32 py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
-          <div className="flex flex-col items-center gap-4 max-w-3xl text-center">
-            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-2">Looking for a bright new future. It starts here</h3>
-            <p className="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem illo nostrum aperiam voluptatibus vitae? Quisquam laboriosam enim ipsum modi! Molestiae eveniet fugit perferendis quaerat ex et porro beatae enim quas!</p>
-            <button className="p-5 px-12 text-lg rounded-full font-bold bg-white text-black">Get in Touch</button>
-          </div>
-        </section>
-        <Winners />
+       {/* <Ambassadors /> */}
+        
+        {/* <Winners /> */}
         <section className="section mb-32 grad-to-right">
           <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white pt-12 md:pt-16">
             <div className="flex-1 flex flex-col gap-4 md:pb-16">
@@ -203,20 +204,20 @@ export default function Home() {
               <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
               <div className="grid grid-cols-2 gap-5 mb-4 max-w-fit">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-red-100"></div>
+                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
                     <p>Primary Education</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-red-100"></div>
-                    <p>Primary Education</p>
+                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                    <p>Secondary Education</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-red-100"></div>
-                    <p>Primary Education</p>
+                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                    <p>Undergraduate Education</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-red-100"></div>
-                    <p>Primary Education</p>
+                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                    <p>Postgraduate Education</p>
                   </div>
               </div>
               <button className="bg-yellow-400 text-white text-lg px-6 py-3 rounded-lg w-fit">Apply Now</button>

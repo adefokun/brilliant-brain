@@ -2,6 +2,8 @@ import React, { ReactNode } from "react";
 import { useRouter } from "next/router";
 // import useUser from "@/hooks/useUser";
 import { useSession, signIn, signOut } from "next-auth/react"
+import Loader from "../Loader";
+
 
 
 export default function AuthHOC(
@@ -19,9 +21,7 @@ export default function AuthHOC(
 
     if (session.status === "loading") {
       return (
-        <div>
-          <p>Loading...</p>
-        </div>
+        <Loader modalOpen={true} />
       );
     }
 

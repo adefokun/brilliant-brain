@@ -25,7 +25,7 @@ const Ambassadors = () => {
   
     // console.log({ambassadors})
   return (
-    <section className="section mb-32 text-center">
+    <section className="section pt-20 pb-20 text-center">
     <div className="flex flex-col items-center gap-4 max-w-3xl mx-auto mb-12 text-center">
        <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Our <br /> Ambassadors</h3>
        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, explicabo recusandae necessitatibus voluptas nobis voluptatum nesciunt incidunt facilis, a provident dicta repudiandae ratione mollitia fuga deleniti! Alias explicabo aliquid repellat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad repellendus adipisci qui ratione excepturi unde inventore aspernatur. Accusamus numquam, officia laboriosam similique nemo repellat libero consequatur eum minima quas doloremque. </p>
