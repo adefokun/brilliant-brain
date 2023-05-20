@@ -45,9 +45,7 @@ const usePost = ({ api, method, onSuccess, onFailure, ...rest }: Props) => {
         } catch (error: any) {
             console.log("error", error)
             setError(error?.message)
-            toast.error(error?.message || 'An error Occured', {
-                
-            })
+            toast.error(error?.message || 'An error Occured')
         }
         setLoading(false)
     }

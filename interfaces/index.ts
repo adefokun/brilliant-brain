@@ -26,6 +26,13 @@ export interface ICandidate {
     number: string;
     category: "primary" | "secondary" | "undergraduate" | "postgraduate";
 }
+
+export interface IFeedback {
+    name: string;
+    email: string;
+    message: string;
+}
+
 export interface IAdvisory {
     name: string;
     email: string;
