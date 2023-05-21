@@ -34,8 +34,8 @@ const Advisory = () => {
         <div key={index} className="flex flex-col gap-4 items-center justify-center text-center">
             <Image width={100} height={100} alt='' src={advisory?.image} className="h-44 w-44 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full mx-auto bg-black/10" />
           <div>
-            <h4 className="text-[#6D6D6D] font-extrabold mb-3">{advisory?.name}</h4>
-            <span className="text-[#6D6D6D] font-extrabold">{advisory?.title}</span>
+            <h4 className="text-[#6D6D6D] text-sm font-extrabold mb-3">{advisory?.name}</h4>
+            <span className="text-[#6D6D6D] text-sm font-extrabold">{advisory?.title}</span>
           </div>
         </div>
        ))

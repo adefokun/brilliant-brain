@@ -10,8 +10,8 @@ const Footer = () => {
       <footer className=''>
         <div className='py-12 md:py-16 section grid grid-cols-2 gap-12 md:grid-cols-4 grad-to-right text-white'>
             <div>
-              <h4 className='text-xl font-extrabold mb-5'>Company</h4>
-              <ul className='textNT- text-footer-gray flex flex-col gap-2'>
+              <h4 className='md:text-lg font-extrabold mb-3'>Company</h4>
+              <ul className='text-footer-gray text-sm flex flex-col gap-2'>
                 <li>About Us</li>
                 <li>Services</li>
                 <li>Portfolio</li>
@@ -20,8 +20,8 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className='text-xl font-extrabold mb-5'>Resources</h4>
-              <ul className='textNT- text-footer-gray flex flex-col gap-2'>
+              <h4 className='md:text-lg font-extrabold mb-3'>Resources</h4>
+              <ul className='text-footer-gray text-sm flex flex-col gap-2'>
                 <li>About Us</li>
                 <li>Services</li>
                 <li>Portfolio</li>
@@ -30,8 +30,8 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className='text-xl font-extrabold mb-5'>Legal</h4>
-              <ul className='textNT- text-footer-gray flex flex-col gap-2'>
+              <h4 className='md:text-lg font-extrabold mb-3'>Legal</h4>
+              <ul className='text-footer-gray text-sm flex flex-col gap-2'>
                 <li>About Us</li>
                 <li>Services</li>
                 <li>Portfolio</li>
@@ -40,8 +40,8 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className='text-xl font-extrabold mb-5'>Social Media</h4>
-              <ul className='textNT- text-footer-gray flex flex-col gap-2'>
+              <h4 className='md:text-lg font-extrabold mb-3'>Social Media</h4>
+              <ul className='text-footer-gray text-sm flex flex-col gap-2'>
                 <li>About Us</li>
                 <li>Services</li>
                 <li>Portfolio</li>
@@ -55,7 +55,7 @@ const Footer = () => {
               <Link href={"/"}>
                 <Image src={Logo} className='w-20 h-16' alt=''></Image>
               </Link>
-              <p className="font-extrabold text-xl">
+              <p className="font-extrabold text-sm md:text-xl">
                 BRILLIANT-BRAIN SCHOLARSHIP 2023
               </p>
             </div>
