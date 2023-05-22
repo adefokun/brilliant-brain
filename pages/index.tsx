@@ -4,8 +4,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Button from "@/components/Button";
 import Image from "next/image";
-import HeroImg from '@/assets/hero-img.png'
-import QualifiedImg from '@/assets/qualified.png'
+import HeroImg from '@/assets/img1.png'
+import QualifiedImg from '@/assets/img2.png'
 import HeroBg from '@/assets/hero-bg.png'
 import PrimaryImg from '@/assets/primary.png'
 import SecondaryImg from '@/assets/school.png'
@@ -29,7 +29,7 @@ const initialState: ICandidate = {
   email: '',
   name: '',
   number: '',
-  category: 'primary',
+  category: '',
 }
 
 type IAction = 'email' | 'name' | 'number' | 'category' | 'reset'
@@ -78,7 +78,7 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full min-h-96 order-1 md:order-2 flex flex-col justify-end relative">
-              <Image src={HeroImg} alt="" className="object-cover w-full h-full" />
+              <Image src={HeroImg} alt="" className="object-cover object-top w-full h-full max-h-[450px]" />
               <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
                 <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
               </div>
@@ -265,10 +265,11 @@ export default function Home() {
               <p className="text-sm md:text-base mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial</p>
             </div>
             <form className="flex-1 flex flex-col gap-4 w-full text-black" onSubmit={addCandidate}>
-              <input required onChange={(e) => dispatch({ type: 'name', payload: e.target.value })} value={candidate?.name} className="p-5 px-8 rounded-full" type="text" name="name" id="name" placeholder="Full Name" />
-              <input required onChange={(e) => dispatch({ type: 'email', payload: e.target.value })} value={candidate?.email} className="p-5 px-8 rounded-full" type="email" name="email" id="email" placeholder="Enter your email address" />
-              <input required onChange={(e) => dispatch({ type: 'number', payload: e.target.value })} value={candidate?.number} className="p-5 px-8 rounded-full" type="tel" name="number" id="number" placeholder="Enter your Phone Number" />
-              <select required onChange={(e) => dispatch({ type: 'category', payload: e.target.value })} value={candidate?.category} className="p-5 px-8 rounded-full text-black/60" name="category" id="category">
+              <input required onChange={(e) => dispatch({ type: 'name', payload: e.target.value })} value={candidate?.name} className="p-4 px-5 text-sm md:p-5 md:px-8 rounded-full" type="text" name="name" id="name" placeholder="Full Name" />
+              <input required onChange={(e) => dispatch({ type: 'email', payload: e.target.value })} value={candidate?.email} className="p-4 px-5 text-sm md:p-5 md:px-8 rounded-full" type="email" name="email" id="email" placeholder="Enter your email address" />
+              <input required onChange={(e) => dispatch({ type: 'number', payload: e.target.value })} value={candidate?.number} className="p-4 px-5 text-sm md:p-5 md:px-8 rounded-full" type="tel" name="number" id="number" placeholder="Enter your Phone Number" />
+              <select required onChange={(e) => dispatch({ type: 'category', payload: e.target.value })} value={candidate?.category} className="p-4 px-5 text-sm md:p-5 md:px-8 rounded-full text-black/60" name="category" id="category">
+                <option className="text-black/60" value="">Select category</option>
                 <option value="primary">Primary</option>
                 <option value="secondary">Secondary</option>
                 <option value="undergraduate">Undergraduate</option>

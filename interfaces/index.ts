@@ -24,7 +24,7 @@ export interface ICandidate {
     name: string;
     email: string;
     number: string;
-    category: "primary" | "secondary" | "undergraduate" | "postgraduate";
+    category: "primary" | "secondary" | "undergraduate" | "postgraduate" | '';
 }
 
 export interface IFeedback {
