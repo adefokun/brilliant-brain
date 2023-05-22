@@ -78,7 +78,7 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full min-h-96 order-1 md:order-2 flex flex-col justify-end relative">
-              <Image src={HeroImg} alt="" className="object-cover object-top w-full h-full max-h-[450px]" />
+              <Image src={HeroImg} alt="" className="object-contain object-top w-full h-full max-h-[450px]" />
               <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
                 <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
               </div>
