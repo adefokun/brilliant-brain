@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 interface Props {
     api: (string);
-    method?: "POST" | "GET" | "PUT" | "DELETE"
+    method?: "POST" | "GET" | "PUT" | "DELETE" | "PATCH"
     onSuccess?: (a?: any) => void
     onFailure?: (a?: any) => void
 }

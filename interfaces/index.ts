@@ -1,3 +1,5 @@
+import mongoose from "mongoose"
+
 export interface IUserLogin {
     email: string
     password: string
@@ -40,6 +42,21 @@ export interface IAdvisory {
     title: string;
     image: string;
 }
+
+export interface ICms {
+    _id?: mongoose.ObjectId | null;
+    hero: {
+        header: string,
+        text: string,
+        image: string,
+      },
+    about: {
+        header: string,
+        text: string,
+        image: string,
+    }
+}
+
 export interface IAmbassador {
     name: string;
     email: string;
@@ -68,6 +85,7 @@ export interface IWinner {
 }
 export interface IReducerAction<T> {
     type: T;
-    payload?: string;
+    payload?: string | { [key: string]: string };
+    name?: string;
 }
 

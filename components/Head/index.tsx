@@ -11,7 +11,7 @@ const Head = () => {
 
 
   return (
-    <div className='p-4 sm:px-12 bg-white shadow flex gap-4 justify-between items-center'>
+    <div className='absolute z-30 top-0 left-0 w-full p-4 sm:px-12 bg-white shadow flex gap-4 justify-between items-center'>
         <h1 className='text-xl text-[#69707D] font-medium'>
             Dashboard
         </h1>

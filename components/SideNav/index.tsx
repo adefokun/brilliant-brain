@@ -12,6 +12,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 const SideNav = ({ }) => {
     const pathname = usePathname();
+    // console.log({pathname})
 
   return (
     <div className='hidden sm:flex flex-col justify-between grad-to-bottom text-white h-screen min-w-[240px] w-60 pb-4 overflow-hidden'>
@@ -29,7 +30,7 @@ const SideNav = ({ }) => {
                 </div>
             </div>
             <div className='flex flex-col gap-2 pt-4 text-white/70'>
-                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${(!pathname.includes("winners") && !pathname.includes("advisory") && !pathname.includes("ambassadors") && !pathname.includes("feedbacks")) && 'text-white'}`} href="/admin">
+                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${(pathname === '/admin') && 'text-white'}`} href="/admin">
                     {/* <span className='w-4 h-4 bg-white flex justify-center items-center rounded border'>
                         <MdTrendingUp color='#000000' size={"0.6rem"} />
                     </span>  */}
@@ -47,6 +48,10 @@ const SideNav = ({ }) => {
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("ambassadors") && 'text-white'}`} href={"/admin/ambassadors"}>
                     <AiTwotoneGold size={"1.3rem"} />
                     Ambassadors
+                </Link>
+                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("cms") && 'text-white'}`} href={"/admin/cms"}>
+                    <AiTwotoneGold size={"1.3rem"} />
+                    CMS
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("feedbacks") && 'text-white'}`} href={"/admin/feedbacks"}>
                     <MdOutlineFeedback size={"1.3rem"} />
