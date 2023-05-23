@@ -60,7 +60,7 @@ const AddAmbassador = () => {
             <link rel="icon" href="/faviconimg.png" />
         </Head>
         {(loading || uploadingImage) && <Loader modalOpen={true} />}
-        <div className='p-4 py-12 sm:px-12'>
+        <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto'>
             <div className="flex items-center gap-4 justify-between mb-16">
                 <h1 className='text-3xl text-black/70 font-argentinum'>Add Ambassadors</h1>
                 <Button onClick={() => router.push("/admin/ambassadors")} className="text-white px-4 sm:px-6 py-2 rounded-md text-sm">View Ambassadors</Button>
@@ -102,7 +102,7 @@ const AddAmbassador = () => {
                 </div> */}
                 <div className="flex items-center gap-4 mt-8">
                     <Button type='submit' className="text-white px-4 sm:px-6 py-2 rounded-md text-sm">Add ambassador</Button>
-                    <button onClick={() => dispatch({ type: 'reset' })} className="text-black/60 px-4 sm:px-6 py-2 rounded-md text-sm">Clear</button>
+                    <button onClick={() => dispatch({ type: 'reset' })} className="text-black/60 px-4 sm:px-6 py-2 rounded-xl text-sm">Clear</button>
                 </div>
             </form>
         </div>

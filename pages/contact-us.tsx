@@ -42,7 +42,7 @@ const ContactUs = () => {
     <>
         <Header />
         {(loading) && <Loader modalOpen={true} />}
-        <section className='section mt-16 md:mt-20 md:pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
+        <section className='section top-section grad-to-right grad-to-right flex flex-col gap-3 text-white'>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white font-argentinum mb-3">Contact Us <br /> Address</h1>
             {/* <span className='font-bold'>Home / Contact Us</span> */}
         </section> 
@@ -89,7 +89,7 @@ const ContactUs = () => {
                             <label htmlFor="message" className="text-xs font-bold">Message</label>
                             <textarea required onChange={(e) => dispatch({ type: 'message', payload: e.target.value })} value={feedback?.message} rows={5} cols={10} id='message' placeholder="message" className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:opacity-35 placeholder:text-xs text-xs" />
                         </div>
-                        <Button className="px-4 py-2 text-white bg-primary rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Submit</Button>
+                        <Button className="px-4 py-2 text-white bg-primary rounded-xl hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Submit</Button>
                     </form>
                 </div>
             </div>

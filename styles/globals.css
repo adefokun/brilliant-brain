@@ -15,6 +15,22 @@
     }
 }
 
+.top-section {
+    margin-top: 65px/* 64px */;
+    padding-top: 2rem/* 32px */;
+    padding-bottom: 2rem/* 32px */;
+}
+
+@media screen and (min-width: 768px) {
+    .top-section {
+      margin-top: 89px;
+      padding-top: 3rem/* 48px */;
+      padding-bottom: 3rem/* 48px */;
+    }
+}
+
+
+
 .grad-to-bottom {
     background-image: linear-gradient(to bottom, #D42F27,#D93C29,#F6792E);
   }

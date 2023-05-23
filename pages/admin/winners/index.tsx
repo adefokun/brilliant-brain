@@ -109,10 +109,10 @@ const colums = [
         <link rel="icon" href="/faviconimg.png" />
       </Head>
       {loading && <Loader modalOpen={true} />}
-      <div className='p-4 pt-12 sm:px-12 h-full'>
+      <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto'>
         <div className="flex items-center gap-4 justify-between mb-16">
             <h1 className='text-3xl text-black/70 font-argentinum'>Winners</h1>
-            <Button onClick={() => router.push("/admin/winners/add")} className="text-white px-4 sm:px-6 py-2 rounded-md text-sm">Add Winners</Button>
+            <Button onClick={() => router.push("/admin/winners/add")} className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">Add Winners</Button>
         </div>
         <Table<IWinner> data={data} columns={colums} className={''} />
       </div>
@@ -122,4 +122,5 @@ const colums = [
 
 
 export default AuthHOC(Winners)
+// h-full overflow-y-auto
 
