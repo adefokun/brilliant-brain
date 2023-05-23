@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
       <footer className=''>
-        <div className='py-12 md:py-16 section grid grid-cols-2 gap-12 md:grid-cols-4 grad-to-right text-white'>
+        <div className='py-12 md:py-20 section grid grid-cols-2 gap-12 md:grid-cols-4 grad-to-right text-white'>
             <div>
               <h4 className='md:text-lg font-extrabold mb-3'>Company</h4>
               <ul className='text-footer-gray text-sm flex flex-col gap-2'>

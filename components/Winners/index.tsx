@@ -30,7 +30,7 @@ const Winners = () => {
     {/* <div className="flex flex-col items-center gap-4">
       <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-10">Scholarship <br /> Winners</h3>
     </div> */}
-    <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-8 mb-8 text-center">      
+    <div className="flex flex-col md:flex-row flex-wrap items-center md:justify-center gap-8 text-center">      
         {winners.slice(0,3)?.map((winner, index) => (
           <div key={index} className="max-w-sm flex flex-col gap-4 items-center">
           <Image width={100} height={100} alt='' src={winner?.image} className="h-44 w-44 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full bg-black/10" />

@@ -9,7 +9,7 @@ const AboutUs = () => {
   return (
     <div className='overflow-hidden'>
         <Header />
-        <section className='section mt-16 md:mt-20 md:pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
+        <section className='section top-section grad-to-right grad-to-right flex flex-col gap-3 text-white'>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white font-argentinum mb-3">About Us</h1>
             <span className='font-bold'>Home / About Us</span>
         </section>

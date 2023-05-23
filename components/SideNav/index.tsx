@@ -16,15 +16,15 @@ const SideNav = ({ }) => {
   return (
     <div className='hidden sm:flex flex-col justify-between grad-to-bottom text-white h-screen min-w-[240px] w-60 pb-4 overflow-hidden'>
         <div>
-            <div className='w-full flex flex-col items-center gap-8 py-8 border-b border-white/10'>
+            <div className='w-full flex flex-col items-center text-center gap-5 py-8 border-b border-white/10'>
                 <Link href={"/"}>
                     <Image src={Logo} className='w-12 h-12 md:h-12 bg-white' alt='' />
                 </Link>
                 <div className="flex items-center text-xs gap-2">
                     {/* <span className='w-6 h-6 bg-white/30' /> */}
-                    <div className="flex flex-col text-xs">
-                        <span className=''>Administrator</span>
-                        <span className='text-white/80 text-[10px]'>admin@gmail.com</span>
+                    <div className="flex flex-col">
+                        <span className='font-bold text-sm'>Administrator</span>
+                        <span className='text-white/80 text-[10px] font-bold'>admin@gmail.com</span>
                     </div>
                 </div>
             </div>
