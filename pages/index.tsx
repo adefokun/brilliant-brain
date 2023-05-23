@@ -66,7 +66,7 @@ export default function Home() {
       <div className="">
         {loading && <Loader modalOpen={true} />}
         <Header />
-        <section className="section min-h-screen pt-24 md:pt-32">
+        <section className="section top-section min-h-screen pt- md:pt-">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div className="order-2 md:order-1 flex flex-col gap-4">
               <p className="text-primary font-bold text-lg mb-3">STUDY WITH US</p>
@@ -90,7 +90,7 @@ export default function Home() {
             <BiCircle className="text-xs rounded-full border-none text-primary bg-primary" />
           </div>
         </section>
-        <section className="section mb-32">
+        <section className="section pb-8 md:pb-12">
           <div className="grid md:grid-cols-2 gap-4 md:gap-12">
             <div className="flex-1 order-2 md:order-1 flex flex-col gap-4">
               <p className="text-primary font-bold text-xl mb-3">About Us</p>
@@ -107,14 +107,14 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section mb-32 py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
+        <section className="section py-12 md:py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
           <div className="flex flex-col items-center gap-4 max-w-3xl text-center">
             <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-2">Looking for a bright new future. It starts here</h3>
             <p className="mb-4">We understand that you&#39;re looking for a bright new future, filled with endless possibilities and opportunities for personal and professional growth. Your quest for a better tomorrow starts right here, with us.</p>
             <button className="p-5 rounded-full font-bold bg-white text-black py-3 md:py-5 px-6 text-sm md:text-base md:px-10">Get in Touch</button>
           </div>
         </section>
-        <section className="section mb-32 text-center">
+        <section className="section py-12 md:py-20 text-center">
           <div className="flex flex-col items-center gap-4 max-w-2xl mx-auto mb-12">
             <h2 className="text-primary font-bold text-2xl">Our Programmes</h2>
             <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">
@@ -144,7 +144,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section mb-32">
+        <section className="section py-12 md:py-20">
           <div className="flex flex-col items-center gap-4 max-w-xl mx-auto mb-12 text-center">
             <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Which One is Suitable For You</h3>
             <p>Are you a student that needs a scholarship? or a teacher who wish to Upgrade his/her Knowledge </p>
@@ -169,7 +169,7 @@ export default function Home() {
                   <p>Personal and professional growth opportunities</p>
                 </div>
               </div>
-              <Button className="md:px-8 w-fit rounded-3xl mx-auto text-white py-3 md:py-4 px-5 text-sm md:text-base">View Details</Button>
+              <Button className="md:px-8 w-fit rounded-full mx-auto text-white py-3 md:py-4 px-5 text-sm md:text-base whitespace-nowrap font-semibold">View Details</Button>
             </div>
             <div className="max-w-md p-4 px-6 py-8 md:p-20 shadow-xl flex flex-col justify-center rounded-xl grad-to-right text-white">
               <div className="max-w-sm flex flex-col gap-4 justify-center text-center mb-8">
@@ -190,15 +190,15 @@ export default function Home() {
                   <p>Networking and collaboration opportunities</p>
                 </div>
               </div>
-              <Button className="md:px-8 w-fit rounded-3xl mx-auto text-white py-3 md:py-4 px-5 text-sm md:text-base whitespace-nowrap">View Details</Button>
+              <Button gradient='bg-white' className="md:px-8 w-fit rounded-full mx-auto bg-white text-primary py-3 md:py-4 px-5 text-sm md:text-base whitespace-nowrap font-semibold">View Details</Button>
             </div>
           </div>
         </section>
        {/* <Ambassadors /> */}
         
         {/* <Winners /> */}
-        <section className="section mb-32 grad-to-right">
-          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white pt-12 md:pt-16">
+        <section className="section py-12 md:py-20 grad-to-right">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white">
             <div className="flex-1 flex flex-col gap-4 md:pb-16">
               <h2 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Become Part of Us on Our Platform</h2>
               <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
@@ -220,7 +220,7 @@ export default function Home() {
                     <p>Postgraduate Education</p>
                   </div>
               </div>
-              <button className="bg-yellow-400 text-white text-sm md:text-base px-6 py-3 rounded-lg w-fit">Apply Now</button>
+              <button className="bg-yellow-400 text-white text-sm md:text-base px-6 py-3 rounded-xl w-fit">Apply Now</button>
             </div>
             <div className="w-full h-full min-h-96 md:min-h-[500px] relative flex justify-center items-center">
               <div className="absolute -z-0 flex justify-center items-center bg-yellow-400 rounded-full w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]"></div>
@@ -228,7 +228,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section mb-32">
+        <section className="section py-12 md:py-20">
           <h2 className="text-3xl md:text-5xl font-extrabold capitalize mb-12 text-center">News & <br />Updates</h2>
           <div className="grid md:grid-cols-3 md:h-[500px] gap-8">
             <div className="w-full h-96 flex flex-col gap-2 place-self-start">
@@ -258,8 +258,8 @@ export default function Home() {
 
           </div>
         </section>
-        <section className="section mb-32 grad-to-right">
-          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white py-12 md:py-16">
+        <section className="section py-12 md:py-20 grad-to-right">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white">
             <div className="flex-1 flex flex-col gap-4">
               <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Sign up for Our Scholarship Program Now</h3>
               <p className="text-sm md:text-base mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial</p>

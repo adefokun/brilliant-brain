@@ -14,7 +14,7 @@ const RegisterSuccess = () => {
                     Thank you for signing up
                 </p>
             </div>
-            <Link href="/login" className="text-lg font-bold hover:underline grad-to-right px-8 py-4 rounded-lg text-white">
+            <Link href="/login" className="text-lg font-bold hover:underline grad-to-right px-8 py-4 rounded-xl text-white">
                 Login to your Account
             </Link>
         </div>

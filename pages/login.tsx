@@ -109,7 +109,7 @@ const Login = () => {
                                 <span className='w-4 h-4 bg-white border border-1'></span>
                                 <span className='text-xs text-black/70'>Remember me</span>
                             </div>
-                            <Button type='submit' gradient='grad-to-top' className="px-4 py-3 text-sm font-bold text-white rounded-md hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Login</Button>
+                            <Button type='submit' gradient='grad-to-top' className="px-4 py-3 text-sm font-bold text-white rounded-xl hover:bg-primary-hover focus:bg-primary-hover focus:outline-none">Login</Button>
                             <Link href="/register" className="text-xs hover:underline">
                                 Dont have an account? Register
                             </Link>

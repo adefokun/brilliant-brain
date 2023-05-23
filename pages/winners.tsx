@@ -12,8 +12,8 @@ const Winners = () => {
   return (
     <>
         <Header />
-        <section className='section mt-16 md:mt-20 md:pt-20 py-8 grad-to-right flex flex-col gap-3 text-white'>
-            <h1 className="text-4xl text-center md:text-5xl font-extrabold text-white font-argentinum mb-3">Scholarship <br />  Winners</h1>
+        <section className='section top-section grad-to-right flex flex-col gap-3 text-white'>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white font-argentinum mb-3">Scholarship  Winners</h1>
         </section> 
         <WinnerList />
         <Footer />
