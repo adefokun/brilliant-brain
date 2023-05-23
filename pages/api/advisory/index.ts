@@ -2,12 +2,22 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '@/lib/dbConnection';
 import Advisory from '@/models/AdvisoryModel';
 import { IAdvisory } from '@/interfaces';
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "../auth/[...nextauth]"
 
 // ----------------------------------------------------------------------
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     await dbConnect();
+
+    const session = await getServerSession(req, res, authOptions)
+    // console.log({session})
+
+    if (!session) {
+      return res.status(401).json({ message: "You must be signed in to access this" });
+    } 
+
 
     if (req.method === 'GET') {
       const advisory = await Advisory.find({}).lean();

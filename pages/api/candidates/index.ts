@@ -2,6 +2,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '@/lib/dbConnection';
 import Candidate from '@/models/CandidateModel';
 import { ICandidate } from '@/interfaces';
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "../auth/[...nextauth]"
+
 
 
 // ----------------------------------------------------------------------
@@ -9,6 +12,13 @@ import { ICandidate } from '@/interfaces';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     await dbConnect();
+
+    const session = await getServerSession(req, res, authOptions)
+    console.log({candidate: session})
+
+    if (!session) {
+      return res.status(401).json({ message: "You must be signed in to access this" });
+    } 
     
     if (req.method === 'GET') {
       const candidates = await Candidate.find({}).lean();
