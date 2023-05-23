@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { MdOutlineDashboardCustomize, MdLogout, MdOutlineFeedback } from 'react-icons/md'
 import { RiTeamLine } from 'react-icons/ri'
 import { GiCrownedSkull } from 'react-icons/gi'
-import { AiTwotoneGold } from 'react-icons/ai'
+import { AiTwotoneGold, AiOutlineHome } from 'react-icons/ai'
 import Logo from "@/assets/logo-tp.png"
 import Image from 'next/image'
 import { useSession, signIn, signOut } from "next-auth/react"
@@ -50,8 +50,8 @@ const SideNav = ({ }) => {
                     Ambassadors
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("cms") && 'text-white'}`} href={"/admin/cms"}>
-                    <AiTwotoneGold size={"1.3rem"} />
-                    CMS
+                    <AiOutlineHome size={"1.3rem"} />
+                    Home Content
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("feedbacks") && 'text-white'}`} href={"/admin/feedbacks"}>
                     <MdOutlineFeedback size={"1.3rem"} />
