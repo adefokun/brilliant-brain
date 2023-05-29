@@ -57,19 +57,19 @@ const ContactUs = () => {
                     <div>
                         <h3 className="text-xl font-bold text-gray-800 font-argentinum mb-3">Phone Number</h3>
                         <div className="text-sm text-[#6D6D6D] font-medium flex flex-col">
-                            <span>+234 000 000 0000</span>
-                            <span>+234 000 000 0000</span>
-                            <span>+234 000 000 0000</span>
+                            <a href='tel:+2347001020300'>+2347001020300</a>
+                            <a href='tel:+2347030858742'>+2347030858742</a>
+                            <a href='tel:+2348024419117'>+2348024419117</a>
                         </div>
                     </div>
                     <div>
                         <h3 className="text-xl font-bold text-gray-800 font-argentinum mb-3">Email/Website Address</h3>
                         <div className="text-sm text-[#6D6D6D] font-medium flex flex-col">
-                            <a href="www.nick.com" className="hover:text-primary">
-                                www.nicholas.com
+                            <a href="www.bbscholarships.org" className="hover:text-primary">
+                                www.bbscholarships.org
                             </a>
-                            <a href="mailto:nic" className="hover:text-primary">
-                                info@nic.org
+                            <a href="mailto:info@bbscholarships.org" className="hover:text-primary">
+                                info@bbscholarships.org
                             </a>
                         </div>
                     </div>
