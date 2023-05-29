@@ -41,6 +41,25 @@ export interface IAdvisory {
     number: string;
     title: string;
     image: string;
+    description: string;
+}
+
+export interface IFaqs {
+    question: string;
+    answer: string;
+}
+
+export interface IAboutUs {
+    _id?: mongoose.ObjectId | null;
+    first_section: {
+        image: string,
+        text: string,
+      },
+    second_section: {
+        image: string,
+        text: string,
+    }
+    third_section: string
 }
 
 export interface ICms {
