@@ -166,7 +166,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section py-12 md:py-20">
+        {/* <section className="section py-12 md:py-20">
           <div className="flex flex-col items-center gap-4 max-w-xl mx-auto mb-12 text-center">
             <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Which One is Suitable For You</h3>
             <p>Are you a student that needs a scholarship? or a teacher who wish to Upgrade his/her Knowledge </p>
@@ -215,7 +215,7 @@ export default function Home() {
               <Button gradient='bg-white' className="md:px-8 w-fit rounded-full mx-auto bg-white text-primary py-3 md:py-4 px-5 text-sm md:text-base whitespace-nowrap font-semibold">View Details</Button>
             </div>
           </div>
-        </section>
+        </section> */}
        {/* <Ambassadors /> */}
         
         {/* <Winners /> */}

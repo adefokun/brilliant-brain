@@ -51,7 +51,7 @@ const AddFaq = () => {
         <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto'>
             <div className="flex items-center gap-4 justify-between mb-16">
                 <h1 className='text-3xl text-black/70 font-argentinum'>Faqs</h1>
-                <Button onClick={() => router.push("/admin/faqs")} className="text-white px-4 sm:px-6 py-2 rounded-md text-sm">View Faqs</Button>
+                <Button onClick={() => router.push("/admin/faqs")} className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">View Faqs</Button>
             </div>
             <form className="flex flex-col gap-4" onSubmit={addMember}>
                 <div className="flex flex-col gap-1">

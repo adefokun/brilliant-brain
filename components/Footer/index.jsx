@@ -50,6 +50,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+          {/* <p className='py-4 md:py-6 section grad-to-right text-white text-center'>© Copyright © 2022 Brilliant Brain Scholarships Scheme Is Managed By Meekhaael Solutions Limited</p> */}
           <section className="section py-3">
             <div className="flex items-center gap-7">
               <Link href={"/"}>

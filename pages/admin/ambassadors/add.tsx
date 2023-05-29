@@ -63,7 +63,7 @@ const AddAmbassador = () => {
         <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto'>
             <div className="flex items-center gap-4 justify-between mb-16">
                 <h1 className='text-3xl text-black/70 font-argentinum'>Add Ambassadors</h1>
-                <Button onClick={() => router.push("/admin/ambassadors")} className="text-white px-4 sm:px-6 py-2 rounded-md text-sm">View Ambassadors</Button>
+                <Button onClick={() => router.push("/admin/ambassadors")} className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">View Ambassadors</Button>
             </div>
             <form className="flex flex-col gap-4" onSubmit={addAmbassador}>
                 <div className="flex flex-col gap-1">

@@ -25,6 +25,7 @@ const Header = () => {
             <li><Link href="/ambassadors" className={`pb-1.5 px-1 font-medium`}>Ambassadors</Link></li>
             {/* <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Available Scholarship</Link></li> */}
             <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
+            <li><Link href="/faqs" className={`pb-1.5 px-1 font-medium`}>FAQs</Link></li>
             <li><Link href="/login" className={`pb-1.5 px-1 font-medium`}>Login</Link></li>
             {/* {!user ? 
             <li><Link href="/login" className={`${pathname==="/login" && "text-green border-b-2"} pb-1.5 px-1 font-medium`}>Login</Link></li>
@@ -53,6 +54,7 @@ const Header = () => {
               <li><Link href="/ambassadors" className={`pb-1.5 px-1 font-medium`}>Ambassadors</Link></li>
               {/* <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Available Scholarship</Link></li> */}
               <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
+              <li><Link href="/faqs" className={`pb-1.5 px-1 font-medium`}>FAQs</Link></li>
               <li><Link onClick={() => signIn()} href="/login" className={`pb-1.5 px-1 font-medium`}>Login</Link></li>
               {/* {!user ? 
               <li><Link href="/login" className={`${pathname==="/login" && "text-green"} pb-1.5 px-1 font-medium`}>Login</Link></li>

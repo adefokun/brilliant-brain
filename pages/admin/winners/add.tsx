@@ -65,7 +65,7 @@ const AddWinner = () => {
             <form className="flex flex-col gap-4" onSubmit={addWinner}>
                 <div className="flex flex-col gap-1">
                     <label htmlFor="name" className="text-black/70">Name</label>
-                    <input required onChange={(e) => dispatch({ type: 'name', payload: e.target.value })} value={winner?.name} type="text" name="name" id="name" className="border border-black/20 rounded-md p-2" />
+                    <input required onChange={(e) => dispatch({ type: 'name', payload: e.target.value })} value={winner?.name} type="text" name="name" id="name" className="border border-black/20 rounded-xl p-2" />
                 </div>
                 <div className="flex flex-col gap-1">
                     <label htmlFor="email" className="text-black/70">Email</label>

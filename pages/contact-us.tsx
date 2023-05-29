@@ -52,7 +52,8 @@ const ContactUs = () => {
                     <Image src={ContactImg} alt="" className="h-40 w-full max-w-sm mb-8" />
                     <div>
                         <h3 className="text-xl font-bold text-gray-800 font-argentinum mb-3">Office Address</h3>
-                        <p className="text-sm text-[#6D6D6D] font-medium">Office Address:<br /> Off Brilliant Brain Avenue, <br /> Brilliant Brain Estate</p>
+                        <p className="text-sm text-[#6D6D6D] font-medium">Office Address:<br /> 13B, Mambila Street<br /> Off Aso Drive
+Maitama, FCT-Abuja, Nigeria </p>
                     </div>
                     <div>
                         <h3 className="text-xl font-bold text-gray-800 font-argentinum mb-3">Phone Number</h3>

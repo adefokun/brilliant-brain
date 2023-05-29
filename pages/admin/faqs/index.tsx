@@ -40,6 +40,12 @@ const colums = [
       filter: true,
       sort: true,
     },
+     extra: true,
+    custom: (val: string, meta: any) => {
+      return  (
+          <p className="text-sm text-black/70">{val.slice(0, 40)}...</p>
+      )
+    },
   },
   {
     name: "answer",
@@ -47,6 +53,12 @@ const colums = [
     options: {
       filter: true,
       sort: false,
+    },
+    extra: true,
+    custom: (val: string, meta: any) => {
+      return  (
+          <p className="text-sm text-black/70">{val.slice(0, 40)}...</p>
+      )
     },
   },
   {

@@ -28,7 +28,7 @@ const Ambassadors = () => {
     <section className="section pt-20 pb-20 text-center">
       <div className="flex flex-col items-center gap-4 max-w-3xl mx-auto text-center">
         <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Our <br /> Ambassadors</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, explicabo recusandae necessitatibus voluptas nobis voluptatum nesciunt incidunt facilis, a provident dicta repudiandae ratione mollitia fuga deleniti! Alias explicabo aliquid repellat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad repellendus adipisci qui ratione excepturi unde inventore aspernatur. Accusamus numquam, officia laboriosam similique nemo repellat libero consequatur eum minima quas doloremque. </p>
+        <p>We are delighted to introduce our exceptional scholarship ambassadors, a group of outstanding individuals who have distinguished themselves through their remarkable achievements and unwavering commitment to excellence. Chosen from a pool of highly talented applicants, these scholars have demonstrated exceptional academic prowess, leadership abilities, and a strong dedication to their communities. </p>
       </div>
       <div className="flex flex-col md:flex-row md:justify-center items-center gap-8 pt-12">
         {ambassadors?.map((ambassador, index) => (
@@ -46,36 +46,5 @@ const Ambassadors = () => {
   )
 }
 
-// get server side props
-export const getServerSideProps = async () => {
-  let data;
-  try {
-    const res = await fetch('/api/ambassadors')
-    data = await res.json()
-    if (!res.ok) {
-      throw new Error(data?.message || 'An error Occured')
-    }
-
-  } catch (error: any) {
-    // console.log({error})
-    return {
-      props: {
-          title: "Login",
-          status: 'error',
-          message: error?.message || 'An error Occured'
-      }
-    }
-
-  }
-    
-  return {
-            props: {
-                title: "Ambassadors",
-                status: 'success',
-                data
-            }
-        }
-
-}
 
 export default Ambassadors
