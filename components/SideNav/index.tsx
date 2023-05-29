@@ -2,8 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MdOutlineDashboardCustomize, MdLogout, MdOutlineFeedback } from 'react-icons/md'
-import { RiTeamLine } from 'react-icons/ri'
+import { RiTeamLine, RiQuestionnaireLine } from 'react-icons/ri'
 import { GiCrownedSkull } from 'react-icons/gi'
+import { TbSitemap } from 'react-icons/tb'
 import { AiTwotoneGold, AiOutlineHome } from 'react-icons/ai'
 import Logo from "@/assets/logo-tp.png"
 import Image from 'next/image'
@@ -54,7 +55,7 @@ const SideNav = ({ }) => {
                     Home Content
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("cms") && 'text-white'}`} href={"/admin/about"}>
-                    <AiOutlineHome size={"1.3rem"} />
+                    <TbSitemap size={"1.3rem"} />
                     About Us
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("feedbacks") && 'text-white'}`} href={"/admin/feedbacks"}>
@@ -62,7 +63,7 @@ const SideNav = ({ }) => {
                     Feedbacks
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("faqs") && 'text-white'}`} href={"/admin/faqs"}>
-                    <MdOutlineFeedback size={"1.3rem"} />
+                    <RiQuestionnaireLine size={"1.3rem"} />
                     FAQs
                 </Link>
                 {/* <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 text-white`} href={"/users/"}>
