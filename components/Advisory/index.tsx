@@ -38,8 +38,8 @@ const Advisory = () => {
                   <h4 className="text-sm mb-3">{advisory?.name}</h4>
                   <span className="text-[#6D6D6D] text-sm font-extrabold">{advisory?.title}</span>
                 </div>
-              </div>
-              <div className="flex flex-col gap-2 text-[#6D6D6D] text-sm md:text-left flex-[3_1_0%]">
+              </div> 
+              <div className="flex flex-col gap-2 text-[#6D6D6D] font-argentinum text-xs md:text-left flex-[3_1_0%]">
                 {advisory?.description?.split('\n').map((text: string, i: number) => (
                         <p key={i}>{text}</p>
                   ))}
