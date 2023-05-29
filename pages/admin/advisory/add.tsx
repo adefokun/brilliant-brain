@@ -17,10 +17,11 @@ const initialState: IAdvisory = {
     name: '',
     image: '',
     number: '',
-    title: ''
+    title: '',
+    description: '',
 }
 
-type IAction = 'email' | 'name' | 'image' | 'number' | 'title' | 'reset'
+type IAction = 'email' | 'name' | 'image' | 'number' | 'title' | 'description' | 'reset' 
 
 const AddBoardMember = () => {
     const [advisory, dispatch] = useReducer((state: IAdvisory, action: IReducerAction<IAction>) => {
@@ -44,7 +45,7 @@ const AddBoardMember = () => {
         post(advisory)
     }
 
-    
+
     useEffect(() => {
         if (url) {
             dispatch({ type: 'image', payload: url })
@@ -62,7 +63,7 @@ const AddBoardMember = () => {
         <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto'>
             <div className="flex items-center gap-4 justify-between mb-16">
                 <h1 className='text-3xl text-black/70 font-argentinum'>Advisory Board</h1>
-                <Button onClick={() => router.push("/admin/advisory")} className="text-white px-4 sm:px-6 py-2 rounded-md text-sm">View Advisory</Button>
+                <Button onClick={() => router.push("/admin/advisory")} className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">View Advisory</Button>
             </div>
             <form className="flex flex-col gap-4" onSubmit={addMember}>
                 <div className="flex flex-col gap-1">
@@ -82,33 +83,17 @@ const AddBoardMember = () => {
                     {/* {uploadingImage && <p>Uploading Image {progress}%</p>} */}
                 </div>
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="number" className="text-black/70">number</label>
+                    <label htmlFor="number" className="text-black/70">Phone</label>
                     <input required onChange={(e) => dispatch({ type: 'number', payload: e.target.value })} value={advisory?.number} type="tel" name="number" id="number" className="border border-black/20 rounded-md p-2" />
                 </div>
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="title" className="text-black/70">title</label>
+                    <label htmlFor="title" className="text-black/70">Title</label>
                     <input required onChange={(e) => dispatch({ type: 'title', payload: e.target.value })} value={advisory?.title} type="text" name="title" id="title" className="border border-black/20 rounded-md p-2" />
                 </div>
-                {/* <input onChange type="file" name="image" id="image" className="border border-black/20 rounded-md p-2" /> */}
-                {/* <div className="flex flex-col gap-1">
-                    <label htmlFor="title" className="text-black/70">title</label>
-                    <select required onChange={(e) => dispatch({ type: 'title', payload: e.target.value })} value={advisory?.title} name="title" id="title" className="border border-black/20 rounded-md p-2">
-                        <option value="">--</option>
-                        <option value="chairman">Chairman</option>
-                        <option value="member">Secondary</option>
-                        <option value="Undergraduate">Undergraduate</option>
-                        <option value="Postgraduate">Postgraduate</option>
-                    </select>
-                </div> */}
-                {/* <div className="flex flex-col gap-1">
-                    <label htmlFor="level" className="text-black/70">Level</label>
-                    <select required onChange={(e) => dispatch({ type: 'email', payload: e.target.value })} value={advisory?.name} name="level" id="level" className="border border-black/20 rounded-md p-2">
-                        <option value="">--</option>
-                        <option value="1">Level 1</option>
-                        <option value="2">Level 2</option>
-                        <option value="3">Level 3</option>
-                    </select>
-                </div> */}
+                <div className="flex flex-col gap-1">
+                    <label htmlFor="description" className="text-black/70">Description</label>
+                    <textarea rows={5} required onChange={(e) => dispatch({ type: 'description', payload: e.target.value })} value={advisory?.description} name="description" id="description" className="border border-black/20 rounded-md p-2" />
+                </div>
                 <div className="flex items-center gap-4 mt-8">
                     <Button type='submit' className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">Add advisory</Button>
                     <button onClick={() => dispatch({ type: 'reset' })} className="text-black/60 px-4 sm:px-6 py-2 rounded-md text-sm">Clear</button>

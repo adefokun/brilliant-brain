@@ -22,6 +22,10 @@ const AdvisorySchema: Schema = new Schema<IAdvisory>({
   image: {
     type: String,
     required: true
+  },
+  description: {
+      type: String,
+      required: true,
   }
 });
 

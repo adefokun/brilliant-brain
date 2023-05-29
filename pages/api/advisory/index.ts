@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(400).json({ message: 'Request Method Not allowed' })
       }
 
-      if (!req.body.email || !req.body.name || !req.body.title || !req.body.image || !req.body.number) {
+      if (!req.body.email || !req.body.name || !req.body.title || !req.body.image || !req.body.number || !req.body.description) {
         return res.status(400).json({ message: 'Fill all required fields' })
       }
       
@@ -38,7 +38,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         name: req.body.name,
         image: req.body.image,
         number: req.body.number,
-        title: req.body.title
+        title: req.body.title,
+        description: req.body.description,
     }
 
       const advisory = await Advisory.create(data);
