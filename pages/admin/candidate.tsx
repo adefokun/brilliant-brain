@@ -7,8 +7,6 @@ import { ICandidate } from "@/interfaces"
 import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import Loader from '@/components/Loader';
-import Image from 'next/image';
-import WelcomeImg from '@/assets/welcome.svg'
 
 
 const Home = () => {
@@ -112,12 +110,9 @@ const columns = [
         <link rel="icon" href="/faviconimg.png" />
       </Head>
       {(loading || posting) && <Loader modalOpen={true} />}
-      <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto flex justify-center items-center flex-col'>
-        <h1 className='text-3xl text-black/70 text-center font-argentinum  mb-12'>Welcome to the Admin Dashboard</h1>
-        <div className="flex justify-center">
-          <Image src={WelcomeImg} alt='welcome image' className='w-2/3 md:w-1/2 md:h[90%]' />
-        </div>
-        {/* <Table<ICandidate> data={data} columns={columns} className={''} /> */}
+      <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto'>
+        <h1 className='text-3xl text-black/70 font-argentinum  mb-12'>Candidates</h1>
+        <Table<ICandidate> data={data} columns={columns} className={''} />
       </div>
     </AdminLayout>
   );
