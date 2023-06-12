@@ -82,6 +82,7 @@ export interface IAmbassador {
     number: string;
     title: string;
     image: string;
+    description: string;
 }
 
 export interface ITableColumn {
@@ -105,6 +106,7 @@ export interface IWinner {
 export interface IReducerAction<T> {
     type: T;
     payload?: string | { [key: string]: string };
+    data?: string | { [key: string]: string };
     name?: string;
 }
 

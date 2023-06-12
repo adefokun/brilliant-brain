@@ -91,13 +91,13 @@ export default function Home() {
         <section className="section top-section min-h-screen pt- md:pt-">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div className="order-2 md:order-1 flex flex-col gap-4">
-              <p className="text-primary font-bold text-lg mb-3">STUDY WITH US</p>
+              {/* <p className="text-primary font-bold text-lg mb-3">STUDY WITH US</p> */}
               <h1 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">{data?.hero?.header || "Free Scholarship For Every Bright Student"}</h1>
               <p className="md:text-lg">{data?.hero?.text || "The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education"}</p>
-              <div className="flex justify-between items-center bg-gray-100 rounded-xl max-w-md text-sm md:text-base">
+              <a href ="#signup" className="flex justify-between items-center bg-gray-100 rounded-xl max-w-md text-sm md:text-base">
                 <p className="ml-4">Lets get started</p>
                 <Button className="rounded-xl text-white py-3 md:py-4 px-5">Connect with us</Button>
-              </div>
+              </a>
             </div>
             <div className="w-full min-h-96 order-1 md:order-2 flex flex-col justify-end relative">
               <Image width={100} height={100} src={data?.hero?.image || HeroImg} alt="" className="object-contain object-top w-full h-full max-h-[450px]" />
@@ -106,11 +106,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center gap-2 py-12 mt-4">
-            <BiCircle className="text-xs rounded-full border-none text-[#928E8E] bg-[#928E8E]" />
-            <BiCircle className="text-xs rounded-full border-none text-[#928E8E] bg-[#928E8E]" />
-            <BiCircle className="text-xs rounded-full border-none text-primary bg-primary" />
-          </div>
+          {/* <div className="flex justify-center gap-2 py-12 mt-4">
+            <span className="text-xs w-4 h-1 rounded-full border-none text-primary bg-primary" />
+          </div> */}
         </section>
         <section className="section pb-8 md:pb-12">
           <div className="grid md:grid-cols-2 gap-4 md:gap-12">
@@ -138,9 +136,9 @@ export default function Home() {
         </section>
         <section className="section py-12 md:py-20 text-center">
           <div className="flex flex-col items-center gap-4 max-w-2xl mx-auto mb-12">
-            <h2 className="text-primary font-bold text-2xl">Our Programmes</h2>
+            {/* <h2 className="text-primary font-bold text-2xl">Our Programmes</h2> */}
             <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">
-              Pick Your Educational Level
+              Available Scholarship Levels
             </h3>
           </div>
           <div className="grid md:grid-cols-4 gap-8">
@@ -277,7 +275,7 @@ export default function Home() {
                 Read more
               </Link>
             </div>
-
+            <span id="signup"></span>
           </div>
         </section>
         <section className="section py-12 md:py-20 grad-to-right">
