@@ -9,6 +9,8 @@ import { useRouter } from 'next/router';
 import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import Loader from '@/components/Loader';
+import { BiEdit } from 'react-icons/bi';
+import Link from 'next/link';
 
 
 
@@ -74,8 +76,10 @@ const colums = [
       return  (
         <div className="gap-4 justify-center">
           <button onClick={() => deleteAdvisory(meta?._id, `advisory/${meta?._id}`)} className="p-2 px-4 bg-red-600 text-white rounded-full">Delete</button>
-          {/* <BiEdit size="1.2rem" className="text-orange" />
-          <MdOutlineDelete size="1.2rem" className="text-red-400" /> */}
+          {/* <Link href={`/admin/advisory/${meta?._id}`}>
+            <BiEdit size="1.2rem" className="text-orange" />
+          </Link> */}
+          {/* <MdOutlineDelete size="1.2rem" className="text-red-400" /> */}
         </div>
       )
     },

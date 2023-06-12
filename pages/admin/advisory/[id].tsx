@@ -9,6 +9,10 @@ import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import Loader from '@/components/Loader';
 import useImage from '@/hooks/useImage';
+import dbConnect from '@/lib/dbConnection';
+import AdvisoryModel from '@/models/AdvisoryModel';
+import { NextRequest } from 'next/server';
+import { NextApiRequest } from 'next';
 
 
 
@@ -23,15 +27,17 @@ const initialState: IAdvisory = {
 
 type IAction = 'email' | 'name' | 'image' | 'number' | 'title' | 'description' | 'reset' 
 
-const AddBoardMember = () => {
+const EditBoardMember = (props: any) => {
+    console.log({propsinid: props})
     const [advisory, dispatch] = useReducer((state: IAdvisory, action: IReducerAction<IAction>) => {
         if (action.type === 'reset') return initialState
         return { ...state, [action.type]: action.payload }
     }, initialState)
     const { url, uploadImage, error: errorImage, progress, setError, loading: uploadingImage } = useImage()
 
-
     const router = useRouter()
+    const { id } = router.query
+
     const { loading, error, data, post } = usePost({ 
         api: "/advisory",
         onSuccess: () => {
@@ -62,7 +68,7 @@ const AddBoardMember = () => {
         {(loading || uploadingImage) && <Loader modalOpen={true} />}
         <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto'>
             <div className="flex items-center gap-4 justify-between mb-16">
-                <h1 className='text-3xl text-black/70 font-argentinum'>Add Board Member</h1>
+                <h1 className='text-3xl text-black/70 font-argentinum'>Edit Board Mmber</h1>
                 <Button onClick={() => router.push("/admin/advisory")} className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">View Advisory</Button>
             </div>
             <form className="flex flex-col gap-4" onSubmit={addMember}>
@@ -105,4 +111,40 @@ const AddBoardMember = () => {
 }
 
 
-export default AuthHOC(AddBoardMember)
+export default AuthHOC(EditBoardMember)
+
+
+export const getServerSideProps = async (req: NextApiRequest) => {
+    let advisory = {}
+    
+    try {
+        const { id } = req.query 
+        if (!id) return {
+            props: {
+                title: 'advisory',
+                advisory: {},
+                status: 'failed'
+            }
+        }
+        await dbConnect()
+        const res = await AdvisoryModel.findById(id).lean();
+        advisory = JSON.parse(JSON.stringify(res))
+    } catch (error) {
+        console.log(error)
+        return {
+            props: {
+                title: 'advisory',
+                advisory: {},
+                status: 'failed'
+            }
+        }
+    }
+
+    return {
+        props: {
+            title: 'advisory',
+            advisory: advisory || {},
+            status: 'success'
+        }
+    }
+}

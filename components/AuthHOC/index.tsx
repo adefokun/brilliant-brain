@@ -10,7 +10,8 @@ export default function AuthHOC(
   ProtectedComponent: React.FC<any>,
 ) {
   //
-  return function AuthComp() {
+  return function AuthComp(props: any) {
+    // console.log("propsin hoc", props)
     const session = useSession()
     // console.log("session", session)
     const router = useRouter();
@@ -30,6 +31,6 @@ export default function AuthHOC(
       return null;
     }
 
-    return <ProtectedComponent user={session} />;
+    return <ProtectedComponent user={session} {...props} />;
   };
 }

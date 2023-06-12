@@ -17,19 +17,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(401).json({ message: "You must be signed in to access this" });
     } 
 
-    if (req.method !== 'DELETE') {
+    if (req.method !== 'DELETE' && req.method !== 'GET' && req.method !== 'PATCH') {
       return res.status(400).json({ message: 'Request Method Not allowed' })
     }
 
+    const { id } = req.query;
+    if (!id) return res.status(400).json({ message: 'ID is required' })
+
     if (req.method === 'DELETE') {
-        const { id } = req.query;
-    //   console.log('id', id)
-      if (!id) return res.status(400).json({ message: 'ID is required' })
+        
       const advisory = await Advisory.findByIdAndDelete(id).lean();
       console.log({ advisory })
      return res.status(200).json(advisory);
     }
-
+    else if (req.method === 'GET') {
+      const advisory = await Advisory.findById(id).lean();
+      return res.status(200).json(advisory);
+    }
+    else if (req.method === 'PATCH') {
+      const advisory = await Advisory.findByIdAndUpdate(id, req.body, { new: true }).lean();
+      return res.status(200).json(advisory);
+    }
 
   } catch (error: any) {
     console.error(error);
