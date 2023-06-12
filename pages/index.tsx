@@ -127,13 +127,13 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section py-12 md:py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
+        {/* <section className="section py-12 md:py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
           <div className="flex flex-col items-center gap-4 max-w-3xl text-center">
             <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-2">Looking for a bright new future. It starts here</h3>
             <p className="mb-4">We understand that you&#39;re looking for a bright new future, filled with endless possibilities and opportunities for personal and professional growth. Your quest for a better tomorrow starts right here, with us.</p>
             <button className="p-5 rounded-full font-bold bg-white text-black py-3 md:py-5 px-6 text-sm md:text-base md:px-10">Get in Touch</button>
           </div>
-        </section>
+        </section> */}
         <section className="section py-12 md:py-20 text-center">
           <div className="flex flex-col items-center gap-4 max-w-2xl mx-auto mb-12">
             {/* <h2 className="text-primary font-bold text-2xl">Our Programmes</h2> */}
@@ -278,7 +278,7 @@ export default function Home() {
             <span id="signup"></span>
           </div>
         </section>
-        <section className="section py-12 md:py-20 grad-to-right">
+        {/* <section className="section py-12 md:py-20 grad-to-right">
           <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white">
             <div className="flex-1 flex flex-col gap-4">
               <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-3">Sign up for Our Scholarship Program Now</h3>
@@ -295,8 +295,15 @@ export default function Home() {
                 <option value="undergraduate">Undergraduate</option>
                 <option value="postgraduate">Postgraduate</option>
               </select>
-              <button className="bg-black text-white font-medium text-sm md:text-base px-8 md:px-12 py-4 md:py-4 rounded-full w-fit">Send Request</button>
+              <button className="bg-black text-white font-medium text-sm md:text-base px-8 md:px-12 py-4 md:py-4 rounded-full w-fit">Sign Up</button>
             </form>
+          </div>
+        </section> */}
+          <section className="section py-12 md:py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
+          <div className="flex flex-col items-center gap-4 max-w-3xl text-center">
+            <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-2">Sign up for Our Scholarship Program Now</h3>
+            <p className="mb-4">We understand that you&#39;re looking for a bright new future, filled with endless possibilities and opportunities for personal and professional growth. Your quest for a better tomorrow starts right here, with us.</p>
+            <Link href={'https://google.com'} className="p-5 rounded-full font-bold bg-white text-black py-3 md:py-5 px-6 text-sm md:text-base md:px-10">Sign Up</Link>
           </div>
         </section>
         <Advisory />

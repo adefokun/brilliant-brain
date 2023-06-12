@@ -30,7 +30,7 @@ const Links = ({ isOpen }: { isOpen: boolean }) => {
               } */}
             </ul>
 
-          <div onClick={() => signOut()} className={`w-fit py-2 pb-2.5 px-6 flex items-center gap-2 text-xs font-medium text- grad-to-right text-white rounded-full`}>
+          <div onClick={() => signOut()} className={`w-fit py-2 pb-2.5 px-6 flex items-center gap-2 text-xs font-medium grad-to-right text-white rounded-full mb-12`}>
               <MdLogout size={"1.3rem"} />
               Logout
           </div>
