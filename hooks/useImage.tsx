@@ -58,7 +58,7 @@ const useImage = () => {
     }
 
     
-    return { url, uploadImage, error, progress, setError, loading }
+    return { url, uploadImage, error, progress, setError, loading, setUrl }
 }
 
 export default useImage

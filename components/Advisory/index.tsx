@@ -39,12 +39,7 @@ const Advisory = () => {
                   <span className="text-[#6D6D6D] text-sm font-extrabold">{advisory?.title}</span>
                 </div>
               </div> 
-              <div className="flex flex-col gap-2 text-[#6D6D6D] font-argentinum text-xs md:text-left flex-[3_1_0%]">
-                {advisory?.description?.split('\n').map((text: string, i: number) => (
-                        <p key={i}>{text}</p>
-                  ))}
-              </div>
-              
+              <div className='text-[#6D6D6D] font-argentinum text-sm md:text-base md:text-left flex-[3_1_0%]' dangerouslySetInnerHTML={{ __html: advisory?.description }}  />    
             </div>
           ))
           }
@@ -54,3 +49,4 @@ const Advisory = () => {
 }
 
 export default Advisory
+{`dangerously set inner html`}
