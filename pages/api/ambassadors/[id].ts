@@ -17,18 +17,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!session) {
       return res.status(401).json({ message: "You must be signed in to access this" });
     } 
+    const { id } = req.query;
+    
+    if (!id) return res.status(400).json({ message: 'ID is required' })
 
-
-    if (req.method !== 'DELETE') {
+    if (req.method !== 'DELETE' && req.method !== 'GET' && req.method !== 'PATCH') {
       return res.status(400).json({ message: 'Request Method Not allowed' })
     }
 
     if (req.method === 'DELETE') {
-        const { id } = req.query;
-    //   console.log('id', id)
-      if (!id) return res.status(400).json({ message: 'ID is required' })
       const ambassador = await Ambassador.findByIdAndDelete(id).lean();
-      console.log({ ambassador })
+      if (!ambassador) return res.status(400).json({ message: 'delete failed' })
+      // console.log({ ambassador })
+      return res.status(200).json(ambassador);
+    } else if (req.method === 'GET') {
+      const ambassador = await Ambassador.findById(id).lean();
+      if (!ambassador) return res.status(400).json({ message: 'not found' })
+      // console.log({ ambassador })
+      return res.status(200).json(ambassador);
+    } else if (req.method === 'PATCH') {
+      const ambassador = await Ambassador.findByIdAndUpdate(id, req.body, { new: true }).lean();
+      if (!ambassador) return res.status(400).json({ message: 'update failed' })
+      // console.log({ ambassador })
       return res.status(200).json(ambassador);
     }
 

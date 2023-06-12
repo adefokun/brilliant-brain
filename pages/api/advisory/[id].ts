@@ -36,6 +36,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     else if (req.method === 'PATCH') {
       const advisory = await Advisory.findByIdAndUpdate(id, req.body, { new: true }).lean();
+      
+      if (!advisory) return res.status(400).json({ message: 'update failed' })
+
+      // console.log({ advisory })
       return res.status(200).json(advisory);
     }
 

@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     await dbConnect();
 
-    if (req.method !== 'DELETE') {
+    if (req.method !== 'DELETE' && req.method !== 'GET') {
       return res.status(400).json({ message: 'Request Method Not allowed' })
     }
 
@@ -20,6 +20,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const feedback = await Feedback.findByIdAndDelete(id).lean();
       // console.log({ feedback })
       return res.status(200).json(feedback);
+    } else if (req.method === 'GET') {
+        const { id } = req.query;
+        // console.log('id', id)
+        if (!id) return res.status(400).json({ message: 'ID is required' })
+        const feedback = await Feedback.findById(id).lean();
+        // console.log({ feedback })
+        if (!feedback) return res.status(400).json({ message: 'Feedback not found' })
+        return res.status(200).json(feedback);
     }
 
 

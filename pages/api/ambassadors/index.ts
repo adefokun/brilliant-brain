@@ -34,7 +34,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         name: req.body.name,
         image: req.body.image,
         number: req.body.number,
-        title: req.body.title
+        title: req.body.title,
+        description: req.body.description,
     }
 
       const ambassador = await Ambassador.create(data);

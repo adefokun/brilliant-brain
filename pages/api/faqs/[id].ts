@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(401).json({ message: "You must be signed in to access this" });
     } 
 
-    if (req.method !== 'DELETE') {
+    if (req.method !== 'DELETE' && req.method !== 'GET' && req.method !== 'PATCH') {
       return res.status(400).json({ message: 'Request Method Not allowed' })
     }
 
@@ -28,6 +28,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const faqs = await Faqs.findByIdAndDelete(id).lean();
       // console.log({ faqs })
      return res.status(200).json(faqs);
+    } else if (req.method === 'GET') {
+      const { id } = req.query;
+      // console.log('id', id)
+      if (!id) return res.status(400).json({ message: 'ID is required' })
+      const faq = await Faqs.findById(id).lean();
+
+      if (!faq) return res.status(400).json({ message: 'FAQ not found' })
+      // console.log({ faqs })
+      return res.status(200).json(faq);
+    } else if (req.method === 'PATCH') {
+      const { id } = req.query;
+      // console.log('id', id)
+      if (!id) return res.status(400).json({ message: 'ID is required' })
+
+      const faq = await Faqs.findByIdAndUpdate(id, req.body, { new: true }).lean();
+
+      if (!faq) return res.status(400).json({ message: 'failed to update' })
+      // console.log({ faq })
+      return res.status(200).json(faq);
     }
 
 
