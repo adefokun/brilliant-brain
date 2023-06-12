@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useReducer, useState } from 'react'
+import { FormEvent, useEffect, useReducer, useRef, useState } from 'react'
 import Head from "next/head";
 import AdminLayout from "@/layouts/AdminLayout"
 import AuthHOC from '@/components/AuthHOC'
@@ -9,7 +9,9 @@ import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import Loader from '@/components/Loader';
 import useImage from '@/hooks/useImage';
-
+import { Editor as TinyMCEEditor } from 'tinymce';
+import TinyEditor from '@/components/Editor';
+import Image from 'next/image';
 
 
 const initialState: IAdvisory = {
@@ -28,21 +30,30 @@ const AddBoardMember = () => {
         if (action.type === 'reset') return initialState
         return { ...state, [action.type]: action.payload }
     }, initialState)
-    const { url, uploadImage, error: errorImage, progress, setError, loading: uploadingImage } = useImage()
-
+    const { url, setUrl, uploadImage, error: errorImage, progress, setError, loading: uploadingImage } = useImage()
 
     const router = useRouter()
+    const editorRef = useRef<TinyMCEEditor | null>(null);
+  
+
+    // console.log({advisory, url})
+
+
     const { loading, error, data, post } = usePost({ 
         api: "/advisory",
         onSuccess: () => {
             toast('Advisory Board Member Added')
             dispatch({ type: 'reset'})
+            editorRef.current?.setContent('')
+            setUrl('')
+            router.push('/admin/advisory')
         } 
     })
 
     const addMember = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        post(advisory)
+        // dispatch({ type: 'description', payload: editorRef.current?.getContent() })
+        post({...advisory, description: editorRef.current?.getContent()})
     }
 
 
@@ -74,14 +85,14 @@ const AddBoardMember = () => {
                     <label htmlFor="email" className="text-black/70">Email</label>
                     <input required onChange={(e) => dispatch({ type: 'email', payload: e.target.value })} value={advisory?.email} type="email" name="email" id="email" className="border border-black/20 rounded-md p-2" />
                 </div>
-                <div className="flex flex-col gap-1">
+               
+                {/* <div className="flex flex-col gap-1">
                     <span className="text-black/70">Upload Image</span>
                     <label className="border border-black/20 rounded-md p-2 min-h-[42px] max-h-12 whitespace-nowrap overflow-hidden bg-white" htmlFor="image">
                         {advisory?.image ? advisory?.image : ''}
                     </label>
-                    <input type='file' name='image' id='image' className='w-0 h-0 invisible' onChange={(e) => uploadImage(e.target.files![0])} />
-                    {/* {uploadingImage && <p>Uploading Image {progress}%</p>} */}
-                </div>
+                    <input type='file' required name='image' id='image' className='w-0 h-0 invisible' onChange={(e) => uploadImage(e.target.files![0])} />
+                </div> */}
                 <div className="flex flex-col gap-1">
                     <label htmlFor="number" className="text-black/70">Phone</label>
                     <input required onChange={(e) => dispatch({ type: 'number', payload: e.target.value })} value={advisory?.number} type="tel" name="number" id="number" className="border border-black/20 rounded-md p-2" />
@@ -92,7 +103,16 @@ const AddBoardMember = () => {
                 </div>
                 <div className="flex flex-col gap-1">
                     <label htmlFor="description" className="text-black/70">Description</label>
-                    <textarea rows={5} required onChange={(e) => dispatch({ type: 'description', payload: e.target.value })} value={advisory?.description} name="description" id="description" className="border border-black/20 rounded-md p-2" />
+                    {/* <textarea rows={5} required onChange={(e) => dispatch({ type: 'description', payload: e.target.value })} value={advisory?.description} name="description" id="description" className="border border-black/20 rounded-md p-2" /> */}
+                    <TinyEditor editorRef={editorRef} />
+                </div>
+                <div className="flex flex-col gap-1">
+                        <span className="text-black/70">Upload Image</span>
+                         {advisory?.image &&
+                            <Image width={100} height={100} src={advisory?.image} alt="" className="h-24 w-24 bg-gray-100 object-cover z-10 relative" />
+                         }
+                        <input type='file' name='image' id='image' className='' onChange={(e) => uploadImage(e.target.files![0])} />
+                        {/* {uploadingImage && <p>Uploading Image {progress}%</p>} */}
                 </div>
                 <div className="flex items-center gap-4 mt-8">
                     <Button type='submit' className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">Add advisory</Button>
