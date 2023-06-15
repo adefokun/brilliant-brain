@@ -17,6 +17,7 @@ const Links = ({ isOpen }: { isOpen: boolean }) => {
               <li><Link href="/admin/advisory" className={`pb-1.5 px-1 font-medium`}>Advisory Board</Link></li>
               <li><Link href="/admin/cms" className={`pb-1.5 px-1 font-medium`}>Home Content</Link></li>
               <li><Link href="/admin/about" className={`pb-1.5 px-1 font-medium`}>About</Link></li>
+              <li><Link href="/admin/news" className={`pb-1.5 px-1 font-medium`}>News</Link></li>
               <li><Link href="/admin/feedbacks" className={`pb-1.5 px-1 font-medium`}>Feedbacks</Link></li>
               <li><Link href="/admin/faqs" className={`pb-1.5 px-1 font-medium`}>FAQs</Link></li>
               {/* {!user ? 

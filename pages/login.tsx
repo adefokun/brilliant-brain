@@ -8,6 +8,8 @@ import LockImg from '@/assets/lock.png'
 import Image from 'next/image'
 import { ILoginReducerAction, IUserLogin } from '@/interfaces'
 import { useSession, signIn, signOut } from "next-auth/react"
+import Loader from '@/components/Loader';
+
 
 
 
@@ -75,6 +77,7 @@ const Login = () => {
   return (
 
     <div>
+        {loading && <Loader modalOpen={true} />}
         <Header />
         <div className="flex flex-col items-center justify-center min-h-screen pb-12">
             <section className="section pt-20 md:pt-28 w-full">
