@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '@/lib/dbConnection';
 import Feedback from '@/models/FeedbackModel';
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "../auth/[...nextauth]"
 
 
 // ----------------------------------------------------------------------
@@ -8,12 +10,22 @@ import Feedback from '@/models/FeedbackModel';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     await dbConnect();
+    
+    const session = await getServerSession(req, res, authOptions)
+    // console.log({session})
+
+    if (!session) {
+      return res.status(401).json({ message: "You must be signed in to access this" });
+    } 
+
+
 
     if (req.method !== 'DELETE' && req.method !== 'GET') {
       return res.status(400).json({ message: 'Request Method Not allowed' })
     }
 
     if (req.method === 'DELETE') {
+        
         const { id } = req.query;
     //   console.log('id', id)
       if (!id) return res.status(400).json({ message: 'ID is required' })

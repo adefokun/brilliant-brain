@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth/next"
 import { authOptions } from "../auth/[...nextauth]"
 
 
+
 // ----------------------------------------------------------------------
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -12,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await dbConnect();
 
     const session = await getServerSession(req, res, authOptions)
-    // console.log({session})
+    console.log({session, 'session.user': session?.user})
 
     if (!session) {
       return res.status(401).json({ message: "You must be signed in to access this" });

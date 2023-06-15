@@ -11,12 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     await dbConnect();
 
-    const session = await getServerSession(req, res, authOptions)
-    console.log({session})
-
-    // if (!session) {
-    //   return res.status(401).json({ message: "You must be signed in to access this" });
-    // } 
+    
 
     if (req.method === 'GET') {
       const cms = await Cms.find({}).lean();
@@ -27,6 +22,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (req.method !== 'POST') {
         return res.status(400).json({ message: 'Request Method Not allowed' })
       }
+
+      const session = await getServerSession(req, res, authOptions)
+      console.log({session})
+
+      if (!session) {
+        return res.status(401).json({ message: "You must be signed in to access this" });
+      } 
       
       const data: ICms = {
         hero: {
