@@ -35,6 +35,13 @@ export interface IFeedback {
     message: string;
 }
 
+export interface INews {
+    title: string;
+    snippet: string;
+    content: string;
+    image: string;
+}
+
 export interface IAdvisory {
     name: string;
     email: string;
