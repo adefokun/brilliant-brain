@@ -8,8 +8,10 @@ import HeroImg from '@/assets/img1.png'
 import QualifiedImg from '@/assets/img2.png'
 import HeroBg from '@/assets/hero-bg.png'
 import PrimaryImg from '@/assets/primary.png'
+import Primary1Img from '@/assets/primary-1.png'
 import SecondaryImg from '@/assets/school.png'
 import UniversityImg from '@/assets/university.png'
+import PostGradImg from '@/assets/postgraduate.png'
 import TeacherImg from '@/assets/teacher.png'
 import StudentImg from '@/assets/student.png'
 import AmazedImg from '@/assets/amazed.png'
@@ -143,7 +145,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
-              <Image src={PrimaryImg} alt="" className="w-16 h-16" />
+              <Image src={Primary1Img} alt="" className="w-16 h-16" />
               <h5 className="text-2xl font-extrabold capitalize mb-3">Primary Education</h5>
               <p className="text-[#6D6D6D]">Building Strong Foundations for Lifelong Learning</p>
             </div>
@@ -158,7 +160,7 @@ export default function Home() {
               <p className="text-[#6D6D6D]">Unlocking Your Potential for Advanced Learning</p>
             </div>
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
-              <Image src={PrimaryImg} alt="" className="w-16 h-16" />
+              <Image src={PostGradImg} alt="" className="w-16 h-16" />
               <h5 className="text-2xl font-extrabold capitalize mb-3">Postgraduate Education</h5>
               <p className="text-[#6D6D6D]">Elevate Your Expertise and Propel Your Career Forward</p>
             </div>
