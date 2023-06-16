@@ -18,66 +18,72 @@ import AmazedImg from '@/assets/amazed.png'
 import NewsImg from '@/assets/news.png'
 import { BiCircle } from 'react-icons/bi'
 import Link from "next/link";
-import { ICandidate, ICms, IReducerAction } from '@/interfaces'
+import { IAdvisory, ICandidate, ICms, IReducerAction } from '@/interfaces'
 import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import Loader from '@/components/Loader';
 import Ambassadors from "@/components/Ambassadors";
 import Advisory from "@/components/Advisory";
 import Winners from "@/components/Winners";
-
-
-const initialState: ICandidate = {
-  email: '',
-  name: '',
-  number: '',
-  category: '',
-}
-
-type IAction = 'email' | 'name' | 'number' | 'category' | 'reset'
-
-export default function Home() {
-  const [data, setData] = useState<ICms | null>(null)
-    const [candidate, dispatch] = useReducer((state: ICandidate, action: IReducerAction<IAction>) => {
-      if (action.type === 'reset') return initialState
-      return { ...state, [action.type]: action.payload }
-  }, initialState)
-
-
-  const { loading, error, data: applicationData, post } = usePost({ 
-    api: "/candidates",
-    onSuccess: () => {
-        toast('Your application has been submitted successfully')
-        dispatch({ type: 'reset'})
-    } 
-  })
+import dbConnect from '@/lib/dbConnection';
+import CmsModel from '@/models/CmsModel';
+import AdvisoryModel from '@/models/AdvisoryModel';
+import { useRouter } from "next/router";
 
 
 
-  const addCandidate = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    post(candidate)
-  }
+// const initialState: ICandidate = {
+//   email: '',
+//   name: '',
+//   number: '',
+//   category: '',
+// }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cms`)
-        const data = await res.json()
+// type IAction = 'email' | 'name' | 'number' | 'category' | 'reset'
+
+export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory[] }) {
+  const router = useRouter()
+  // const [data, setData] = useState<ICms | null>(null)
+  //   const [candidate, dispatch] = useReducer((state: ICandidate, action: IReducerAction<IAction>) => {
+  //     if (action.type === 'reset') return initialState
+  //     return { ...state, [action.type]: action.payload }
+  // }, initialState)
+
+
+  // const { loading, error, data: applicationData, post } = usePost({ 
+  //   api: "/candidates",
+  //   onSuccess: () => {
+  //       toast('Your application has been submitted successfully')
+  //       dispatch({ type: 'reset'})
+  //   } 
+  // })
+
+
+
+  // const addCandidate = (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault()
+  //   post(candidate)
+  // }
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cms`)
+  //       const data = await res.json()
         
-        if (!res.ok) throw new Error(data.message)
+  //       if (!res.ok) throw new Error(data.message)
 
-        // console.log({data})
-        setData(data[0])
-      } catch (error) {
-        console.log({error})
-      }
-    }
+  //       // console.log({data})
+  //       setData(data[0])
+  //     } catch (error) {
+  //       console.log({error})
+  //     }
+  //   }
 
-    fetchData()
-  }, [])
+  //   fetchData()
+  // }, [])
 
-  console.log({data})
+  // console.log({data})
 
 
   return (
@@ -88,21 +94,21 @@ export default function Home() {
         <link rel="icon" href="/faviconimg.png" />
       </Head>
       <div className="">
-        {loading && <Loader modalOpen={true} />}
+        {/* {loading && <Loader modalOpen={true} />} */}
         <Header />
         <section className="section top-section min-h-screen pt- md:pt-">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div className="order-2 md:order-1 flex flex-col gap-4">
               {/* <p className="text-primary font-bold text-lg mb-3">STUDY WITH US</p> */}
-              <h1 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">{data?.hero?.header || "Free Scholarship For Every Bright Student"}</h1>
-              <p className="md:text-lg">{data?.hero?.text || "The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education"}</p>
+              <h1 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">{cms?.hero?.header || "Free Scholarship For Every Bright Student"}</h1>
+              <p className="md:text-lg">{cms?.hero?.text || "The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education"}</p>
               <a href ="#signup" className="flex justify-between items-center bg-gray-100 rounded-xl max-w-md text-sm md:text-base">
                 <p className="ml-4">Lets get started</p>
                 <Button className="rounded-xl text-white py-3 md:py-4 px-5">Connect with us</Button>
               </a>
             </div>
             <div className="w-full min-h-96 order-1 md:order-2 flex flex-col justify-end relative">
-              <Image width={100} height={100} src={data?.hero?.image || HeroImg} alt="" className="object-contain object-top w-full h-full max-h-[450px]" />
+              <Image width={100} height={100} src={cms?.hero?.image || HeroImg} alt="" className="object-contain object-top w-full h-full max-h-[450px]" />
               <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
                 <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
               </div>
@@ -116,13 +122,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-4 md:gap-12">
             <div className="flex-1 order-2 md:order-1 flex flex-col gap-4">
               <p className="text-primary font-bold text-xl mb-3">About Us</p>
-              <h2 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">{data?.about?.header || "Qualified and Highly Equipped Learning"}</h2>
-              <p className="md:text-lg mb-4">{data?.about?.text || "We take pride in offering a learning environment that is led by qualified and dedicated educators. Our teaching staff consists of highly experienced professionals who are passionate about fostering academic growth and empowering students to reach their full potential"}</p>
-              <Button className="w-fit rounded-xl text-white py-3 md:py-4 px-5 text-sm md:text-base">Read More</Button>
+              <h2 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">{cms?.about?.header || "Qualified and Highly Equipped Learning"}</h2>
+              <p className="md:text-lg mb-4">{cms?.about?.text || "We take pride in offering a learning environment that is led by qualified and dedicated educators. Our teaching staff consists of highly experienced professionals who are passionate about fostering academic growth and empowering students to reach their full potential"}</p>
+              <Button onClick={() => router.push('/about-us')} className="w-fit rounded-xl text-white py-3 md:py-4 px-5 text-sm md:text-base">Read More</Button>
 
             </div>
             <div className="w-full h-full min-h-96 order-1 md:order-2 flex flex-col  justify-end relative">
-              <Image width={100} height={100} src={data?.about?.image || QualifiedImg} alt="" className="object-contain w-full max-h-[500px]" />
+              <Image width={100} height={100} src={cms?.about?.image || QualifiedImg} alt="" className="object-contain w-full max-h-[500px]" />
               <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
                 <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
               </div>
@@ -308,9 +314,42 @@ export default function Home() {
             <Link href={'https://google.com'} className="p-5 rounded-full font-bold bg-white text-black py-3 md:py-5 px-6 text-sm md:text-base md:px-10">Sign Up</Link>
           </div>
         </section>
-        <Advisory />
+        <Advisory advisory={advisory} />
         <Footer />
       </div>
     </div>
   );
+}
+
+
+export const getServerSideProps = async () => {
+  let cms = {}
+  let advisory = []
+  try {
+      await dbConnect()
+      const res = await CmsModel.findOne({}).lean();
+      cms = JSON.parse(JSON.stringify(res))
+
+      const response = await AdvisoryModel.find({}).lean();
+      advisory = JSON.parse(JSON.stringify(response))
+      
+  } catch (error) {
+      console.log(error)
+      return {
+          props: {
+              cms: {},
+              advisory: [],
+              status: 'failed'
+          }
+      }
+  }
+
+
+  return {
+      props: {
+          cms,
+          advisory,
+          status: 'success'
+      }
+  }
 }

@@ -2,27 +2,27 @@ import { IAdvisory } from '@/interfaces'
 import Image from 'next/image'
 import React, {useEffect, useState} from 'react'
 
-const Advisory = () => {
-    const [advisory, setAdvisory] = useState<IAdvisory[]>([])
+const Advisory = ({advisory} : {advisory: IAdvisory[]}) => {
+    // const [advisory, setAdvisory] = useState<IAdvisory[]>([])
 
-    useEffect(() => {
-      const fetchAdvisory = async () => {
-        try {
-          const res = await fetch('/api/advisory')
-          const data = await res.json()
-          if (!res.ok) {
-            throw new Error(data?.message || 'An error Occured')
-          }
-          setAdvisory(data)
-        } catch (error) {
-          console.log({error})
-        }
-      }
+    // useEffect(() => {
+    //   const fetchAdvisory = async () => {
+    //     try {
+    //       const res = await fetch('/api/advisory')
+    //       const data = await res.json()
+    //       if (!res.ok) {
+    //         throw new Error(data?.message || 'An error Occured')
+    //       }
+    //       setAdvisory(data)
+    //     } catch (error) {
+    //       console.log({error})
+    //     }
+    //   }
   
-      fetchAdvisory()
-    }, [])
+    //   fetchAdvisory()
+    // }, [])
 
-    console.log({advisory})
+    // console.log({advisory})
   
   return (
       <section className="section py-12 md:py-20 text-center">
@@ -49,4 +49,3 @@ const Advisory = () => {
 }
 
 export default Advisory
-{`dangerously set inner html`}

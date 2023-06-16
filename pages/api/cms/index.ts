@@ -15,6 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (req.method === 'GET') {
       const cms = await Cms.find({}).lean();
+
+      if (!cms) throw new Error('Failed to fetch data')
       res.status(200).json(cms);
     }
     else {
@@ -24,7 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
 
       const session = await getServerSession(req, res, authOptions)
-      console.log({session})
+      // console.log({session})
 
       if (!session) {
         return res.status(401).json({ message: "You must be signed in to access this" });
