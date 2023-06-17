@@ -96,9 +96,9 @@ export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory
       <div className="">
         {/* {loading && <Loader modalOpen={true} />} */}
         <Header />
-        <section className="section top-section min-h-screen pt- md:pt-">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <div className="order-2 md:order-1 flex flex-col gap-4">
+        <section className="section top-section lg:h-screen lg:mt-0 lg:pt-40 md:pt-">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+            <div className="order-2 lg:order-1 flex flex-col gap-4">
               {/* <p className="text-primary font-bold text-lg mb-3">STUDY WITH US</p> */}
               <h1 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">{cms?.hero?.header || "Free Scholarship For Every Bright Student"}</h1>
               <p className="md:text-lg">{cms?.hero?.text || "The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education"}</p>
@@ -107,7 +107,7 @@ export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory
                 <Button className="rounded-xl text-white py-3 md:py-4 px-5">Connect with us</Button>
               </a>
             </div>
-            <div className="w-full min-h-96 order-1 md:order-2 flex flex-col justify-end relative">
+            <div className="w-full min-h-96 order-1 lg:order-2 flex flex-col justify-end relative">
               <Image width={100} height={100} src={cms?.hero?.image || HeroImg} alt="" className="object-contain object-top w-full h-full max-h-[450px]" />
               <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
                 <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
@@ -118,16 +118,16 @@ export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory
             <span className="text-xs w-4 h-1 rounded-full border-none text-primary bg-primary" />
           </div> */}
         </section>
-        <section className="section pb-8 md:pb-12">
-          <div className="grid md:grid-cols-2 gap-4 md:gap-12">
-            <div className="flex-1 order-2 md:order-1 flex flex-col gap-4">
+        <section className="section">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-12">
+            <div className="flex-1 order-2 lg:order-1 flex flex-col gap-4">
               <p className="text-primary font-bold text-xl mb-3">About Us</p>
               <h2 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">{cms?.about?.header || "Qualified and Highly Equipped Learning"}</h2>
               <p className="md:text-lg mb-4">{cms?.about?.text || "We take pride in offering a learning environment that is led by qualified and dedicated educators. Our teaching staff consists of highly experienced professionals who are passionate about fostering academic growth and empowering students to reach their full potential"}</p>
               <Button onClick={() => router.push('/about-us')} className="w-fit rounded-xl text-white py-3 md:py-4 px-5 text-sm md:text-base">Read More</Button>
 
             </div>
-            <div className="w-full h-full min-h-96 order-1 md:order-2 flex flex-col  justify-end relative">
+            <div className="w-full h-full min-h-96 order-1 lg:order-2 flex flex-col  justify-end relative">
               <Image width={100} height={100} src={cms?.about?.image || QualifiedImg} alt="" className="object-contain w-full max-h-[500px]" />
               <div className="absolute top-0 left-0 -z-10 w-full h-full flex justify-center items-center">
                 <Image src={HeroBg} alt="" width={200} height={200} className="w-64 sm:w-1/2 md:w-5/6" />
@@ -149,7 +149,7 @@ export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory
               Available Scholarship Levels
             </h3>
           </div>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-[#F9E9E8] w-full rounded-2xl p-8 py-12 flex flex-col items-center gap-3">
               <Image src={Primary1Img} alt="" className="w-16 h-16" />
               <h5 className="text-2xl font-extrabold capitalize mb-3">Primary Education</h5>

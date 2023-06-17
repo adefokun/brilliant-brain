@@ -31,10 +31,10 @@ const Advisory = ({advisory} : {advisory: IAdvisory[]}) => {
         </div>
         <div className="flex flex-col gap-10 md:gap-16">
           {advisory?.map((advisory, index) => (
-            <div key={index} className="flex flex-col gap-4 md:gap-12 md:flex-row">
-              <div className='flex flex-col gap-4 items-center justify-center text-center md:text-left md:items-start flex-[1_1_0%]'>
-                  <Image width={100} height={100} alt='' src={advisory?.image} className="h-44 w-44 md:w-48 md:h-48 lg:h-72 lg:w-72 rounded-full mx-auto md:rounded-none object-cover md:mx-0 bg-black/10" />
-                <div>
+            <div key={index} className="flex flex-col gap-4 md:gap-12 lg:flex-row">
+              <div className='flex flex-col gap-4 items-center justify-center text-center lg:text-left lg:items-start flex-[1_1_0%]'>
+                  <Image width={100} height={100} alt='' src={advisory?.image} className="h-60 w-60 lg:h-72 lg:w-72 rounded-full mx-auto md:rounded-none object-cover border-[6px] md:border-none md:mx-0 bg-black/10" />
+                <div className='max-w-sm'>
                   <h4 className="text-sm mb-3">{advisory?.name}</h4>
                   <span className="text-[#6D6D6D] text-sm font-extrabold">{advisory?.title}</span>
                 </div>

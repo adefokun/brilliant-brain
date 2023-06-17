@@ -32,8 +32,8 @@ const Ambassadors = () => {
       </div>
       <div className="flex flex-col gap-10 md:gap-16 pt-12">
         {ambassadors?.map((ambassador, index) => (
-          <div key={index} className="flex flex-col gap-4 md:gap-12 md:items-center md:flex-row">
-            <div className='flex flex-col gap-4 items-center justify-center text-center md:text-left md:items-start flex-[1_1_0%]'>
+          <div key={index} className="flex flex-col gap-4 lg:gap-12 md:items-center lg:flex-row">
+            <div className='flex flex-col gap-4 items-center justify-center text-center lg:text-left lg:items-start flex-[1_1_0%]'>
             <Image width={100} height={100} alt='' src={ambassador?.image} className="h-44 w-44 md:w-48 md:h-48 rounded-full mx-auto md:rounded-none object-cover md:mx-0 bg-black/10" />
               
               <div>
