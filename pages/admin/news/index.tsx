@@ -44,6 +44,12 @@ const colums = [
       filter: true,
       sort: false,
     },
+    extra: true,
+    custom: (val: string, meta: any) => {
+      return  (
+          <p className="text-sm text-black/70">{val?.length < 40 ? val : val.slice(0, 40) + '...'}</p>
+      )
+    },
   },
   {
     name: "snippet",
@@ -51,6 +57,12 @@ const colums = [
     options: {
       filter: true,
       sort: false,
+    },
+    extra: true,
+    custom: (val: string, meta: any) => {
+      return  (
+          <p className="text-sm text-black/70">{val?.length < 40 ? val : val.slice(0, 40) + '...'}</p>
+      )
     },
   },
   {
