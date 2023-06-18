@@ -76,13 +76,13 @@ const NewsPost = () => {
                     <Share />
                 </div>
             </div> */}
-            <div className='flex items-center gap-3 text-xs'>
+            {/* <div className='flex items-center gap-3 text-xs'>
                 <span className='w-10 h-10 rounded-full bg-gray'></span>
                 <div className='flex flex-col'>
                     <span className='font-semibold'>{news?.author}</span>
                     <p>Media Director</p>
                 </div>
-            </div>
+            </div> */}
         </section>
       </main>
       <Footer />

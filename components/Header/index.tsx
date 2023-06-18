@@ -23,6 +23,7 @@ const Header = () => {
             {/* <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Scholarship</Link></li> */}
             <li><Link href="/winners" className={`pb-1.5 px-1 font-medium`}>Winners</Link></li>
             <li><Link href="/ambassadors" className={`pb-1.5 px-1 font-medium`}>Ambassadors</Link></li>
+            <li><Link href="/news" className={`pb-1.5 px-1 font-medium`}>News</Link></li>
             {/* <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Available Scholarship</Link></li> */}
             <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
             <li><Link href="/faqs" className={`pb-1.5 px-1 font-medium`}>FAQs</Link></li>
@@ -52,6 +53,7 @@ const Header = () => {
               {/* <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Scholarship</Link></li> */}
               <li><Link href="/winners" className={`pb-1.5 px-1 font-medium`}>Winners</Link></li>
               <li><Link href="/ambassadors" className={`pb-1.5 px-1 font-medium`}>Ambassadors</Link></li>
+              <li><Link href="/news" className={`pb-1.5 px-1 font-medium`}>News</Link></li>
               {/* <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Available Scholarship</Link></li> */}
               <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
               <li><Link href="/faqs" className={`pb-1.5 px-1 font-medium`}>FAQs</Link></li>
