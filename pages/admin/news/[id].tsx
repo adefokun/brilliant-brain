@@ -46,14 +46,15 @@ const EditNews = () => {
         onSuccess: () => {
             toast('news Updated')
             dispatch({ type: 'reset'})
+            editorRef.current?.setContent('')
             router.push('/admin/news')
         } 
     })
 
     const updateNews = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log({news, description: editorRef.current?.getContent()})
-        post({...news, description: editorRef.current?.getContent()})
+        // console.log({news, content: editorRef.current?.getContent()})
+        post({...news, content: editorRef.current?.getContent()})
         // post(News)
     }
 
@@ -76,7 +77,7 @@ const EditNews = () => {
               // console.log({data})
               dispatch({ type: 'update', data: data })
             //   dispatch({ type: 'description', payload: editorRef.current?.getContent() })
-              editorRef.current?.setContent(data.description)
+              editorRef.current?.setContent(data.content)
 
             } catch (error) {
               console.log({error})
@@ -102,7 +103,7 @@ const EditNews = () => {
         <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto'>
             <div className="flex items-center gap-4 justify-between mb-16">
                 <h1 className='text-3xl text-black/70 font-argentinum'>Edit News</h1>
-                <Button onClick={() => router.push("/admin/news")} className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">View Newss</Button>
+                <Button onClick={() => router.push("/admin/news")} className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">View News</Button>
             </div>
             <form className="flex flex-col gap-4" onSubmit={updateNews}>
                 <div className="flex flex-col gap-1">
