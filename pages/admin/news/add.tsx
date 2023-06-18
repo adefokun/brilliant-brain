@@ -39,13 +39,14 @@ const AddNews = () => {
         onSuccess: () => {
             toast('news Added')
             dispatch({ type: 'reset'})
+            editorRef.current?.setContent('')
             router.push('/admin/news')
         } 
     })
 
     const postNews = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        post({...news, description: editorRef.current?.getContent()})
+        post({...news, content: editorRef.current?.getContent()})
         // post(news)
     }
 

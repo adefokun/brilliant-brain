@@ -27,6 +27,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(400).json({ message: 'Request Method Not allowed' })
       }
 
+      console.log(req.body)
+
       if (!req.body.title || !req.body.snippet || !req.body.title || !req.body.image || !req.body.content) {
         return res.status(400).json({ message: 'Fill all required fields' })
       }
@@ -36,7 +38,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         snippet: req.body.snippet,
         image: req.body.image,
         content: req.body.content,
-    }
+      }
+
+
 
       const news = await News.create(data);
 

@@ -96,7 +96,7 @@ export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory
       <div className="">
         {/* {loading && <Loader modalOpen={true} />} */}
         <Header />
-        <section className="section top-section lg:h-screen lg:mt-0 lg:pt-40 md:pt-">
+        <section className="section top-section pb-12 lg:h-screen lg:mt-0 lg:pt-40">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             <div className="order-2 lg:order-1 flex flex-col gap-4">
               {/* <p className="text-primary font-bold text-lg mb-3">STUDY WITH US</p> */}
