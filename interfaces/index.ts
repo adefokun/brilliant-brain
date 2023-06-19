@@ -42,6 +42,14 @@ export interface INews {
     image: string;
 }
 
+export interface IAvailableScholarship {
+    name: string;
+    start: string;
+    end: string;
+    category: string;
+    requirements: string;
+}
+
 export interface IAdvisory {
     name: string;
     email: string;
