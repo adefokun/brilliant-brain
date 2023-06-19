@@ -18,7 +18,7 @@ import AmazedImg from '@/assets/amazed.png'
 import NewsImg from '@/assets/news.png'
 import { BiCircle } from 'react-icons/bi'
 import Link from "next/link";
-import { IAdvisory, ICandidate, ICms, IReducerAction } from '@/interfaces'
+import { IAdvisory, ICandidate, ICms, INews, IReducerAction } from '@/interfaces'
 import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import Loader from '@/components/Loader';
@@ -28,6 +28,7 @@ import Winners from "@/components/Winners";
 import dbConnect from '@/lib/dbConnection';
 import CmsModel from '@/models/CmsModel';
 import AdvisoryModel from '@/models/AdvisoryModel';
+import NewsModel from '@/models/NewsModel';
 import { useRouter } from "next/router";
 
 
@@ -41,7 +42,7 @@ import { useRouter } from "next/router";
 
 // type IAction = 'email' | 'name' | 'number' | 'category' | 'reset'
 
-export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory[] }) {
+export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAdvisory[], news: INews[] }) {
   const router = useRouter()
   // const [data, setData] = useState<ICms | null>(null)
   //   const [candidate, dispatch] = useReducer((state: ICandidate, action: IReducerAction<IAction>) => {
@@ -83,7 +84,7 @@ export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory
   //   fetchData()
   // }, [])
 
-  // console.log({data})
+  // console.log(news.slice(0, 2))
 
 
   return (
@@ -259,30 +260,19 @@ export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory
         <section className="section py-12 md:py-20">
           <h2 className="text-3xl md:text-5xl font-extrabold capitalize mb-12 text-center">News & <br />Updates</h2>
           <div className="grid md:grid-cols-3 md:h-[500px] gap-8">
-            <div className="w-full h-96 flex flex-col gap-2 place-self-start">
-              <Image src={NewsImg} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
-              <h3 className="text-xl font-bold font-argentinum">All You Need to Start</h3>
-              <p className="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet </p>
-              <Link href="/news" className="text-primary font-bold text-xs">
-                Read more
-              </Link>
-            </div>
-            <div className="w-full h-96 flex flex-col gap-2 place-self-center">
-              <Image src={NewsImg} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
-              <h3 className="text-xl font-bold font-argentinum">All You Need to Start</h3>
-              <p className="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet </p>
-              <Link href="/news" className="text-primary font-bold text-xs">
-                Read more
-              </Link>
-            </div>
-            <div className="w-full h-96 flex flex-col gap-2 place-self-end">
-              <Image src={NewsImg} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
-              <h3 className="text-xl font-bold font-argentinum">All You Need to Start</h3>
-              <p className="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet </p>
-              <Link href="/news" className="text-primary font-bold text-xs">
-                Read more
-              </Link>
-            </div>
+            {news?.slice(0, 3).map( (item, index) => (
+            <Link href="/news" key={index} className="w-full h-96 flex flex-col gap-2 place-self-start shadow-md rounded-xl">
+              <Image src={item?.image || NewsImg} width={200} height={200} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
+              <div className="p-2 px-4">
+                <h3 className="text-xl font-bold font-argentinum h-14 overflow-hidden mb-3">{item?.title}</h3>
+                <p className="text-xs h-14 overflow-hidden mb-3">{item?.snippet}</p>
+                <span className="text-primary font-bold text-xs">
+                  Read more
+                </span>
+              </div>
+            </Link>
+            ))}
+            
             <span id="signup"></span>
           </div>
         </section>
@@ -325,6 +315,7 @@ export default function Home({ cms, advisory }: { cms: ICms, advisory: IAdvisory
 export const getServerSideProps = async () => {
   let cms = {}
   let advisory = []
+  let news = []
   try {
       await dbConnect()
       const res = await CmsModel.findOne({}).lean();
@@ -332,12 +323,17 @@ export const getServerSideProps = async () => {
 
       const response = await AdvisoryModel.find({}).lean();
       advisory = JSON.parse(JSON.stringify(response))
+
+      const news_res = await NewsModel.find({}).lean();
+      // console.log({news_res})
+      news = JSON.parse(JSON.stringify(news_res))
       
   } catch (error) {
       console.log(error)
       return {
           props: {
               cms: {},
+              news: [],
               advisory: [],
               status: 'failed'
           }
@@ -349,6 +345,7 @@ export const getServerSideProps = async () => {
       props: {
           cms,
           advisory,
+          news,
           status: 'success'
       }
   }

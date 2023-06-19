@@ -81,26 +81,26 @@ const columns = [
   
 ];
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        setLoading(true)
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/candidates`)
-        const data = await res.json()
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       setLoading(true)
+  //       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/candidates`)
+  //       const data = await res.json()
         
-        if (!res.ok) throw new Error(data.message)
+  //       if (!res.ok) throw new Error(data.message)
 
-        console.log({data})
-        setData(data)
-      } catch (error) {
-        console.log({error})
-      }
-      setLoading(false)
+  //       console.log({data})
+  //       setData(data)
+  //     } catch (error) {
+  //       console.log({error})
+  //     }
+  //     setLoading(false)
 
-    }
+  //   }
 
-    fetchUser()
-  }, [deleted])
+  //   fetchUser()
+  // }, [deleted])
 
 
 
