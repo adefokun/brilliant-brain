@@ -47,7 +47,7 @@ const EditScholarship = () => {
         onSuccess: () => {
             toast('Scholarship Updated')
             dispatch({ type: 'reset'})
-            editorRef.current?.setContent('')
+            // editorRef.current?.setContent('')
             router.push('/admin/scholarships')
         } 
     })
@@ -55,7 +55,8 @@ const EditScholarship = () => {
     const updateScholarship = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         // console.log({scholarships, content: editorRef.current?.getContent()})
-        post({...scholarships, requirements: editorRef.current?.getContent()})
+        post(scholarships)
+        // post({...scholarships, requirements: editorRef.current?.getContent()})
         // post(scholarships)
     }
 
@@ -78,7 +79,7 @@ const EditScholarship = () => {
               // console.log({data})
               dispatch({ type: 'update', data: data })
             //   dispatch({ type: 'description', payload: editorRef.current?.getContent() })
-              editorRef.current?.setContent(data.content)
+            //   editorRef.current?.setContent(data.content)
 
             } catch (error) {
               console.log({error})
@@ -124,8 +125,9 @@ const EditScholarship = () => {
                     <input maxLength={120} required onChange={(e) => dispatch({ type: 'end', payload: e.target.value })} value={scholarships?.end} type="date" name="end" id="end" className="border border-black/20 rounded-md p-2" />
                 </div>
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="content" className="text-black/70">Requirements</label>
-                    <TinyEditor editorRef={editorRef} />
+                    <label htmlFor="requirements" className="text-black/70">Requirements</label>
+                    {/* <TinyEditor editorRef={editorRef} /> */}
+                    <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'requirements', payload: e.target.value })} value={scholarships?.requirements} name="requirements" id="requirements" className="border border-black/20 rounded-md p-2" />
                 </div>
                 {/* <div className="flex flex-col gap-1">
                         <span className="text-black/70">Upload Image</span>

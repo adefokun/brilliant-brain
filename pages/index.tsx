@@ -263,9 +263,9 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
             {news?.slice(0, 3).map( (item, index) => (
             <Link href="/news" key={index} className="w-full h-96 flex flex-col gap-2 place-self-start shadow-md rounded-xl">
               <Image src={item?.image || NewsImg} width={200} height={200} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
-              <div className="p-2 px-4">
+              <div className="p-2 px-4 pb-4">
                 <h3 className="text-xl font-bold font-argentinum h-14 overflow-hidden mb-3">{item?.title}</h3>
-                <p className="text-xs h-14 overflow-hidden mb-3">{item?.snippet}</p>
+                <p className="text-xs h-12 overflow-hidden mb-3">{item?.snippet}</p>
                 <span className="text-primary font-bold text-xs">
                   Read more
                 </span>

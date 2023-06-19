@@ -40,14 +40,15 @@ const AddScholarships = () => {
         onSuccess: () => {
             toast('Scholarship Added')
             dispatch({ type: 'reset'})
-            editorRef.current?.setContent('')
+            // editorRef.current?.setContent('')
             router.push('/admin/scholarships')
         } 
     })
 
     const postScholarship = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        post({...scholarships, requirements: editorRef.current?.getContent()})
+        post(scholarships)
+        // post({...scholarships, requirements: editorRef.current?.getContent()})
         // post(scholarships)
     }
 
@@ -91,7 +92,8 @@ const AddScholarships = () => {
                 </div>
                 <div className="flex flex-col gap-1">
                     <label htmlFor="content" className="text-black/70">Requirements</label>
-                    <TinyEditor editorRef={editorRef} />
+                    <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'requirements', payload: e.target.value })} value={scholarships?.requirements} name="requirements" id="requirements" className="border border-black/20 rounded-md p-2" />
+                    {/* <TinyEditor editorRef={editorRef} /> */}
                 </div>
                 {/* <div className="flex flex-col gap-1">
                         <span className="text-black/70">Upload Image</span>
