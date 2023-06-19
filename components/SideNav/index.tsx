@@ -6,6 +6,7 @@ import { RiTeamLine, RiQuestionnaireLine } from 'react-icons/ri'
 import { GiCrownedSkull } from 'react-icons/gi'
 import { TbSitemap } from 'react-icons/tb'
 import { TiNews } from 'react-icons/ti'
+import { FaAward } from 'react-icons/fa'
 import { AiTwotoneGold, AiOutlineHome } from 'react-icons/ai'
 import Logo from "@/assets/logo-tp.png"
 import Image from 'next/image'
@@ -62,6 +63,10 @@ const SideNav = ({ }) => {
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("news") && 'text-white'}`} href={"/admin/news"}>
                     <TiNews size={"1.3rem"} />
                     News and Updates
+                </Link>
+                <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("scholarships") && 'text-white'}`} href={"/admin/scholarships"}>
+                    <FaAward size={"1.3rem"} />
+                    Available Scholarships
                 </Link>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${pathname.includes("feedbacks") && 'text-white'}`} href={"/admin/feedbacks"}>
                     <MdOutlineFeedback size={"1.3rem"} />
