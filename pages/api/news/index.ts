@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       console.log(req.body)
 
-      if (!req.body.title || !req.body.snippet || !req.body.title || !req.body.image || !req.body.content) {
+      if (!req.body.title || !req.body.snippet || !req.body.image || !req.body.content) {
         return res.status(400).json({ message: 'Fill all required fields' })
       }
       

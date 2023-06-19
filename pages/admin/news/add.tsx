@@ -78,7 +78,7 @@ const AddNews = () => {
                 </div>
                 <div className="flex flex-col gap-1">
                     <label htmlFor="snippet" className="text-black/70">Snippet</label>
-                    <input required onChange={(e) => dispatch({ type: 'snippet', payload: e.target.value })} value={news?.snippet} type="text" name="snippet" id="snippet" className="border border-black/20 rounded-md p-2" />
+                    <input maxLength={120} required onChange={(e) => dispatch({ type: 'snippet', payload: e.target.value })} value={news?.snippet} type="text" name="snippet" id="snippet" className="border border-black/20 rounded-md p-2" />
                 </div>
                 <div className="flex flex-col gap-1">
                     <label htmlFor="content" className="text-black/70">Content</label>
