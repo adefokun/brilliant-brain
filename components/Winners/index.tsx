@@ -26,7 +26,7 @@ const Winners = () => {
     const position = ['First', 'Second', 'Third']
   
   return (
-    <section className="section pt-20 pb-20 text-center">
+    <section className="section pt-20 pb-20 text-center min-h-[40vh]">
     {/* <div className="flex flex-col items-center gap-4">
       <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-10">Scholarship <br /> Winners</h3>
     </div> */}

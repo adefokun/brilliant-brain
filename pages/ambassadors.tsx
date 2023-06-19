@@ -13,7 +13,7 @@ const Ambassador = () => {
     <>
         <Header />
         <section className='section top-section grad-to-right flex flex-col gap-3 text-white'>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white font-argentinum mb-3">Ambassador</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white font-argentinum mb-3">Ambassadors</h1>
         </section> 
         <Ambassadors />
     
