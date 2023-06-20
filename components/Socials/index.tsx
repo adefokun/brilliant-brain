@@ -21,14 +21,14 @@ const Socials = () => {
                 <FaYoutube className='text-base' />
                 Youtube
             </a>
-            {/* <a target='_blank' className='flex gap-3 items-center p-2 px-3 border rounded-lg relative' href={`https://www.facebook.com/sharer/sharer.php?u=${link}`}>
+            <a target='_blank' className='flex gap-3 items-center p-2 px-3 border rounded-lg relative' href={`https://www.facebook.com/profile.php?id=100093557540407&mibextid=ZbWKwL`}>
               <FaFacebookF className='text-base' />
                 Facebook
-            </a> */}
-            {/* <a target='_blank' className='flex gap-3 items-center p-2 px-3 border rounded-lg' href={`https://api.whatsapp.com/send?text=${link}`}>
+            </a>
+            <a target='_blank' className='flex gap-3 items-center p-2 px-3 border rounded-lg' href={`https://wa.link/brilliantbrainscholarships`}>
                 <AiOutlineWhatsApp className='text-lg' />
                 Whatsapp
-            </a> */}
+            </a>
             {/* <a target='_blank' className='flex gap-3 items-center p-2 px-3 border rounded-lg' href={`https://telegram.me/share/url?url=${link}&text=Claim%20Your%20Name`}>
                 <FaTelegramPlane className='text-base' />
                 Telegram

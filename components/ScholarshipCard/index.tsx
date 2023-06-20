@@ -35,7 +35,7 @@ const ScholarshipCard = ({ scholarship }: { scholarship: any }) => {
 
           </div>
           <div className="flex gap-2 justify-start items-center mt-7 text-sm">
-            <Link  href={``} className="grad-to-right text-white p-2 px-4 hover:shadow-lg rounded" >Enroll Here</Link>
+            <Link  href={`https://box.reinsys.net/brilliant/`} className="grad-to-right text-white p-2 px-4 hover:shadow-lg rounded" >Enroll Here</Link>
           </div>
         </div>
       </div>

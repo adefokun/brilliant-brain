@@ -249,7 +249,7 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
                     <p>Postgraduate Education</p>
                   </div>
               </div>
-              <button className="bg-yellow-400 text-white text-sm md:text-base px-6 py-3 rounded-xl w-fit">Apply Now</button>
+              <a href={`https://box.reinsys.net/brilliant/`} className="bg-yellow-400 text-white text-sm md:text-base px-6 py-3 rounded-xl w-fit">Apply Now</a>
             </div>
             <div className="w-full h-full min-h-96 md:min-h-[500px] relative flex justify-center items-center">
               <div className="absolute -z-0 flex justify-center items-center bg-yellow-400 rounded-full w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]"></div>
@@ -259,7 +259,7 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
         </section>
         <section className="section py-12 md:py-20">
           <h2 className="text-3xl md:text-5xl font-extrabold capitalize mb-12 text-center">News & <br />Updates</h2>
-          <div className="grid md:grid-cols-3 md:h-[500px] gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {news?.slice(0, 3).map( (item, index) => (
             <Link href="/news" key={index} className="w-full h-96 flex flex-col gap-2 place-self-start shadow-md rounded-xl">
               <Image src={item?.image || NewsImg} width={200} height={200} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
@@ -272,8 +272,6 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
               </div>
             </Link>
             ))}
-            
-            <span id="signup"></span>
           </div>
         </section>
         {/* <section className="section py-12 md:py-20 grad-to-right">
@@ -297,11 +295,11 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
             </form>
           </div>
         </section> */}
-          <section className="section py-12 md:py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
+          <section id="signup" className="section py-12 md:py-20 px-4 flex flex-col items-center gap-4 grad-to-right text-white">
           <div className="flex flex-col items-center gap-4 max-w-3xl text-center">
             <h3 className="text-3xl md:text-5xl font-extrabold capitalize mb-2">Sign up for Our Scholarship Program Now</h3>
             <p className="mb-4">We understand that you&#39;re looking for a bright new future, filled with endless possibilities and opportunities for personal and professional growth. Your quest for a better tomorrow starts right here, with us.</p>
-            <Link href={'https://google.com'} className="p-5 rounded-full font-bold bg-white text-black py-3 md:py-5 px-6 text-sm md:text-base md:px-10">Sign Up</Link>
+            <a href={'https://box.reinsys.net/brilliant/'} className="p-5 rounded-full font-bold bg-white text-black py-3 md:py-5 px-6 text-sm md:text-base md:px-10">Sign Up</a>
           </div>
         </section>
         <Advisory advisory={advisory} />

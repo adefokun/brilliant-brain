@@ -38,11 +38,11 @@ const Header = () => {
             </li>
             } */}
           </ul>
-          <Link href="/register">
+          <a href={`https://box.reinsys.net/brilliant/`}>
               <Button className={`py-2 pb-2.5 px-6 text-xs font-medium text-white bg-primary rounded-full`}>
                 Sign Up
               </Button>
-          </Link>
+          </a>
         </nav>
       </header>
       <div className={`lg:hidden shadow fixed top-0 right-0 w-5/6 min-h-screen h-screen bg-white text-black px-4  py-2 md:px-10 z-30 ${isOpen ? "translate-x-0" : "translate-x-full"} transition-all duration-300`}>
@@ -68,11 +68,11 @@ const Header = () => {
               </li>
             } */}
           </ul>
-          <Link href="/register">
+          <a href={`https://box.reinsys.net/brilliant/`}>
             <Button className={`py-2 pb-2.5 px-6 text-xs font-medium text-white bg-primary rounded-full`}>
               Sign Up
             </Button>
-        </Link>
+          </a>
         </nav>
       </div>
       { isOpen ? 
