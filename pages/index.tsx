@@ -16,6 +16,7 @@ import TeacherImg from '@/assets/teacher.png'
 import StudentImg from '@/assets/student.png'
 import AmazedImg from '@/assets/amazed.png'
 import NewsImg from '@/assets/news.png'
+import GradImg from '@/assets/graduation.png'
 import { BiCircle } from 'react-icons/bi'
 import Link from "next/link";
 import { IAdvisory, ICandidate, ICms, INews, IReducerAction } from '@/interfaces'
@@ -31,6 +32,7 @@ import AdvisoryModel from '@/models/AdvisoryModel';
 import NewsModel from '@/models/NewsModel';
 import { useRouter } from "next/router";
 import NewsCard from "@/components/NewsCard";
+import { AiOutlineCheck } from "react-icons/ai";
 
 
 
@@ -235,19 +237,27 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
               <p className="md:text-lg mb-4">The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education</p>
               <div className="grid grid-cols-2 gap-5 mb-4 max-w-fit">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px] flex justify-center items-center">
+                      <AiOutlineCheck className="text-primary" />
+                    </div>
                     <p>Primary Education</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px] flex justify-center items-center">
+                      <AiOutlineCheck className="text-primary" />
+                    </div>
                     <p>Secondary Education</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px] flex justify-center items-center">
+                      <AiOutlineCheck className="text-primary" />
+                    </div>
                     <p>Undergraduate Education</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px]"></div>
+                    <div className="w-8 h-8 rounded-full bg-red-100 flex-[0_0_32px] flex justify-center items-center">
+                      <AiOutlineCheck className="text-primary" />
+                    </div>
                     <p>Postgraduate Education</p>
                   </div>
               </div>
@@ -255,7 +265,7 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
             </div>
             <div className="w-full h-full min-h-96 md:min-h-[500px] relative flex justify-center items-center">
               <div className="absolute -z-0 flex justify-center items-center bg-yellow-400 rounded-full w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]"></div>
-              <Image src={AmazedImg} alt="" className="h-full w-full object-contain z-10 relative" />
+              <Image src={GradImg} alt="" className="h-full w-full object-cover z-10 relative" />
             </div>
           </div>
         </section>
