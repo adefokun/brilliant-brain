@@ -18,7 +18,7 @@ const SideNav = ({ }) => {
     // console.log({pathname})
 
   return (
-    <div className='hidden sm:flex flex-col justify-between grad-to-bottom text-white max-h-screen overflow-scroll lg:h-screen min-w-[240px] w-60 pb-4'>
+    <div className='no-scrollbar hidden sm:flex flex-col justify-between grad-to-bottom text-white max-h-screen overflow-scroll h-screen min-w-[240px] w-60 pb-4'>
         <div>
             <div className='w-full flex flex-col items-center text-center gap-5 py-8 border-b border-white/10'>
                 <Link href={"/"}>
