@@ -40,7 +40,7 @@ const News = () => {
       {isLoading && <Loader modalOpen={isLoading} />}
       <div className="section top-section grad-to-right flex flex-col justify-center items-center gap-4">
         <h1 className="text-xl md:text-3xl text-white font-semibold text-center">
-          Empowering Future Leaders
+          Let’s Keep You Updated On Every Bit
         </h1>
         <h2 className='text-sm md:text-base text-center px-12 text-white'>Articles on Brilliant brains makes sure you never miss a thing</h2>
       </div>

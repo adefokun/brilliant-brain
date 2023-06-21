@@ -39,7 +39,7 @@ const NewsPost = () => {
     <>
       <Header />
       {isLoading && <Loader modalOpen={isLoading} />}
-      <div className='py-10 px-4 md:py-24 mt-[79px] md:mt-[88px] max-w-[1000px] mx-auto'>
+      <div className='py-10 px-4 md:py-12 mt-[70px] md:mt-[88px] max-w-[1000px] mx-auto'>
         <div className='flex items-center gap-1 mb-5 text-xs'>
             News
             <MdChevronRight size="1.3rem" />
@@ -63,7 +63,7 @@ const NewsPost = () => {
         </div>
       </div>
       <section className='px-4 py-12 md:px-10 lg:px-24'>
-        <Image className='w-full object-cover object-center min-h-[400px]' src={news.image} height={128} width={128} alt="" />
+        <Image className='w-full object-cover md:object-contain object-center min-h-[400px] max-h-[700px]' src={news.image} height={128} width={128} alt="" />
       </section>
       <main>
           <section className='px-4 py-12 md:px-10 lg:px-24 max-w-[1000px] mx-auto'>

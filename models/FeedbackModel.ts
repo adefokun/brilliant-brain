@@ -15,6 +15,8 @@ const FeedbackSchema: Schema = new Schema<IFeedback>({
     type: String,
     required: true,
   }
+}, {
+  timestamps: true
 });
 
 

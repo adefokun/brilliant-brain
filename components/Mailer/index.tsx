@@ -3,6 +3,8 @@ import usePost from '../../hooks/usePost';
 import { toast } from 'react-toastify';
 import Button from '../Button';
 import { IFeedback } from "@/interfaces"
+import Loader from '../Loader';
+import { useRouter } from 'next/router';
 
 
 interface IProps {
@@ -15,10 +17,15 @@ const EmailForm = ({data: info}: IProps) => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
+  
+  const router = useRouter()
+
   const { loading, error, data, post } = usePost({ 
     api: "/mailer",
     onSuccess: () => {
         toast('Email sent successfully')
+        setMessage('')
+        router.push('/admin/feedbacks')
     } 
   })
 
@@ -40,6 +47,7 @@ const EmailForm = ({data: info}: IProps) => {
 
   return (
     <div>
+      {loading && <Loader modalOpen={true} />}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {/* <input type="email" placeholder="Sender" value={sender} onChange={(e) => setSender(e.target.value)} /> */}
         <div className="flex flex-col gap-1">

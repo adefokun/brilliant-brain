@@ -66,13 +66,21 @@ Maitama, FCT-Abuja, Nigeria </p>
                     <div>
                         <h3 className="text-xl font-bold text-gray-800 font-argentinum mb-3">Email/Website Address</h3>
                         <div className="text-sm text-[#6D6D6D] font-medium flex flex-col">
+                            <a href="https://box.reinsys.net/brilliant/" className="hover:text-primary">
+                                https://box.reinsys.net/brilliant/
+                            </a>
+                            <a href="mailto:info@bbscholarships.org" className="hover:text-primary">
+                                info@bbscholarships.org
+                            </a>
+                        </div>
+                        {/* <div className="text-sm text-[#6D6D6D] font-medium flex flex-col">
                             <a href="www.bbscholarships.org" className="hover:text-primary">
                                 www.bbscholarships.org
                             </a>
                             <a href="mailto:info@bbscholarships.org" className="hover:text-primary">
                                 info@bbscholarships.org
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="flex-1 flex flex-col p-4 md:p-10 bg-white rounded-xl shadow-lg text-black/50">

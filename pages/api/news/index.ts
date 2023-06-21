@@ -12,7 +12,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await dbConnect();
 
     if (req.method === 'GET') {
-      const news = await News.find({}).lean();
+      const news = await News.find({}).sort('-createdAt').lean();
+      // console.log({news})
       res.status(200).json(news);
     }
     else {

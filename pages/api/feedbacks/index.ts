@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await dbConnect();
 
     if (req.method === 'GET') {
-      const candidates = await Feedback.find({}).lean();
+      const candidates = await Feedback.find({}).sort('-createdAt').lean();
       return res.status(200).json(candidates);
     }
     else {

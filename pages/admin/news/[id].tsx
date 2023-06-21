@@ -74,7 +74,7 @@ const EditNews = () => {
               
               if (!res.ok) throw new Error(data.message)
       
-              // console.log({data})
+              console.log({data})
               dispatch({ type: 'update', data: data })
             //   dispatch({ type: 'description', payload: editorRef.current?.getContent() })
               editorRef.current?.setContent(data.content)

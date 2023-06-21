@@ -10,8 +10,9 @@ const FaqsSchema: Schema = new Schema<IFaqs>({
     type: String,
     required: true,
   },
+}, {
+  timestamps: true
 });
-
 
 const FaqsModel = models.Faqs || model('Faqs', FaqsSchema);
 

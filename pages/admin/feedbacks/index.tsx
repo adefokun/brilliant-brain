@@ -76,6 +76,7 @@ const columns = [
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
+      setLoading(true)
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/feedbacks`)
         const data = await res.json()
@@ -87,7 +88,7 @@ const columns = [
       } catch (error) {
         console.log({error})
       }
-
+      setLoading(false)
     }
 
     fetchFeedbacks()

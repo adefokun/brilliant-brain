@@ -27,7 +27,23 @@ const Header = () => {
             <li><Link href="/scholarships" className={`pb-1.5 px-1 font-medium`}>Available Scholarship</Link></li>
             <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
             <li><Link href="/faqs" className={`pb-1.5 px-1 font-medium`}>FAQs</Link></li>
-            <li><Link href="/login" className={`pb-1.5 px-1 font-medium`}>Login</Link></li>
+            <li className='relative bg-white group cursor-pointer'>
+              <span className={`pb-1.5 px-1 font-medium`}>Login</span>
+              {/* <label htmlFor="login" className={`pb-1.5 px-1 font-medium`}>Login</label>
+              <input id="login" name="login" type="checkbox" className="group" required /> */}
+              <div className='hidden absolute top-6 left-0 group-hover:flex flex-col gap-2 bg-white shadow-md'>
+                <a href={`https://box.reinsys.net/brilliant/`} className='border-b-2 py-2'>
+                  <span className={`py-2 pb-2.5 px-6 text-xs font-medium`}>
+                    User
+                  </span>
+                </a>
+                <Link href={`/login`} className='pb-2'>
+                  <span className={`py-2 pb-2.5 px-6 text-xs font-medium`}>
+                    Admin
+                  </span>
+                </Link>
+              </div>
+            </li>
             {/* {!user ? 
             <li><Link href="/login" className={`${pathname==="/login" && "text-green border-b-2"} pb-1.5 px-1 font-medium`}>Login</Link></li>
             :
@@ -57,7 +73,21 @@ const Header = () => {
             <li><Link href="/scholarships" className={`pb-1.5 px-1 font-medium`}>Available Scholarships</Link></li>
             <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
             <li><Link href="/faqs" className={`pb-1.5 px-1 font-medium`}>FAQs</Link></li>
-            <li><Link onClick={() => signIn()} href="/login" className={`pb-1.5 px-1 font-medium`}>Login</Link></li>
+            <li className='relative bg-white group cursor-pointer'>
+              <span className={`pb-1.5 px-1 font-medium`}>Login</span>
+              <div className='hidden absolute top-6 left-0 group-hover:flex flex-col gap-2 bg-white shadow-md'>
+                <a href={`https://box.reinsys.net/brilliant/`} className='border-b-2 py-2'>
+                  <span className={`py-2 pb-2.5 px-6 text-xs font-medium`}>
+                    User
+                  </span>
+                </a>
+                <Link href={`/login`} className='pb-2'>
+                  <span className={`py-2 pb-2.5 px-6 text-xs font-medium`}>
+                    Admin
+                  </span>
+                </Link>
+              </div>
+            </li>
             {/* {!user ? 
             <li><Link href="/login" className={`${pathname==="/login" && "text-green"} pb-1.5 px-1 font-medium`}>Login</Link></li>
               :

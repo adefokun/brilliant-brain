@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
     if (req.method === 'GET') {
-      const ambassador = await Ambassador.find({}).lean();
+      const ambassador = await Ambassador.find({}).sort('-createdAt').lean();
       res.status(200).json(ambassador);
     }
     else {

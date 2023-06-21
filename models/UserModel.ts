@@ -16,6 +16,8 @@ const UserSchema: Schema = new Schema({
     type: String,
     required: true,
   },
+}, {
+  timestamps: true
 });
 
 //compare password

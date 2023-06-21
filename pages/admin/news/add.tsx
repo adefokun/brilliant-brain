@@ -82,7 +82,7 @@ const AddNews = () => {
                 </div>
                 <div className="flex flex-col gap-1">
                     <label htmlFor="content" className="text-black/70">Content</label>
-                    <TinyEditor editorRef={editorRef} />
+                    <TinyEditor editorRef={editorRef} height={500} />
                 </div>
                 <div className="flex flex-col gap-1">
                         <span className="text-black/70">Upload Image</span>

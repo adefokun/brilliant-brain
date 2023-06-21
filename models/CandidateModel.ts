@@ -19,6 +19,8 @@ const CandidateSchema: Schema = new Schema<ICandidate>({
     type: String,
     required: true,
   },
+}, {
+  timestamps: true
 });
 
 

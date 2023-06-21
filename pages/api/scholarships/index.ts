@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await dbConnect();
 
     if (req.method === 'GET') {
-      const scholarships = await AvailableScholarship.find({}).lean();
+      const scholarships = await AvailableScholarship.find({}).sort('-createdAt').lean();
       // console.log({scholarships})
       res.status(200).json(scholarships);
     }

@@ -18,6 +18,8 @@ const NewsSchema: Schema = new Schema<INews>({
     type: String,
     required: true,
   },
+}, {
+  timestamps: true
 });
 
 

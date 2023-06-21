@@ -27,6 +27,8 @@ const AdvisorySchema: Schema = new Schema<IAdvisory>({
       type: String,
       required: true,
   }
+}, {
+  timestamps: true
 });
 
 

@@ -22,6 +22,8 @@ const AvailableScholarshipSchema: Schema = new Schema<IAvailableScholarship>({
     type: String,
     required: true,
   },
+}, {
+  timestamps: true
 });
 
 

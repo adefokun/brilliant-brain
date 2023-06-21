@@ -23,8 +23,9 @@ const WinnerSchema: Schema = new Schema<IWinner>({
     type: String,
     required: true,
   },
+}, {
+  timestamps: true
 });
-
 
 const WinnerModel = models.Winner || model('Winner', WinnerSchema);
 

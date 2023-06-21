@@ -27,6 +27,8 @@ const AmbassadorSchema: Schema = new Schema<IAmbassador>({
     type: String,
     required: true
   },
+}, {
+  timestamps: true
 });
 
 

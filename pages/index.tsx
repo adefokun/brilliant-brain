@@ -30,6 +30,7 @@ import CmsModel from '@/models/CmsModel';
 import AdvisoryModel from '@/models/AdvisoryModel';
 import NewsModel from '@/models/NewsModel';
 import { useRouter } from "next/router";
+import NewsCard from "@/components/NewsCard";
 
 
 
@@ -97,14 +98,15 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
       <div className="">
         {/* {loading && <Loader modalOpen={true} />} */}
         <Header />
-        <section className="section top-section pb-12 lg:h-screen lg:mt-0 lg:pt-40">
+        <section className="section top-section pb-12 overflow-hidden lg:min-h-screen lg:mt-0 lg:pt-40">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             <div className="order-2 lg:order-1 flex flex-col gap-4">
               {/* <p className="text-primary font-bold text-lg mb-3">STUDY WITH US</p> */}
               <h1 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">{cms?.hero?.header || "Free Scholarship For Every Bright Student"}</h1>
               <p className="md:text-lg">{cms?.hero?.text || "The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education because of his or her financial status, since it is the fundamental right of every child to receive  qualitative and functional education"}</p>
-              <a href ="#signup" className="flex justify-between items-center bg-gray-100 rounded-xl max-w-md text-sm md:text-base">
+              <a href ="https://box.reinsys.net/brilliant/" className="flex justify-between items-center bg-gray-100 rounded-xl max-w-md text-sm md:text-base">
                 <p className="ml-4">Lets get started</p>
+                {/* <a href={`https://box.reinsys.net/brilliant/`} className="grad-to-right text-white text-sm md:text-base px-6 py-3 rounded-xl w-fit">Connect with us</a> */}
                 <Button className="rounded-xl text-white py-3 md:py-4 px-5">Connect with us</Button>
               </a>
             </div>
@@ -122,7 +124,7 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
         <section className="section">
           <div className="grid lg:grid-cols-2 gap-4 md:gap-12">
             <div className="flex-1 order-2 lg:order-1 flex flex-col gap-4">
-              <p className="text-primary font-bold text-xl mb-3">About Us</p>
+              {/* <p className="text-primary font-bold text-xl mb-3">About Us</p> */}
               <h2 className="text-4xl md:text-6xl font-extrabold capitalize mb-3">{cms?.about?.header || "Qualified and Highly Equipped Learning"}</h2>
               <p className="md:text-lg mb-4">{cms?.about?.text || "We take pride in offering a learning environment that is led by qualified and dedicated educators. Our teaching staff consists of highly experienced professionals who are passionate about fostering academic growth and empowering students to reach their full potential"}</p>
               <Button onClick={() => router.push('/about-us')} className="w-fit rounded-xl text-white py-3 md:py-4 px-5 text-sm md:text-base">Read More</Button>
@@ -261,8 +263,13 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
           <h2 className="text-3xl md:text-5xl font-extrabold capitalize mb-12 text-center">News & <br />Updates</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {news?.slice(0, 3).map( (item, index) => (
-            <Link href="/news" key={index} className="w-full h-96 flex flex-col gap-2 place-self-start shadow-md rounded-xl">
-              <Image src={item?.image || NewsImg} width={200} height={200} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
+              <NewsCard key={index} news={item} />
+            ))}
+          </div>
+          {/* <div className="grid md:grid-cols-3 gap-8">
+            {news?.slice(0, 3).map( (item, index) => (
+            <Link href="/news" key={index} className="w-full flex flex-col gap-2 place-self-start shadow-md rounded-xl">
+              <Image src={item?.image || NewsImg} width={150} height={150} alt="" className="h-64 w-full object-cover rounded-xl z-10 relative" />
               <div className="p-2 px-4 pb-4">
                 <h3 className="text-xl font-bold font-argentinum h-14 overflow-hidden mb-3">{item?.title}</h3>
                 <p className="text-xs h-12 overflow-hidden mb-3">{item?.snippet}</p>
@@ -272,7 +279,7 @@ export default function Home({ cms, advisory, news }: { cms: ICms, advisory: IAd
               </div>
             </Link>
             ))}
-          </div>
+          </div> */}
         </section>
         {/* <section className="section py-12 md:py-20 grad-to-right">
           <div className="grid lg:grid-cols-2 gap-4 md:gap-12 text-white">
@@ -322,7 +329,7 @@ export const getServerSideProps = async () => {
       const response = await AdvisoryModel.find({}).lean();
       advisory = JSON.parse(JSON.stringify(response))
 
-      const news_res = await NewsModel.find({}).lean();
+      const news_res = await NewsModel.find({}).sort('-createdAt').lean();
       // console.log({news_res})
       news = JSON.parse(JSON.stringify(news_res))
       
