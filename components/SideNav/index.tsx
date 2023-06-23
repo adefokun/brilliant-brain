@@ -32,7 +32,7 @@ const SideNav = ({ }) => {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-col gap-2 pt-4 text-white/70'>
+            <div className='flex flex-col gap-2 pt-4 pb-2 text-white/70'>
                 <Link className={`py-2.5 pl-6 text-sm flex items-center gap-2 ${(pathname === '/admin') && 'text-white'}`} href="/admin">
                     {/* <span className='w-4 h-4 bg-white flex justify-center items-center rounded border'>
                         <MdTrendingUp color='#000000' size={"0.6rem"} />
