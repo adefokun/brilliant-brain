@@ -80,7 +80,7 @@ const Register = () => {
                                 <span className="text-primary font-bold">Welcome to </span>
                                 <span className="text-gray-800 font-bold font-argentinum">Argentinum</span>
                             </p>
-                            <p className='hidden md:block'>Lorem ipsum, dolor sit amet consectetur, Lorem ipsum, dolor sit amet consectetur</p>
+                            <p className='hidden md:block'>The Brilliant Brain Scholarship Scheme is a scholarship management platform with a vision to ensuring that no person of school age is denied access to education</p>
                         </div>
                         {/* <h1 className="text-4xl font-bold text-gray-800 font-argentinum mb-3 text-center md:hidden">Sign Up</h1> */}
                         <Image src={RegisterImg} alt="" className="w-32 h-24 md:w-full md:h-auto" /> 

@@ -3,6 +3,7 @@ import SideNav from '@/components/SideNav'
 import Head from '@/components/Head'
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
+  
 
   return (
       <div className='flex bg-footer-bg overflow-hidden lg:h-screen w-full'>
