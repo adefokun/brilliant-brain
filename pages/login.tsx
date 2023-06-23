@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { ILoginReducerAction, IUserLogin } from '@/interfaces'
 import { useSession, signIn, signOut } from "next-auth/react"
 import Loader from '@/components/Loader';
+import { toast } from 'react-toastify'
 
 
 
@@ -67,7 +68,9 @@ const Login = () => {
 
         } catch (error: any) {
             console.log("error", error)
-            setError(error?.message)
+            // setError(error?.message)
+            toast.error(error?.message)
+
         }
         setLoading(false)
     }

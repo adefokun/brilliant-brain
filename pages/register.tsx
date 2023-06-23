@@ -7,6 +7,8 @@ import React from 'react'
 import RegisterImg from '@/assets/register.png'
 import Image from 'next/image'
 import { IRegistereducerAction, IUserRegister } from '@/interfaces'
+import Loader from '@/components/Loader'
+import { toast } from 'react-toastify'
 
 
 
@@ -51,11 +53,13 @@ const Register = () => {
             }
 
             const data = await res.json()
-            router.push('/')
+            toast.success('Account Created Successfully')
+            router.push('/login')
       
         } catch (error: any) {
             console.log("error", error)
-            setError(error?.message)
+            toast.error(error?.message)
+            // setError(error?.message)
         }
         setLoading(false)
     }
@@ -65,7 +69,7 @@ const Register = () => {
     
   return (
     <div>
-        {loading && <p className='fixed bg-black/20 flex justify-center items-center h-screen w-full text-white'>Loading...</p>}
+        {loading && <Loader modalOpen={loading} />}
         <Header />
         <div className="flex flex-col items-center justify-center min-h-screen pb-12">
             <section className="section pt-20 md:pt-28 w-full">
