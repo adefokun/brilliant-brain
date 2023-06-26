@@ -20,9 +20,9 @@ const FAQs = (props: any) => {
                 <h1 className="text-3xl md:text-4xl font-extrabold font-argentinum mb-1 md:mb-3">
                     Frequently Asked Questions
                 </h1>
-                <p className="text-lg md:text-2xl text-primary font-bold text-center">
+                {/* <p className="text-lg md:text-2xl text-primary font-bold text-center">
                     How Can we Help
-                </p>
+                </p> */}
             </div>
             <div className={`${(props?.status === 'failed' || props?.faqs?.length === 0 ) ? '' : 'grid sm:grid-cols-2 gap-8'}`}>
                 {props?.status === 'failed' || props?.faqs?.length === 0 ? (
