@@ -1,5 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { NextApiRequest, NextApiResponse } from 'next';
+import dbConnect from '@/lib/dbConnection';
+import User from '@/models/UserModel';
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -7,7 +10,7 @@ export const authOptions = {
   pages: {
     signIn: "/login",
     // signOut: '/auth/signout',
-    // error: '/auth/error', // Error code passed in query string as ?error=
+    error: '/login', // Error code passed in query string as ?error=
     // verifyRequest: '/auth/verify-request', // (used for check email message)
     // newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
@@ -20,7 +23,8 @@ export const authOptions = {
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        username: { label: "Username", type: "text", placeholder: "" },
+        email: { label: "Email", type: "text", placeholder: "" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
@@ -31,22 +35,54 @@ export const authOptions = {
         // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
         // You can also use the `req` object to obtain additional parameters
         // (i.e., the request IP address)
-        const res = await fetch(`/api/login`, {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(credentials)
-          })
-        const { user } = await res.json();
+        
+          await dbConnect();
+          
+          if (!req?.body?.password || (!req?.body?.email && !req.body?.username)) {
+              throw new Error('Please fill in all fields');
+          }
+  
+          const user = await User.findOne({
+              $or: [
+                  { email: req.body.email ? req.body.email : '' },
+                  { username: req.body.username ? req.body.username : '' }
+              ]
+          });
+  
+          if (!user) {
+              throw new Error('User not found');
+              // return null;
+          }
+          const isMatch = await user.comparePassword(req.body.password);
+  
+          if (!isMatch) {
+            throw new Error('Invalid credentials');
+              // return null;
+          }
+  
+          return user;
+        
+      
+
+        // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+        //       method: "POST",
+        //       headers: {
+        //           "Content-Type": "application/json"
+        //       },
+        //       body: JSON.stringify(credentials)
+        //   })
+        // const { user } = await res.json();
+        
+        // console.log({ user })
+
 
         // If no error and we have user data, return it
-        if (res.ok && user) {
-          // console.log({ user })
-          return user;
-        }
+        // if (res.ok && user) {
+        //   console.log({ user })
+        //   return user;
+        // }
         // Return null if user data could not be retrieved
-        return null;
+        // return null;
       },
     }),
   ],

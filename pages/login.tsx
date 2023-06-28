@@ -20,6 +20,7 @@ const initialState: IUserLogin = {
 }
 
 const Login = () => {
+    const [error, setError] = useState('')
     const { data: session } = useSession()
     const router = useRouter()
     const [user, dispatch] = useReducer((state: IUserLogin, action: ILoginReducerAction) => {
@@ -31,9 +32,18 @@ const Login = () => {
             router.push('/admin')
         }
     }, [session, router])
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search)
+        const error = params.get('error')
+        if (error) {
+            toast.error(error)
+        }
+    }, [])
+
     
     const [loading, setLoading] = useState(false)
-    const [error, setError] = useState('')
+    // const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 

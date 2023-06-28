@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         await dbConnect();
-        
+        // console.log('kllsa')
         if (!req.body.password || (!req.body.email && !req.body.username)) {
             res.status(400).json({ message: 'Please fill in all fields' });
             return;
