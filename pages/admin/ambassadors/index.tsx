@@ -89,7 +89,7 @@ const colums = [
     const fetchUser = async () => {
       try {
         setLoading(true)
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ambassadors`)
+        const res = await fetch(`/api/ambassadors`)
         const data = await res.json()
         
         if (!res.ok) throw new Error(data.message)

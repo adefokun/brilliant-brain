@@ -81,7 +81,7 @@ const EditCms = () => {
         const fetchData = async () => {
           try {
             setLoading(true)
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cms`)
+            const res = await fetch(`/api/cms`)
             const data = await res.json()
             
             if (!res.ok) throw new Error(data.message)
@@ -179,7 +179,7 @@ export default AuthHOC(EditCms)
 // export async function getServerSideProps() {
 //     let data
 //     try {
-//         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cms`)
+//         const res = await fetch(`/api/cms`)
 //         data = await res.json()
         
 //         if (!res.ok) throw new Error(data.message)

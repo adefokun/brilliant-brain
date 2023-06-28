@@ -56,7 +56,7 @@ const EditFaq = () => {
         async () => {
             try {
               setLoading(true)
-              const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/faqs/${id}`)
+              const res = await fetch(`/api/faqs/${id}`)
               const data = await res.json()
               
               if (!res.ok) throw new Error(data.message)

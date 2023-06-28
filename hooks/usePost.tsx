@@ -19,7 +19,7 @@ const usePost = ({ api, method, onSuccess, onFailure, ...rest }: Props) => {
         setError('')
         // console.log({val})
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${route || api}`, {
+            const res = await fetch(`/api/${route || api}`, {
                 method: method ? method : "POST",
                 headers: {
                     "Content-Type": "application/json"

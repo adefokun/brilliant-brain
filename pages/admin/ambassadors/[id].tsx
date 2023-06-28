@@ -71,7 +71,7 @@ const EditAmbassador = () => {
         async () => {
             try {
               setLoading(true)
-              const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ambassadors/${id}`)
+              const res = await fetch(`/api/ambassadors/${id}`)
               const data = await res.json()
               
               if (!res.ok) throw new Error(data.message)

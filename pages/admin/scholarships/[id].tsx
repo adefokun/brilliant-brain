@@ -71,7 +71,7 @@ const EditScholarship = () => {
         async () => {
             try {
               setLoading(true)
-              const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/scholarships/${id}`)
+              const res = await fetch(`/api/scholarships/${id}`)
               const data = await res.json()
               
               if (!res.ok) throw new Error(data.message)

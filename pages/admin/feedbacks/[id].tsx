@@ -39,7 +39,7 @@ const Reply = () => {
   // useEffect(() => {
   //   const fetchFeedbacks = async () => {
   //     try {
-  //       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/feedbacks`)
+  //       const res = await fetch(`/api/feedbacks`)
   //       const data = await res.json()
         
   //       if (!res.ok) throw new Error(data.message)
