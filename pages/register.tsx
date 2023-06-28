@@ -38,7 +38,7 @@ const Register = () => {
         setError('')
         setSuccess('')
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+            const res = await fetch(`/api/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -126,7 +126,7 @@ const Register = () => {
 // export const getServerSideProps = async () => {
 //     let data;
 //     try {
-//         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+//         const res = await fetch(`/api/register`, {
 //             method: "POST",
 //             headers: {
 //                 "Content-Type": "application/json"
