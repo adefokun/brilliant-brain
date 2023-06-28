@@ -74,7 +74,7 @@ const EditBoardMember = () => {
         async () => {
             try {
               setLoading(true)
-              const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/advisory/${id}`)
+              const res = await fetch(`/api/advisory/${id}`)
               const data = await res.json()
               
               if (!res.ok) throw new Error(data.message)

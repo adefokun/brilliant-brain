@@ -87,7 +87,7 @@ const EditAbout = () => {
     const fetchData = async () => {
       try {
         setLoading(true)
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/about`)
+        const res = await fetch(`/api/about`)
         const data = await res.json()
         
         if (!res.ok) throw new Error(data.message)
@@ -185,31 +185,31 @@ const EditAbout = () => {
 
 export default AuthHOC(EditAbout)
 
-export async function getServerSideProps() {
-    let data
-    try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/about`)
-        data = await res.json()
+// export async function getServerSideProps() {
+//     let data
+//     try {
+//         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/about`)
+//         data = await res.json()
         
-        if (!res.ok) throw new Error(data.message)
+//         if (!res.ok) throw new Error(data.message)
 
-        console.log({data})
+//         // console.log({data})
     
-      } catch (error) {
-        console.log({error})
-        return {
-            props: {
-                status: 'error',
-                about: data[0] || {}
-            }
-        }
-      }
+//       } catch (error) {
+//         console.log({error})
+//         return {
+//             props: {
+//                 status: 'error',
+//                 about: data ? data[0] : {}
+//             }
+//         }
+//       }
 
-    return {
-        props: {
-            status: 'success',
-            about: data[0] || {}
-        }
-    }
+//     return {
+//         props: {
+//             status: 'success',
+//             about: data ? data[0] : {}
+//         }
+//     }
 
-}
+// }
