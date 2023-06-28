@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
     },
   })
 
-  console.log('middleware')
+  // console.log('middleware')
  
   // Set a new response header `x-hello-from-middleware2`
   response.headers.set('Access-Control-Allow-Origin', '*')
