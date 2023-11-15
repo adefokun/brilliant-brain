@@ -1,5 +1,5 @@
 import { useState, useReducer, FormEvent, useEffect } from 'react'
-import { useRouter } from 'next/dist/client/router'
+import { useRouter } from 'next/router'
 import Button from '@/components/Button'
 import Header from '@/components/Header'
 import Link from 'next/link'

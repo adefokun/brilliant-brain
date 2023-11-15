@@ -13,33 +13,33 @@ const AboutUs = (props: any) => {
   return (
     <div className='overflow-hidden'>
         <Header />
-        <section className='section top-section grad-to-right grad-to-right flex flex-col gap-3 text-white'>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white font-argentinum mb-3">About Us</h1>
+        <section className='flex flex-col gap-3 text-white section top-section grad-to-right'>
+            <h1 className="mb-3 text-4xl font-extrabold text-white md:text-5xl font-argentinum">About Us</h1>
             <span className='font-bold'>Home / About Us</span>
         </section>
         <section className='section pt-12 pb-10 relative after:absolute after:translate-y-6 after:bottom-0 after:-left-[10%] after:w-[120%] after:h-16 after:rounded-[100%] after:bg-white'>
-            <h1 className="text-2xl text-primary font-bold font-argentinum py-3">
+            <h1 className="py-3 text-2xl font-bold text-primary font-argentinum">
                 The Brilliant Brain Scholarship Scheme
             </h1>
         </section>
-        <section className="section py-20 bg-primary text-white">
-            <div className="flex flex-col md:flex-row gap-12 mb-20">
-                <div className="flex-1 relative md:-top-20">
+        <section className="py-20 text-white section bg-primary">
+            <div className="flex flex-col gap-12 mb-20 md:flex-row">
+                <div className="relative flex-1 md:-top-20">
                     <Image width={100} height={100} src={about?.first_section?.image || About1} alt="" className="w-full max-w-sm max-h-450px" />
                 </div>
-                <div className="flex-1 max-w-lg flex flex-col gap-3">
+                <div className="flex flex-col flex-1 max-w-lg gap-3">
                     {about?.first_section?.text?.split('\n').map((text: string, i: number) => (
                         <p key={i}>{text}</p>
                     ))}
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-12">
-                <div className="flex-1 max-w-lg flex flex-col gap-3">
+            <div className="flex flex-col gap-12 md:flex-row">
+                <div className="flex flex-col flex-1 max-w-lg gap-3">
                     {about?.second_section?.text?.split('\n').map((text: string, i: number) => (
                         <p key={i}>{text}</p>
                     ))}
                 </div>
-                <div className="flex-1 flex justify-end">
+                <div className="flex justify-end flex-1">
                     {/* <Image src={About2} alt="" className="w-full max-w-sm" /> */}
                     <Image width={100} height={100} src={about?.second_section?.image || About2} alt="" className="w-full max-w-sm max-h-450px" />
                 </div>
